@@ -12,9 +12,9 @@ import { fileURLToPath } from "node:url";
 import {
   fetchBadgeStats,
   fetchCompletedRooms,
+  fetchPublicProfile,
   isConfigured,
   materializeRoomImages,
-  resolveUserHash,
   writeRoomCardSvg,
 } from "./lib/thm.mjs";
 
@@ -68,73 +68,50 @@ async function fetchLive(profile) {
     profileImage: null,
   };
 
-  let publicId = thm.userPublicId;
-  let hash = thm.userHash || null;
-
   try {
-    hash = await resolveUserHash(thm.username, thm.userHash);
-    log("resolved user hash");
-  } catch (e) {
-    log("hash resolve failed:", e.message);
-  }
-
-  // public-profile often includes userPublicId / streak fields
-  try {
-    const { fetchJSON } = await import("./lib/http.mjs");
-    const url = `https://tryhackme.com/api/v2/public-profile?username=${encodeURIComponent(thm.username)}`;
-    const data = await fetchJSON(url);
-    const d = data?.data || data || {};
-    publicId = publicId || d.userPublicId || d.publicId || null;
-    if (d.streak != null) stats.streak = String(d.streak).includes("day") ? String(d.streak) : `${d.streak} days`;
-    if (d.rank != null) stats.rank = Number(d.rank);
-    if (d.badges != null) stats.badges = Number(d.badges);
-    if (d.completedRooms != null || d.roomsCompleted != null) {
-      stats.completedRooms = Number(d.completedRooms ?? d.roomsCompleted);
-    }
-    if (d.level != null) stats.level = String(d.level);
-    if (d.avatar || d.profileImage) stats.profileImage = d.avatar || d.profileImage;
-    hash = hash || d.userId || d._id || d.id || null;
+    const profileData = await fetchPublicProfile(thm.username);
+    stats = {
+      streak: profileData.streak,
+      rank: profileData.rank,
+      badges: profileData.badges,
+      completedRooms: profileData.completedRooms,
+      level: profileData.level,
+      profileImage: profileData.profileImage,
+    };
+    log("public-profile ok — streak", stats.streak, "rooms", stats.completedRooms);
+    if (profileData.userPublicId) log("userPublicId", profileData.userPublicId);
+    if (profileData.userHash) log("userHash", profileData.userHash);
   } catch (e) {
     log("public-profile failed:", e.message);
-  }
-
-  if (publicId) {
-    try {
-      stats = { ...stats, ...(await fetchBadgeStats(publicId)) };
-      log("badge stats ok");
-    } catch (e) {
-      log("badge stats failed:", e.message);
+    if (thm.userPublicId) {
+      try {
+        stats = { ...stats, ...(await fetchBadgeStats(thm.userPublicId)) };
+        log("badge stats ok");
+      } catch (e2) {
+        log("badge stats failed:", e2.message);
+      }
     }
   }
 
   let recentRooms = [];
-  if (hash) {
-    try {
-      recentRooms = await fetchCompletedRooms(hash, {
-        limit: profile.recentRoomsLimit || 6,
-        pages: 1,
-      });
-      recentRooms = await materializeRoomImages(recentRooms, ASSETS_ROOMS);
-      log("rooms:", recentRooms.length);
-    } catch (e) {
-      log("rooms fetch skipped:", e.message);
-    }
-  } else {
-    log("no user hash — rooms unavailable until THM_USER_HASH is set");
+  try {
+    recentRooms = await fetchCompletedRooms({
+      username: thm.username,
+      userHash: thm.userHash || undefined,
+      limit: profile.recentRoomsLimit || 6,
+      pages: 1,
+    });
+    recentRooms = await materializeRoomImages(recentRooms, ASSETS_ROOMS);
+    log("rooms fetched:", recentRooms.length);
+  } catch (e) {
+    log("rooms fetch skipped:", e.message);
   }
 
   return {
     live: true,
     username: thm.username,
     fetchedAt: new Date().toISOString(),
-    stats: {
-      streak: stats.streak,
-      rank: stats.rank,
-      badges: stats.badges,
-      completedRooms: stats.completedRooms,
-      level: stats.level,
-      profileImage: stats.profileImage,
-    },
+    stats,
     recentRooms,
   };
 }

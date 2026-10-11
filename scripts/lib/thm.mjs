@@ -1,9 +1,10 @@
 /**
  * TryHackMe public profile + completed rooms fetchers.
+ * Modern public APIs accept username — userPublicId / userHash are optional.
  */
 
 import { fetchJSON, fetchText, downloadBinary } from "./http.mjs";
-import { writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { writeFileSync, mkdirSync } from "node:fs";
 import path from "node:path";
 
 function pick(obj, keys) {
@@ -27,17 +28,11 @@ export function parseBadgeHtml(html) {
     normalizeWs(m[1].replace(/<[^>]+>/g, " "))
   );
   const values = [...ranks, ...details].filter(Boolean);
-
-  // Typical order after username: Level, Rank, Streak, Badges, Completed Rooms
-  // Parser from thm-iframe-parser maps: Rank, Streak, Badges, CompletedRooms, Level, ProfileImage
   const pfp = html.match(/https:\/\/tryhackme-images\.s3\.amazonaws\.com\/user-avatars\/[^)\s"'<>]+/);
 
-  // Heuristic extraction
   let streak = values.find((v) => /\bday/i.test(v)) || null;
   let level = values.find((v) => /^\[0x/i.test(v)) || null;
   const nums = values.filter((v) => /^\d+$/.test(v)).map(Number);
-
-  // Also try labeled patterns
   const streakLabeled = html.match(/Streak[^0-9]*(\d+\s*days?)/i);
   if (streakLabeled) streak = streakLabeled[1];
 
@@ -58,22 +53,40 @@ export async function fetchBadgeStats(userPublicId) {
   return parseBadgeHtml(html);
 }
 
-export async function resolveUserHash(username, configuredHash) {
-  if (configuredHash) return String(configuredHash).trim();
+export async function fetchPublicProfile(username) {
   const url = `https://tryhackme.com/api/v2/public-profile?username=${encodeURIComponent(username)}`;
   const data = await fetchJSON(url);
-  const d = data?.data || data;
-  const hash = pick(d || {}, ["userId", "_id", "id", "hash"]);
-  if (!hash) throw new Error("could not resolve TryHackMe user hash");
-  return String(hash);
+  const d = data?.data || data || {};
+  const streakNum = d.streak;
+  return {
+    username: d.username || username,
+    streak: streakNum == null ? "—" : String(streakNum).includes("day") ? String(streakNum) : `${streakNum} days`,
+    rank: d.rank ?? null,
+    badges: d.badgesNumber ?? d.badges ?? null,
+    completedRooms: d.completedRoomsNumber ?? d.completedRooms ?? d.roomsCompleted ?? null,
+    level: d.level != null ? (String(d.level).startsWith("[") ? String(d.level) : `[0x${Number(d.level).toString(16)}]`) : null,
+    profileImage: d.avatar || d.profileImage || null,
+    badgeImageURL: d.badgeImageURL || null,
+    totalPoints: d.totalPoints ?? null,
+    userPublicId: d.userPublicId || d.publicId || null,
+    userHash: d.userId || d._id || d.id || null,
+    raw: d,
+  };
 }
 
-export async function fetchCompletedRooms(userHash, { limit = 6, pages = 1 } = {}) {
+/** Fetch completed rooms by username (preferred) or legacy user hash. */
+export async function fetchCompletedRooms({ username, userHash, limit = 6, pages = 1 } = {}) {
   const rooms = [];
   for (let page = 1; page <= pages; page++) {
-    const url =
-      `https://tryhackme.com/api/v2/public-profile/completed-rooms?user=` +
-      `${encodeURIComponent(userHash)}&limit=${Math.max(limit, 16)}&page=${page}`;
+    const qs = new URLSearchParams({
+      limit: String(Math.max(limit, 16)),
+      page: String(page),
+    });
+    if (username) qs.set("username", username);
+    else if (userHash) qs.set("user", userHash);
+    else throw new Error("username or userHash required");
+
+    const url = `https://tryhackme.com/api/v2/public-profile/completed-rooms?${qs}`;
     const data = await fetchJSON(url);
     const docs = data?.data?.docs || data?.docs || [];
     if (!docs.length) break;
@@ -98,7 +111,6 @@ function normalizeRoom(room) {
   };
 }
 
-/** Build a local SVG card when remote room art cannot be downloaded. */
 export function writeRoomCardSvg(destPath, { title, code }) {
   mkdirSync(path.dirname(destPath), { recursive: true });
   const safeTitle = escapeXml(title).slice(0, 42);
@@ -144,12 +156,12 @@ export async function materializeRoomImages(rooms, assetsDir) {
     let localRel = null;
     if (room.image) {
       try {
-        const ext = room.image.includes(".png") ? ".png" : ".jpg";
+        const ext = /\.png($|\?)/i.test(room.image) ? ".png" : ".jpg";
         const dest = base + ext;
         await downloadBinary(room.image, dest);
         localRel = `assets/rooms/${room.code}${ext}`;
       } catch {
-        // fall through to SVG
+        // fall through
       }
     }
     if (!localRel) {
@@ -163,6 +175,5 @@ export async function materializeRoomImages(rooms, assetsDir) {
 }
 
 export function isConfigured(thm) {
-  const username = thm?.username && thm.username !== "REPLACE_ME";
-  return Boolean(username);
+  return Boolean(thm?.username && thm.username !== "REPLACE_ME");
 }

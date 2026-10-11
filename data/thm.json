@@ -1,69 +1,69 @@
 {
   "live": true,
   "username": "ernestjraday",
-  "fetchedAt": "2026-10-11T23:21:42.084Z",
+  "fetchedAt": "2026-10-11T23:26:49.382Z",
   "stats": {
-    "streak": "—",
-    "rank": null,
-    "badges": null,
-    "completedRooms": null,
-    "level": null,
-    "profileImage": null
+    "streak": "19 days",
+    "rank": "Top 20%",
+    "badges": 6,
+    "completedRooms": 39,
+    "level": "[0x6]",
+    "profileImage": "https://lh3.googleusercontent.com/a/ACg8ocI-Nk_KQcdfbVeuRAn838R5KVFVWVPeOvlocWiY-MJapExEcA=s200-c"
   },
   "recentRooms": [
     {
-      "code": "introtonetworking",
-      "title": "Introductory Networking",
-      "image": null,
-      "url": "https://tryhackme.com/room/introtonetworking",
-      "difficulty": "info",
-      "completedAt": "2026-10-10T18:00:00.000Z",
-      "localImage": "assets/rooms/introtonetworking.svg"
+      "code": "operatingsystemsecurity",
+      "title": "Operating System Security",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400267726-Room_Image-9.png",
+      "url": "https://tryhackme.com/room/operatingsystemsecurity",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/operatingsystemsecurity.png"
     },
     {
-      "code": "linuxfundamentalspart1",
-      "title": "Linux Fundamentals Part 1",
-      "image": null,
-      "url": "https://tryhackme.com/room/linuxfundamentalspart1",
-      "difficulty": "info",
-      "completedAt": "2026-10-09T16:30:00.000Z",
-      "localImage": "assets/rooms/linuxfundamentalspart1.svg"
+      "code": "virtualisationbasics",
+      "title": "Virtualisation Basics",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400177898-Room_Image-2.png",
+      "url": "https://tryhackme.com/room/virtualisationbasics",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/virtualisationbasics.png"
     },
     {
-      "code": "howwebsiteswork",
-      "title": "How Websites Work",
-      "image": null,
-      "url": "https://tryhackme.com/room/howwebsiteswork",
-      "difficulty": "info",
-      "completedAt": "2026-10-08T21:10:00.000Z",
-      "localImage": "assets/rooms/howwebsiteswork.svg"
+      "code": "operatingsystemsintroduction",
+      "title": "Operating Systems: Introduction",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400208698-Room_Image-5.png",
+      "url": "https://tryhackme.com/room/operatingsystemsintroduction",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/operatingsystemsintroduction.png"
     },
     {
-      "code": "tutorial",
-      "title": "Tutorial",
-      "image": null,
-      "url": "https://tryhackme.com/room/tutorial",
-      "difficulty": "info",
-      "completedAt": "2026-10-07T14:00:00.000Z",
-      "localImage": "assets/rooms/tutorial.svg"
+      "code": "linuxclibasics",
+      "title": "Linux CLI Basics",
+      "image": "https://cdn-images.tryhackme.com/room-icons/linuxclibasics-1785241446878.png",
+      "url": "https://tryhackme.com/room/linuxclibasics",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/linuxclibasics.png"
     },
     {
-      "code": "startingoutincybersec",
-      "title": "Starting Out In Cyber Sec",
-      "image": null,
-      "url": "https://tryhackme.com/room/startingoutincybersec",
-      "difficulty": "info",
-      "completedAt": "2026-10-06T12:00:00.000Z",
-      "localImage": "assets/rooms/startingoutincybersec.svg"
+      "code": "datarepresentation",
+      "title": "Data Representation",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400279781-Room_Image-10.png",
+      "url": "https://tryhackme.com/room/datarepresentation",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/datarepresentation.png"
     },
     {
-      "code": "pentestingfundamentals",
-      "title": "Pentesting Fundamentals",
-      "image": null,
-      "url": "https://tryhackme.com/room/pentestingfundamentals",
-      "difficulty": "info",
-      "completedAt": "2026-10-05T19:45:00.000Z",
-      "localImage": "assets/rooms/pentestingfundamentals.svg"
+      "code": "dataencoding",
+      "title": "Data Encoding",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400285735-Room_Image-13.png",
+      "url": "https://tryhackme.com/room/dataencoding",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/dataencoding.png"
     }
   ]
 }
