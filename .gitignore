@@ -40,3 +40,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 agent-tools/
+
+# Internal / not for resume viewers
+SETUP.md
+AGENTS.md
+*.webp
+.cursor/
+agent-tools/
