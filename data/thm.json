@@ -1,13 +1,13 @@
 {
-  "live": false,
-  "username": "demo",
-  "fetchedAt": "2026-10-11T00:00:00.000Z",
+  "live": true,
+  "username": "ernestjraday",
+  "fetchedAt": "2026-10-11T23:13:38.752Z",
   "stats": {
-    "streak": "12 days",
-    "rank": 184203,
-    "badges": 8,
-    "completedRooms": 27,
-    "level": "[0x6]",
+    "streak": "—",
+    "rank": null,
+    "badges": null,
+    "completedRooms": null,
+    "level": null,
     "profileImage": null
   },
   "recentRooms": [
