@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
   basePath: isProd ? `/${repoName}` : "",
   assetPrefix: isProd ? `/${repoName}/` : undefined,
   images: { unoptimized: true },
+  transpilePackages: ["react-pdf", "pdfjs-dist"],
   turbopack: {
     rules: {
       "*.css": {

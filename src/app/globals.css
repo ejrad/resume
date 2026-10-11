@@ -211,3 +211,26 @@
   transform: translateY(-3px) scale(1.03);
   border-color: #a6e22e66;
 }
+
+/* Inline PDF (pdf.js) — page only, no viewer chrome */
+.resume-inline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.resume-page {
+  box-shadow: 0 28px 80px -48px rgba(20, 32, 31, 0.65);
+}
+
+.resume-page canvas {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.resume-page .react-pdf__Page__textContent {
+  user-select: text;
+}
