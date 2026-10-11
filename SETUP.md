@@ -42,6 +42,24 @@ npm run update:demo   # seeded demo rooms/streak
 
 Widgets and room galleries use [Better Markdown](https://github.com/Cyborg-Taco/Better-Markdown) (`better-markdown-theta.vercel.app` APIs). Room title cards are also written to `assets/rooms/` so the README still looks good if a remote image is blocked.
 
+## Push to GitHub (`ejrad/resume`)
+
+This agent workspace cannot authenticate to GitHub by default. From a machine with access:
+
+```bash
+git clone https://github.com/ejrad/resume.git
+cd resume
+# copy this project's files in, or:
+git remote add cursor <this-agent-remote-if-you-have-it>
+```
+
+Or from this project once `gh` / a PAT is available:
+
+```bash
+git remote add github https://github.com/ejrad/resume.git
+git push -u github cursor/realtime-resume-da4e:main
+```
+
 ## Profile README tip
 
-To show this on your GitHub profile, create a public repo named exactly your username and use this `README.md` there (or rename this repo after you create one).
+To show this on your GitHub **profile**, you still need a public repo named exactly your username (`ejrad`). This project can live at [`ejrad/resume`](https://github.com/ejrad/resume) as a showcase repo.
