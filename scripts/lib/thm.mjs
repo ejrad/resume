@@ -164,5 +164,5 @@ export async function materializeRoomImages(rooms, assetsDir) {
 
 export function isConfigured(thm) {
   const username = thm?.username && thm.username !== "REPLACE_ME";
-  return Boolean(username && (thm.userPublicId || thm.userHash));
+  return Boolean(username);
 }

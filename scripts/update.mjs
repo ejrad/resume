@@ -59,26 +59,68 @@ function syncPublicRooms() {
 
 async function fetchLive(profile) {
   const thm = profile.tryhackme;
-  const stats = thm.userPublicId
-    ? await fetchBadgeStats(thm.userPublicId)
-    : {
-        streak: "unknown",
-        rank: null,
-        badges: null,
-        completedRooms: null,
-        level: null,
-      };
+  let stats = {
+    streak: "—",
+    rank: null,
+    badges: null,
+    completedRooms: null,
+    level: null,
+    profileImage: null,
+  };
+
+  let publicId = thm.userPublicId;
+  let hash = thm.userHash || null;
+
+  try {
+    hash = await resolveUserHash(thm.username, thm.userHash);
+    log("resolved user hash");
+  } catch (e) {
+    log("hash resolve failed:", e.message);
+  }
+
+  // public-profile often includes userPublicId / streak fields
+  try {
+    const { fetchJSON } = await import("./lib/http.mjs");
+    const url = `https://tryhackme.com/api/v2/public-profile?username=${encodeURIComponent(thm.username)}`;
+    const data = await fetchJSON(url);
+    const d = data?.data || data || {};
+    publicId = publicId || d.userPublicId || d.publicId || null;
+    if (d.streak != null) stats.streak = String(d.streak).includes("day") ? String(d.streak) : `${d.streak} days`;
+    if (d.rank != null) stats.rank = Number(d.rank);
+    if (d.badges != null) stats.badges = Number(d.badges);
+    if (d.completedRooms != null || d.roomsCompleted != null) {
+      stats.completedRooms = Number(d.completedRooms ?? d.roomsCompleted);
+    }
+    if (d.level != null) stats.level = String(d.level);
+    if (d.avatar || d.profileImage) stats.profileImage = d.avatar || d.profileImage;
+    hash = hash || d.userId || d._id || d.id || null;
+  } catch (e) {
+    log("public-profile failed:", e.message);
+  }
+
+  if (publicId) {
+    try {
+      stats = { ...stats, ...(await fetchBadgeStats(publicId)) };
+      log("badge stats ok");
+    } catch (e) {
+      log("badge stats failed:", e.message);
+    }
+  }
 
   let recentRooms = [];
-  try {
-    const hash = await resolveUserHash(thm.username, thm.userHash);
-    recentRooms = await fetchCompletedRooms(hash, {
-      limit: profile.recentRoomsLimit || 6,
-      pages: 1,
-    });
-    recentRooms = await materializeRoomImages(recentRooms, ASSETS_ROOMS);
-  } catch (e) {
-    log("rooms fetch skipped:", e.message);
+  if (hash) {
+    try {
+      recentRooms = await fetchCompletedRooms(hash, {
+        limit: profile.recentRoomsLimit || 6,
+        pages: 1,
+      });
+      recentRooms = await materializeRoomImages(recentRooms, ASSETS_ROOMS);
+      log("rooms:", recentRooms.length);
+    } catch (e) {
+      log("rooms fetch skipped:", e.message);
+    }
+  } else {
+    log("no user hash — rooms unavailable until THM_USER_HASH is set");
   }
 
   return {
