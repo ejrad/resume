@@ -78,7 +78,13 @@ export function TryHackMeSection({
             <dl className="mt-5 space-y-3 font-[family-name:var(--font-mono)] text-sm">
               <div className="flex justify-between gap-4">
                 <dt className="text-[var(--ink-muted)]">Rank</dt>
-                <dd>{thm.stats.rank != null ? `#${thm.stats.rank}` : "—"}</dd>
+                <dd>
+                  {thm.stats.rank == null
+                    ? "—"
+                    : typeof thm.stats.rank === "number"
+                      ? `#${thm.stats.rank}`
+                      : String(thm.stats.rank)}
+                </dd>
               </div>
               <div className="flex justify-between gap-4">
                 <dt className="text-[var(--ink-muted)]">Rooms</dt>

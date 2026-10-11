@@ -57,7 +57,7 @@ export type ThmData = {
   fetchedAt: string;
   stats: {
     streak: string;
-    rank: number | null;
+    rank: number | string | null;
     badges: number | null;
     completedRooms: number | null;
     level: string | null;
