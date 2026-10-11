@@ -1,0 +1,62 @@
+name: Update live resume
+
+on:
+  schedule:
+    # Every 6 hours — GitHub may delay cron under load
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+  push:
+    paths:
+      - "config/profile.json"
+      - "scripts/**"
+      - "data/thm.demo.json"
+      - ".github/workflows/update-resume.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-resume
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Refresh TryHackMe + README
+        env:
+          THM_USERNAME: ${{ vars.THM_USERNAME }}
+          THM_USER_PUBLIC_ID: ${{ vars.THM_USER_PUBLIC_ID }}
+          THM_USER_HASH: ${{ vars.THM_USER_HASH }}
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const p = 'config/profile.json';
+          const profile = JSON.parse(fs.readFileSync(p, 'utf8'));
+          profile.tryhackme = profile.tryhackme || {};
+          if (process.env.THM_USERNAME) profile.tryhackme.username = process.env.THM_USERNAME;
+          if (process.env.THM_USER_PUBLIC_ID) profile.tryhackme.userPublicId = process.env.THM_USER_PUBLIC_ID;
+          if (process.env.THM_USER_HASH) profile.tryhackme.userHash = process.env.THM_USER_HASH;
+          fs.writeFileSync(p, JSON.stringify(profile, null, 2) + '\n');
+          NODE
+          npm run update
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md data/thm.json assets/rooms
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "chore: refresh TryHackMe live resume"
+            git push
+          fi

@@ -1,0 +1,69 @@
+{
+  "live": false,
+  "username": "demo",
+  "fetchedAt": "2026-10-11T00:00:00.000Z",
+  "stats": {
+    "streak": "12 days",
+    "rank": 184203,
+    "badges": 8,
+    "completedRooms": 27,
+    "level": "[0x6]",
+    "profileImage": null
+  },
+  "recentRooms": [
+    {
+      "code": "introtonetworking",
+      "title": "Introductory Networking",
+      "image": null,
+      "url": "https://tryhackme.com/room/introtonetworking",
+      "difficulty": "info",
+      "completedAt": "2026-10-10T18:00:00.000Z",
+      "localImage": "assets/rooms/introtonetworking.svg"
+    },
+    {
+      "code": "linuxfundamentalspart1",
+      "title": "Linux Fundamentals Part 1",
+      "image": null,
+      "url": "https://tryhackme.com/room/linuxfundamentalspart1",
+      "difficulty": "info",
+      "completedAt": "2026-10-09T16:30:00.000Z",
+      "localImage": "assets/rooms/linuxfundamentalspart1.svg"
+    },
+    {
+      "code": "howwebsiteswork",
+      "title": "How Websites Work",
+      "image": null,
+      "url": "https://tryhackme.com/room/howwebsiteswork",
+      "difficulty": "info",
+      "completedAt": "2026-10-08T21:10:00.000Z",
+      "localImage": "assets/rooms/howwebsiteswork.svg"
+    },
+    {
+      "code": "tutorial",
+      "title": "Tutorial",
+      "image": null,
+      "url": "https://tryhackme.com/room/tutorial",
+      "difficulty": "info",
+      "completedAt": "2026-10-07T14:00:00.000Z",
+      "localImage": "assets/rooms/tutorial.svg"
+    },
+    {
+      "code": "startingoutincybersec",
+      "title": "Starting Out In Cyber Sec",
+      "image": null,
+      "url": "https://tryhackme.com/room/startingoutincybersec",
+      "difficulty": "info",
+      "completedAt": "2026-10-06T12:00:00.000Z",
+      "localImage": "assets/rooms/startingoutincybersec.svg"
+    },
+    {
+      "code": "pentestingfundamentals",
+      "title": "Pentesting Fundamentals",
+      "image": null,
+      "url": "https://tryhackme.com/room/pentestingfundamentals",
+      "difficulty": "info",
+      "completedAt": "2026-10-05T19:45:00.000Z",
+      "localImage": "assets/rooms/pentestingfundamentals.svg"
+    }
+  ]
+}

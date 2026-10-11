@@ -1,0 +1,16 @@
+{
+  "name": "realtime-resume",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Live GitHub resume with Better Markdown widgets and auto-updating TryHackMe streak + recent rooms",
+  "type": "module",
+  "scripts": {
+    "update": "node scripts/update.mjs",
+    "update:demo": "node scripts/update.mjs --demo",
+    "preview": "npx --yes serve -l 43127 ."
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="200" viewBox="0 0 320 200" role="img" aria-label="How Websites Work">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#12263a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1ba94c"/>
+      <stop offset="100%" stop-color="#88cc14"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" rx="16" fill="url(#bg)"/>
+  <rect x="0" y="0" width="320" height="6" fill="url(#accent)"/>
+  <text x="20" y="48" fill="#88cc14" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="2">TRYHACKME ROOM</text>
+  <text x="20" y="96" fill="#f4f7fb" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" font-weight="700">How Websites Work</text>
+  <text x="20" y="168" fill="#8aa0b5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13">/howwebsiteswork</text>
+  <circle cx="280" cy="160" r="18" fill="none" stroke="#88cc14" stroke-width="3"/>
+  <path d="M272 160h16M280 152v16" stroke="#88cc14" stroke-width="3" stroke-linecap="round"/>
+</svg>

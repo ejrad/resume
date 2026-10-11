@@ -1,0 +1,57 @@
+{
+  "name": "Ernest Raday",
+  "tagline": "Cybersecurity student · builder · lifelong learner",
+  "location": "James Madison University",
+  "email": "radayej@dukes.jmu.edu",
+  "github": "ejrad",
+  "linkedin": "",
+  "website": "",
+  "tryhackme": {
+    "username": "REPLACE_ME",
+    "userPublicId": "",
+    "userHash": ""
+  },
+  "summary": "Cybersecurity-focused student at James Madison University. I break things to understand them, then write tools that make the next round faster. This README is my live resume — TryHackMe stats refresh automatically.",
+  "experience": [
+    {
+      "title": "Student · Cybersecurity",
+      "org": "James Madison University",
+      "dates": "Present",
+      "bullets": [
+        "Coursework spanning systems, networks, and offensive security fundamentals",
+        "Hands-on practice through TryHackMe rooms, CTF-style challenges, and personal tooling"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "ClickShield",
+      "url": "https://github.com/ejrad/ClickShield",
+      "blurb": "Browser extension that strips stubborn ad overlays other blockers miss."
+    },
+    {
+      "name": "deslop",
+      "url": "https://github.com/ejrad/deslop",
+      "blurb": "Cuts AI-slop noise out of sites like LinkedIn so the feed stays useful."
+    },
+    {
+      "name": "roblox-util",
+      "url": "https://github.com/ejrad/roblox-util",
+      "blurb": "Reusable Luau utilities for Roblox games."
+    }
+  ],
+  "skills": {
+    "Security": ["TryHackMe", "Linux", "Networking", "Web basics", "CTF practice"],
+    "Languages": ["Python", "JavaScript/TypeScript", "Luau", "Bash"],
+    "Tools": ["Git", "GitHub Actions", "Linux CLI", "Browser tooling"]
+  },
+  "education": [
+    {
+      "school": "James Madison University",
+      "detail": "Cybersecurity coursework",
+      "dates": "Present"
+    }
+  ],
+  "betterMarkdownBase": "https://better-markdown-theta.vercel.app",
+  "recentRoomsLimit": 6
+}
