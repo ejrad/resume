@@ -1,57 +1,68 @@
 {
   "name": "Ernest Raday",
-  "tagline": "Cybersecurity student · builder · lifelong learner",
-  "location": "James Madison University",
-  "email": "radayej@dukes.jmu.edu",
+  "tagline": "Computer Science @ JMU · cybersecurity · builder",
+  "location": "Sykesville, MD",
+  "phone": "301-525-5642",
+  "email": "ernestjraday@gmail.com",
   "github": "ejrad",
-  "linkedin": "",
+  "linkedin": "https://linkedin.com/in/erad",
   "website": "",
+  "citizen": "U.S. Citizen",
+  "resumePdf": "ErnestRadayResume.pdf",
   "tryhackme": {
     "username": "REPLACE_ME",
     "userPublicId": "",
     "userHash": ""
   },
-  "summary": "Cybersecurity-focused student at James Madison University. I break things to understand them, then write tools that make the next round faster. This README is my live resume — TryHackMe stats refresh automatically.",
+  "summary": "Computer Science student at James Madison University focused on cybersecurity, systems, and shipping real products. Active in CTFs, Cyber Defense Club, and hands-on labs — this site stays current with my TryHackMe trail.",
   "experience": [
     {
-      "title": "Student · Cybersecurity",
-      "org": "James Madison University",
-      "dates": "Present",
+      "title": "Freelance Game Developer",
+      "org": "Monetization, Budgeting, Agentic Programming",
+      "dates": "2022 – 2026",
       "bullets": [
-        "Coursework spanning systems, networks, and offensive security fundamentals",
-        "Hands-on practice through TryHackMe rooms, CTF-style challenges, and personal tooling"
+        "Collaborated with developers internationally to create revenue-generating projects in Roblox Studio",
+        "Managed a budget set by project funders, using it to hire other freelance developers for individual tasks",
+        "Provided continued programming support for clients, shipping new and updated features",
+        "Created databases, client-server architecture, integrated third-party APIs to track analytics"
       ]
     }
   ],
   "projects": [
     {
-      "name": "ClickShield",
-      "url": "https://github.com/ejrad/ClickShield",
-      "blurb": "Browser extension that strips stubborn ad overlays other blockers miss."
+      "name": "Clone Sandbox Game",
+      "url": "https://github.com/ejrad",
+      "blurb": "LuaU · Roblox Studio · Cursor IDE · Roblox MCP — Aug 2025 – May 2026. Designed monetization UX, generated $10k+ revenue with 20%+ conversion, resolved a DMCA dispute, and used agentic programming via a Roblox MCP server."
     },
     {
-      "name": "deslop",
-      "url": "https://github.com/ejrad/deslop",
-      "blurb": "Cuts AI-slop noise out of sites like LinkedIn so the feed stays useful."
+      "name": "2D Platformer",
+      "url": "https://github.com/ejrad",
+      "blurb": "JavaScript · p5.js · VSC/Cursor — Mar 2026 – May 2026. Software Engineering team project; Scrumboard planning with a team of 5, using agentic programming within course guidelines."
     },
     {
-      "name": "roblox-util",
-      "url": "https://github.com/ejrad/roblox-util",
-      "blurb": "Reusable Luau utilities for Roblox games."
+      "name": "Custom Developer Script Tool",
+      "url": "https://github.com/ejrad",
+      "blurb": "Python · REST APIs · Selenium · CLI — July 2025. Session-cookie/CSRF auth via Selenium; Rich CLI exporting JSON, CSV, and LuaU-parsable tables for a product I sold."
     }
   ],
   "skills": {
-    "Security": ["TryHackMe", "Linux", "Networking", "Web basics", "CTF practice"],
-    "Languages": ["Python", "JavaScript/TypeScript", "Luau", "Bash"],
-    "Tools": ["Git", "GitHub Actions", "Linux CLI", "Browser tooling"]
+    "General": ["Linux Fundamentals", "Agentic Programming & Prompting", "Scripting"],
+    "Languages": ["Java", "Python", "JavaScript", "HTML/CSS", "Lua/LuaU"],
+    "Developer Tools": ["GitHub", "VS Code", "Antigravity", "Cursor", "VMware Workstation", "Splunk"],
+    "Currently Learning": ["C", "Kali Tools", "SQL", "Networking", "Advanced Linux", "HackTheBox Labs"],
+    "Certifications": ["TryHackMe Pre-Security SEC0", "Studying CompTIA Security+ & THM SOC Level 1"]
   },
   "education": [
     {
       "school": "James Madison University",
-      "detail": "Cybersecurity coursework",
-      "dates": "Present"
+      "detail": "B.S. Computer Science — coursework in programming, discrete structures, software engineering, data structures, computer systems. Cyber Defense Club; JMU NCCDC ’27 (Intrusion Detection & Logging). CTFs: Bandit, NSA Codebreaker 2026, Sunshine CTF, PicoCTF/CyLab",
+      "dates": "Aug 2024 – Expected May 2028"
+    },
+    {
+      "school": "Carroll County Community College",
+      "detail": "Dually enrolled in high school",
+      "dates": "Aug 2023 – May 2024"
     }
   ],
-  "betterMarkdownBase": "https://better-markdown-theta.vercel.app",
   "recentRoomsLimit": 6
 }

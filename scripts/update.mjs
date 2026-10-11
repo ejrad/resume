@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
- * Refresh TryHackMe stats + regenerate README.md
+ * Refresh TryHackMe stats into data/thm.json and sync room art to public/rooms.
  *
  *   npm run update
- *   npm run update -- --demo   # force seeded demo data (no network)
+ *   npm run update:demo
  */
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync, copyFileSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync, cpSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
@@ -17,14 +17,13 @@ import {
   resolveUserHash,
   writeRoomCardSvg,
 } from "./lib/thm.mjs";
-import { buildReadme } from "./lib/readme.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const PROFILE_PATH = path.join(ROOT, "config/profile.json");
 const CACHE_PATH = path.join(ROOT, "data/thm.json");
 const DEMO_PATH = path.join(ROOT, "data/thm.demo.json");
-const README_PATH = path.join(ROOT, "README.md");
 const ASSETS_ROOMS = path.join(ROOT, "assets/rooms");
+const PUBLIC_ROOMS = path.join(ROOT, "public/rooms");
 
 function log(...a) {
   console.log("[resume]", ...a);
@@ -47,6 +46,15 @@ function ensureDemoRoomAssets(rooms) {
     if (!existsSync(svgAbs)) writeRoomCardSvg(svgAbs, room);
     return { ...room, localImage: svgRel };
   });
+}
+
+function syncPublicRooms() {
+  mkdirSync(PUBLIC_ROOMS, { recursive: true });
+  if (!existsSync(ASSETS_ROOMS)) return;
+  for (const name of readdirSync(ASSETS_ROOMS)) {
+    cpSync(path.join(ASSETS_ROOMS, name), path.join(PUBLIC_ROOMS, name));
+  }
+  log("synced", readdirSync(PUBLIC_ROOMS).length, "room assets → public/rooms");
 }
 
 async function fetchLive(profile) {
@@ -124,11 +132,8 @@ async function main() {
   }
 
   saveJson(CACHE_PATH, thm);
-
-  const generatedAt = new Date().toISOString().replace("T", " ").replace(/\.\d+Z$/, " UTC");
-  const readme = buildReadme({ profile, thm, generatedAt });
-  writeFileSync(README_PATH, readme);
-  log("wrote README.md");
+  syncPublicRooms();
+  log("wrote data/thm.json");
   log("streak:", thm.stats?.streak, "| rooms:", (thm.recentRooms || []).length);
 }
 
