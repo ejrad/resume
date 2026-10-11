@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Fetch TryHackMe public stats via Playwright (bypasses bot challenge).
- * Writes data/thm.json and room assets, then exits.
+ * Pulls every completed room into data/thm.json.
  */
 import { chromium } from "playwright";
 import { readFileSync, writeFileSync, mkdirSync, cpSync, readdirSync, existsSync } from "node:fs";
@@ -17,7 +17,6 @@ if (!username || username === "REPLACE_ME") {
   process.exit(1);
 }
 
-const limit = profile.recentRoomsLimit || 6;
 const ASSETS = path.join(ROOT, "assets/rooms");
 const PUBLIC = path.join(ROOT, "public/rooms");
 
@@ -42,23 +41,30 @@ try {
   await page.getByRole("button", { name: /Allow All/i }).click({ timeout: 2500 });
 } catch {}
 
-const payload = await page.evaluate(
-  async ({ username, limit }) => {
-    const headers = { Accept: "application/json" };
-    const profileRes = await fetch(
-      `https://tryhackme.com/api/v2/public-profile?username=${encodeURIComponent(username)}`,
-      { credentials: "include", headers },
-    );
-    const profileJson = await profileRes.json();
+const payload = await page.evaluate(async (username) => {
+  const headers = { Accept: "application/json" };
+  const profileRes = await fetch(
+    `https://tryhackme.com/api/v2/public-profile?username=${encodeURIComponent(username)}`,
+    { credentials: "include", headers },
+  );
+  const profileJson = await profileRes.json();
+
+  const docs = [];
+  const pageSize = 50;
+  for (let pageNum = 1; pageNum <= 40; pageNum++) {
     const roomsRes = await fetch(
-      `https://tryhackme.com/api/v2/public-profile/completed-rooms?username=${encodeURIComponent(username)}&limit=${Math.max(limit, 16)}&page=1`,
+      `https://tryhackme.com/api/v2/public-profile/completed-rooms?username=${encodeURIComponent(username)}&limit=${pageSize}&page=${pageNum}`,
       { credentials: "include", headers },
     );
     const roomsJson = await roomsRes.json();
-    return { profileJson, roomsJson, profileStatus: profileRes.status, roomsStatus: roomsRes.status };
-  },
-  { username, limit },
-);
+    const batch = roomsJson?.data?.docs || [];
+    if (!batch.length) break;
+    docs.push(...batch);
+    if (batch.length < pageSize) break;
+  }
+
+  return { profileJson, docs, profileStatus: profileRes.status };
+}, username);
 
 await browser.close();
 
@@ -68,14 +74,10 @@ if (payload.profileStatus !== 200) {
 }
 
 const d = payload.profileJson?.data || {};
-const docs = payload.roomsJson?.data?.docs || [];
-log("ids from profile:", {
-  userPublicId: d.userPublicId || d.publicId || null,
-  userHash: d.userId || d._id || d.id || null,
-  note: "public API no longer returns these for most accounts",
-});
+const docs = payload.docs || [];
+log("fetched room docs:", docs.length, "| profile says", d.completedRoomsNumber);
 
-const rooms = docs.slice(0, limit).map((room) => ({
+const rooms = docs.map((room) => ({
   code: room.code,
   title: room.title || room.code,
   image: room.imageURL || room.image || null,
@@ -86,7 +88,6 @@ const rooms = docs.slice(0, limit).map((room) => ({
 
 mkdirSync(ASSETS, { recursive: true });
 const withImages = await materializeRoomImages(rooms, ASSETS);
-// ensure svg fallbacks exist
 for (const r of withImages) {
   if (!existsSync(path.join(ROOT, r.localImage))) writeRoomCardSvg(path.join(ROOT, r.localImage), r);
 }
@@ -107,13 +108,13 @@ const thm = {
     streak: d.streak == null ? "—" : `${d.streak} days`,
     rank: d.rank ?? null,
     badges: d.badgesNumber ?? null,
-    completedRooms: d.completedRoomsNumber ?? null,
+    completedRooms: d.completedRoomsNumber ?? withImages.length,
     level,
     profileImage: d.avatar ?? null,
   },
+  rooms: withImages,
   recentRooms: withImages,
 };
 
 writeFileSync(path.join(ROOT, "data/thm.json"), JSON.stringify(thm, null, 2) + "\n");
-log("wrote data/thm.json — streak", thm.stats.streak, "rooms", thm.recentRooms.length);
-for (const r of thm.recentRooms) log(" -", r.title);
+log("wrote data/thm.json — streak", thm.stats.streak, "rooms", thm.rooms.length);

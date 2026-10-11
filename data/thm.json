@@ -1,7 +1,7 @@
 {
   "live": true,
   "username": "ernestjraday",
-  "fetchedAt": "2026-10-11T23:30:27.933Z",
+  "fetchedAt": "2026-10-11T23:57:13.496Z",
   "stats": {
     "streak": "19 days",
     "rank": "Top 20%",
@@ -10,7 +10,97 @@
     "level": "[0x6]",
     "profileImage": "https://lh3.googleusercontent.com/a/ACg8ocI-Nk_KQcdfbVeuRAn838R5KVFVWVPeOvlocWiY-MJapExEcA=s200-c"
   },
-  "recentRooms": [
+  "rooms": [
+    {
+      "code": "howwebsiteswork",
+      "title": "How Websites Work",
+      "image": "https://cdn-images.tryhackme.com/room-icons/presec-room-image11.png",
+      "url": "https://tryhackme.com/room/howwebsiteswork",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/howwebsiteswork.png"
+    },
+    {
+      "code": "puttingitalltogether",
+      "title": "Putting it all together",
+      "image": "https://cdn-images.tryhackme.com/room-icons/presec-room-image12.png",
+      "url": "https://tryhackme.com/room/puttingitalltogether",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/puttingitalltogether.png"
+    },
+    {
+      "code": "dnsindetail",
+      "title": "DNS in Detail",
+      "image": "https://cdn-images.tryhackme.com/room-icons/presec-room-image9.png",
+      "url": "https://tryhackme.com/room/dnsindetail",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/dnsindetail.png"
+    },
+    {
+      "code": "httpindetail",
+      "title": "HTTP in Detail",
+      "image": "https://cdn-images.tryhackme.com/room-icons/presec-room-image10.png",
+      "url": "https://tryhackme.com/room/httpindetail",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/httpindetail.png"
+    },
+    {
+      "code": "whatisnetworking",
+      "title": "What is Networking?",
+      "image": "https://cdn-images.tryhackme.com/room-icons/presec-room-image4.png",
+      "url": "https://tryhackme.com/room/whatisnetworking",
+      "difficulty": "info",
+      "completedAt": null,
+      "localImage": "assets/rooms/whatisnetworking.png"
+    },
+    {
+      "code": "introtolan",
+      "title": "Intro to LAN",
+      "image": "https://cdn-images.tryhackme.com/room-icons/presec-room-image5.png",
+      "url": "https://tryhackme.com/room/introtolan",
+      "difficulty": "info",
+      "completedAt": null,
+      "localImage": "assets/rooms/introtolan.png"
+    },
+    {
+      "code": "osimodelzi",
+      "title": "OSI Model",
+      "image": "https://cdn-images.tryhackme.com/room-icons/presec-room-image6.png",
+      "url": "https://tryhackme.com/room/osimodelzi",
+      "difficulty": "info",
+      "completedAt": null,
+      "localImage": "assets/rooms/osimodelzi.png"
+    },
+    {
+      "code": "packetsframes",
+      "title": "Packets & Frames",
+      "image": "https://cdn-images.tryhackme.com/room-icons/presec-room-image7.png",
+      "url": "https://tryhackme.com/room/packetsframes",
+      "difficulty": "info",
+      "completedAt": null,
+      "localImage": "assets/rooms/packetsframes.png"
+    },
+    {
+      "code": "extendingyournetwork",
+      "title": "Extending Your Network",
+      "image": "https://cdn-images.tryhackme.com/room-icons/presec-room-image8.png",
+      "url": "https://tryhackme.com/room/extendingyournetwork",
+      "difficulty": "info",
+      "completedAt": null,
+      "localImage": "assets/rooms/extendingyournetwork.png"
+    },
+    {
+      "code": "jrsecanalystintrouxo",
+      "title": "Junior Security Analyst Intro",
+      "image": "https://cdn-images.tryhackme.com/room-icons/678ecc92c80aa206339f0f23-1762187304976",
+      "url": "https://tryhackme.com/room/jrsecanalystintrouxo",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/jrsecanalystintrouxo.jpg"
+    },
     {
       "code": "operatingsystemsecurity",
       "title": "Operating System Security",
@@ -19,6 +109,51 @@
       "difficulty": "easy",
       "completedAt": null,
       "localImage": "assets/rooms/operatingsystemsecurity.png"
+    },
+    {
+      "code": "introtosiem",
+      "title": "Introduction to SIEM",
+      "image": "https://cdn-images.tryhackme.com/room-icons/introtosiem-1785241446199.png",
+      "url": "https://tryhackme.com/room/introtosiem",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/introtosiem.png"
+    },
+    {
+      "code": "socl1alerttriage",
+      "title": "SOC L1 Alert Triage",
+      "image": "https://cdn-images.tryhackme.com/room-icons/678ecc92c80aa206339f0f23-1744124438599",
+      "url": "https://tryhackme.com/room/socl1alerttriage",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/socl1alerttriage.jpg"
+    },
+    {
+      "code": "socl1alertreporting",
+      "title": "SOC L1 Alert Reporting",
+      "image": "https://cdn-images.tryhackme.com/room-icons/678ecc92c80aa206339f0f23-1743518414935",
+      "url": "https://tryhackme.com/room/socl1alertreporting",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/socl1alertreporting.jpg"
+    },
+    {
+      "code": "socworkbookslookups",
+      "title": "SOC Workbooks and Lookups",
+      "image": "https://cdn-images.tryhackme.com/room-icons/678ecc92c80aa206339f0f23-1743518808955",
+      "url": "https://tryhackme.com/room/socworkbookslookups",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/socworkbookslookups.jpg"
+    },
+    {
+      "code": "introductiontoedrs",
+      "title": "Introduction to EDR",
+      "image": "https://cdn-images.tryhackme.com/room-icons/f90bca871d79eae64a3ebebc4e68ab62989c77d93523f3871dc893a1d5706792.6645aa8c024f7893371eb7ac-1753204708163",
+      "url": "https://tryhackme.com/room/introductiontoedrs",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/introductiontoedrs.jpg"
     },
     {
       "code": "virtualisationbasics",
@@ -64,6 +199,521 @@
       "difficulty": "easy",
       "completedAt": null,
       "localImage": "assets/rooms/dataencoding.png"
+    },
+    {
+      "code": "javascriptsimpledemo",
+      "title": "JavaScript: Simple Demo",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400296115-Room_Image-12.png",
+      "url": "https://tryhackme.com/room/javascriptsimpledemo",
+      "difficulty": "medium",
+      "completedAt": null,
+      "localImage": "assets/rooms/javascriptsimpledemo.png"
+    },
+    {
+      "code": "pythonsimpledemo",
+      "title": "Python: Simple Demo",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400291430-Room_Image-11.png",
+      "url": "https://tryhackme.com/room/pythonsimpledemo",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/pythonsimpledemo.png"
+    },
+    {
+      "code": "windowsbasics",
+      "title": "Windows Basics",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400216298-Room_Image-8.png",
+      "url": "https://tryhackme.com/room/windowsbasics",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/windowsbasics.png"
+    },
+    {
+      "code": "cloudcomputingfundamentals",
+      "title": "Cloud Computing Fundamentals",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400183488-Room_Image-4.png",
+      "url": "https://tryhackme.com/room/cloudcomputingfundamentals",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/cloudcomputingfundamentals.png"
+    },
+    {
+      "code": "windowsclibasics",
+      "title": "Windows CLI Basics",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400260703-Room_Image-7.png",
+      "url": "https://tryhackme.com/room/windowsclibasics",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/windowsclibasics.png"
+    },
+    {
+      "code": "theciatriad",
+      "title": "The CIA Triad",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400312904-Room_Image-15.png",
+      "url": "https://tryhackme.com/room/theciatriad",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/theciatriad.png"
+    },
+    {
+      "code": "databasesqlbasics",
+      "title": "Database SQL Basics",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400301430-Room_Image-14.png",
+      "url": "https://tryhackme.com/room/databasesqlbasics",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/databasesqlbasics.png"
+    },
+    {
+      "code": "cryptographyconcepts",
+      "title": "Cryptography Concepts",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400321470-Room_Image-17.png",
+      "url": "https://tryhackme.com/room/cryptographyconcepts",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/cryptographyconcepts.png"
+    },
+    {
+      "code": "clientserverbasics",
+      "title": "Client-Server Basics",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400170483-Room_Image-1.png",
+      "url": "https://tryhackme.com/room/clientserverbasics",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/clientserverbasics.png"
+    },
+    {
+      "code": "becomeahacker",
+      "title": "Become a Hacker",
+      "image": "https://cdn-images.tryhackme.com/room-icons/5f04259cf9bf5b57aed2c476-1779874288391",
+      "url": "https://tryhackme.com/room/becomeahacker",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/becomeahacker.jpg"
+    },
+    {
+      "code": "becomeadefender",
+      "title": "Become a Defender",
+      "image": "https://cdn-images.tryhackme.com/room-icons/5f04259cf9bf5b57aed2c476-1779874303188",
+      "url": "https://tryhackme.com/room/becomeadefender",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/becomeadefender.jpg"
+    },
+    {
+      "code": "offensivesecurityintrokKx12",
+      "title": "Offensive Security Intro",
+      "image": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1767868972234",
+      "url": "https://tryhackme.com/room/offensivesecurityintrokKx12",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/offensivesecurityintrokKx12.jpg"
+    },
+    {
+      "code": "insideacomputer",
+      "title": "Inside a Computer System",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400154829-Room_Image.png",
+      "url": "https://tryhackme.com/room/insideacomputer",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/insideacomputer.png"
+    },
+    {
+      "code": "computertypes",
+      "title": "Computer Types",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400161307-Room_Image-3.png",
+      "url": "https://tryhackme.com/room/computertypes",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/computertypes.png"
+    },
+    {
+      "code": "defensivesecurityintroezn39",
+      "title": "Defensive Security Intro",
+      "image": "https://cdn-images.tryhackme.com/room-icons/60eeba4c12d185eee073d97e9a219ff1e4088f3604c9a07605f4aa8a42df9d60.5de96d9ca744773ea7ef8c00-1769425626237",
+      "url": "https://tryhackme.com/room/defensivesecurityintroezn39",
+      "difficulty": "info",
+      "completedAt": null,
+      "localImage": "assets/rooms/defensivesecurityintroezn39.jpg"
+    },
+    {
+      "code": "searchskillscS",
+      "title": "Search Skills",
+      "image": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1773877192929",
+      "url": "https://tryhackme.com/room/searchskillscS",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/searchskillscS.jpg"
+    },
+    {
+      "code": "aithreatmodellingassessment",
+      "title": "AI Threat Modelling Assessment",
+      "image": "https://cdn-images.tryhackme.com/room-icons/6228f0d4ca8e57005149c3e3-1775755617179",
+      "url": "https://tryhackme.com/room/aithreatmodellingassessment",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/aithreatmodellingassessment.jpg"
+    },
+    {
+      "code": "careersincybersn",
+      "title": "Careers in Cyber",
+      "image": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1782818141370",
+      "url": "https://tryhackme.com/room/careersincybersn",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/careersincybersn.jpg"
+    }
+  ],
+  "recentRooms": [
+    {
+      "code": "howwebsiteswork",
+      "title": "How Websites Work",
+      "image": "https://cdn-images.tryhackme.com/room-icons/presec-room-image11.png",
+      "url": "https://tryhackme.com/room/howwebsiteswork",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/howwebsiteswork.png"
+    },
+    {
+      "code": "puttingitalltogether",
+      "title": "Putting it all together",
+      "image": "https://cdn-images.tryhackme.com/room-icons/presec-room-image12.png",
+      "url": "https://tryhackme.com/room/puttingitalltogether",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/puttingitalltogether.png"
+    },
+    {
+      "code": "dnsindetail",
+      "title": "DNS in Detail",
+      "image": "https://cdn-images.tryhackme.com/room-icons/presec-room-image9.png",
+      "url": "https://tryhackme.com/room/dnsindetail",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/dnsindetail.png"
+    },
+    {
+      "code": "httpindetail",
+      "title": "HTTP in Detail",
+      "image": "https://cdn-images.tryhackme.com/room-icons/presec-room-image10.png",
+      "url": "https://tryhackme.com/room/httpindetail",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/httpindetail.png"
+    },
+    {
+      "code": "whatisnetworking",
+      "title": "What is Networking?",
+      "image": "https://cdn-images.tryhackme.com/room-icons/presec-room-image4.png",
+      "url": "https://tryhackme.com/room/whatisnetworking",
+      "difficulty": "info",
+      "completedAt": null,
+      "localImage": "assets/rooms/whatisnetworking.png"
+    },
+    {
+      "code": "introtolan",
+      "title": "Intro to LAN",
+      "image": "https://cdn-images.tryhackme.com/room-icons/presec-room-image5.png",
+      "url": "https://tryhackme.com/room/introtolan",
+      "difficulty": "info",
+      "completedAt": null,
+      "localImage": "assets/rooms/introtolan.png"
+    },
+    {
+      "code": "osimodelzi",
+      "title": "OSI Model",
+      "image": "https://cdn-images.tryhackme.com/room-icons/presec-room-image6.png",
+      "url": "https://tryhackme.com/room/osimodelzi",
+      "difficulty": "info",
+      "completedAt": null,
+      "localImage": "assets/rooms/osimodelzi.png"
+    },
+    {
+      "code": "packetsframes",
+      "title": "Packets & Frames",
+      "image": "https://cdn-images.tryhackme.com/room-icons/presec-room-image7.png",
+      "url": "https://tryhackme.com/room/packetsframes",
+      "difficulty": "info",
+      "completedAt": null,
+      "localImage": "assets/rooms/packetsframes.png"
+    },
+    {
+      "code": "extendingyournetwork",
+      "title": "Extending Your Network",
+      "image": "https://cdn-images.tryhackme.com/room-icons/presec-room-image8.png",
+      "url": "https://tryhackme.com/room/extendingyournetwork",
+      "difficulty": "info",
+      "completedAt": null,
+      "localImage": "assets/rooms/extendingyournetwork.png"
+    },
+    {
+      "code": "jrsecanalystintrouxo",
+      "title": "Junior Security Analyst Intro",
+      "image": "https://cdn-images.tryhackme.com/room-icons/678ecc92c80aa206339f0f23-1762187304976",
+      "url": "https://tryhackme.com/room/jrsecanalystintrouxo",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/jrsecanalystintrouxo.jpg"
+    },
+    {
+      "code": "operatingsystemsecurity",
+      "title": "Operating System Security",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400267726-Room_Image-9.png",
+      "url": "https://tryhackme.com/room/operatingsystemsecurity",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/operatingsystemsecurity.png"
+    },
+    {
+      "code": "introtosiem",
+      "title": "Introduction to SIEM",
+      "image": "https://cdn-images.tryhackme.com/room-icons/introtosiem-1785241446199.png",
+      "url": "https://tryhackme.com/room/introtosiem",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/introtosiem.png"
+    },
+    {
+      "code": "socl1alerttriage",
+      "title": "SOC L1 Alert Triage",
+      "image": "https://cdn-images.tryhackme.com/room-icons/678ecc92c80aa206339f0f23-1744124438599",
+      "url": "https://tryhackme.com/room/socl1alerttriage",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/socl1alerttriage.jpg"
+    },
+    {
+      "code": "socl1alertreporting",
+      "title": "SOC L1 Alert Reporting",
+      "image": "https://cdn-images.tryhackme.com/room-icons/678ecc92c80aa206339f0f23-1743518414935",
+      "url": "https://tryhackme.com/room/socl1alertreporting",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/socl1alertreporting.jpg"
+    },
+    {
+      "code": "socworkbookslookups",
+      "title": "SOC Workbooks and Lookups",
+      "image": "https://cdn-images.tryhackme.com/room-icons/678ecc92c80aa206339f0f23-1743518808955",
+      "url": "https://tryhackme.com/room/socworkbookslookups",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/socworkbookslookups.jpg"
+    },
+    {
+      "code": "introductiontoedrs",
+      "title": "Introduction to EDR",
+      "image": "https://cdn-images.tryhackme.com/room-icons/f90bca871d79eae64a3ebebc4e68ab62989c77d93523f3871dc893a1d5706792.6645aa8c024f7893371eb7ac-1753204708163",
+      "url": "https://tryhackme.com/room/introductiontoedrs",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/introductiontoedrs.jpg"
+    },
+    {
+      "code": "virtualisationbasics",
+      "title": "Virtualisation Basics",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400177898-Room_Image-2.png",
+      "url": "https://tryhackme.com/room/virtualisationbasics",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/virtualisationbasics.png"
+    },
+    {
+      "code": "operatingsystemsintroduction",
+      "title": "Operating Systems: Introduction",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400208698-Room_Image-5.png",
+      "url": "https://tryhackme.com/room/operatingsystemsintroduction",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/operatingsystemsintroduction.png"
+    },
+    {
+      "code": "linuxclibasics",
+      "title": "Linux CLI Basics",
+      "image": "https://cdn-images.tryhackme.com/room-icons/linuxclibasics-1785241446878.png",
+      "url": "https://tryhackme.com/room/linuxclibasics",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/linuxclibasics.png"
+    },
+    {
+      "code": "datarepresentation",
+      "title": "Data Representation",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400279781-Room_Image-10.png",
+      "url": "https://tryhackme.com/room/datarepresentation",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/datarepresentation.png"
+    },
+    {
+      "code": "dataencoding",
+      "title": "Data Encoding",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400285735-Room_Image-13.png",
+      "url": "https://tryhackme.com/room/dataencoding",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/dataencoding.png"
+    },
+    {
+      "code": "javascriptsimpledemo",
+      "title": "JavaScript: Simple Demo",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400296115-Room_Image-12.png",
+      "url": "https://tryhackme.com/room/javascriptsimpledemo",
+      "difficulty": "medium",
+      "completedAt": null,
+      "localImage": "assets/rooms/javascriptsimpledemo.png"
+    },
+    {
+      "code": "pythonsimpledemo",
+      "title": "Python: Simple Demo",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400291430-Room_Image-11.png",
+      "url": "https://tryhackme.com/room/pythonsimpledemo",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/pythonsimpledemo.png"
+    },
+    {
+      "code": "windowsbasics",
+      "title": "Windows Basics",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400216298-Room_Image-8.png",
+      "url": "https://tryhackme.com/room/windowsbasics",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/windowsbasics.png"
+    },
+    {
+      "code": "cloudcomputingfundamentals",
+      "title": "Cloud Computing Fundamentals",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400183488-Room_Image-4.png",
+      "url": "https://tryhackme.com/room/cloudcomputingfundamentals",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/cloudcomputingfundamentals.png"
+    },
+    {
+      "code": "windowsclibasics",
+      "title": "Windows CLI Basics",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400260703-Room_Image-7.png",
+      "url": "https://tryhackme.com/room/windowsclibasics",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/windowsclibasics.png"
+    },
+    {
+      "code": "theciatriad",
+      "title": "The CIA Triad",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400312904-Room_Image-15.png",
+      "url": "https://tryhackme.com/room/theciatriad",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/theciatriad.png"
+    },
+    {
+      "code": "databasesqlbasics",
+      "title": "Database SQL Basics",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400301430-Room_Image-14.png",
+      "url": "https://tryhackme.com/room/databasesqlbasics",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/databasesqlbasics.png"
+    },
+    {
+      "code": "cryptographyconcepts",
+      "title": "Cryptography Concepts",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400321470-Room_Image-17.png",
+      "url": "https://tryhackme.com/room/cryptographyconcepts",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/cryptographyconcepts.png"
+    },
+    {
+      "code": "clientserverbasics",
+      "title": "Client-Server Basics",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400170483-Room_Image-1.png",
+      "url": "https://tryhackme.com/room/clientserverbasics",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/clientserverbasics.png"
+    },
+    {
+      "code": "becomeahacker",
+      "title": "Become a Hacker",
+      "image": "https://cdn-images.tryhackme.com/room-icons/5f04259cf9bf5b57aed2c476-1779874288391",
+      "url": "https://tryhackme.com/room/becomeahacker",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/becomeahacker.jpg"
+    },
+    {
+      "code": "becomeadefender",
+      "title": "Become a Defender",
+      "image": "https://cdn-images.tryhackme.com/room-icons/5f04259cf9bf5b57aed2c476-1779874303188",
+      "url": "https://tryhackme.com/room/becomeadefender",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/becomeadefender.jpg"
+    },
+    {
+      "code": "offensivesecurityintrokKx12",
+      "title": "Offensive Security Intro",
+      "image": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1767868972234",
+      "url": "https://tryhackme.com/room/offensivesecurityintrokKx12",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/offensivesecurityintrokKx12.jpg"
+    },
+    {
+      "code": "insideacomputer",
+      "title": "Inside a Computer System",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400154829-Room_Image.png",
+      "url": "https://tryhackme.com/room/insideacomputer",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/insideacomputer.png"
+    },
+    {
+      "code": "computertypes",
+      "title": "Computer Types",
+      "image": "https://cdn-images.tryhackme.com/room-icons/1773400161307-Room_Image-3.png",
+      "url": "https://tryhackme.com/room/computertypes",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/computertypes.png"
+    },
+    {
+      "code": "defensivesecurityintroezn39",
+      "title": "Defensive Security Intro",
+      "image": "https://cdn-images.tryhackme.com/room-icons/60eeba4c12d185eee073d97e9a219ff1e4088f3604c9a07605f4aa8a42df9d60.5de96d9ca744773ea7ef8c00-1769425626237",
+      "url": "https://tryhackme.com/room/defensivesecurityintroezn39",
+      "difficulty": "info",
+      "completedAt": null,
+      "localImage": "assets/rooms/defensivesecurityintroezn39.jpg"
+    },
+    {
+      "code": "searchskillscS",
+      "title": "Search Skills",
+      "image": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1773877192929",
+      "url": "https://tryhackme.com/room/searchskillscS",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/searchskillscS.jpg"
+    },
+    {
+      "code": "aithreatmodellingassessment",
+      "title": "AI Threat Modelling Assessment",
+      "image": "https://cdn-images.tryhackme.com/room-icons/6228f0d4ca8e57005149c3e3-1775755617179",
+      "url": "https://tryhackme.com/room/aithreatmodellingassessment",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/aithreatmodellingassessment.jpg"
+    },
+    {
+      "code": "careersincybersn",
+      "title": "Careers in Cyber",
+      "image": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1782818141370",
+      "url": "https://tryhackme.com/room/careersincybersn",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/careersincybersn.jpg"
     }
   ]
 }

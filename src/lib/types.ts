@@ -63,5 +63,7 @@ export type ThmData = {
     level: string | null;
     profileImage?: string | null;
   };
-  recentRooms: ThmRoom[];
+  /** @deprecated use rooms — kept for older caches */
+  recentRooms?: ThmRoom[];
+  rooms?: ThmRoom[];
 };

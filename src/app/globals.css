@@ -201,15 +201,108 @@
   }
 }
 
-.room-thumb {
-  border: 1px solid var(--ink-line);
-  background: #0c2628;
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease;
+.room-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
 }
 
-.room-row:hover .room-thumb {
-  transform: translateY(-3px) scale(1.03);
-  border-color: #a6e22e66;
+@media (min-width: 640px) {
+  .room-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.65rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .room-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .room-grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+}
+
+.room-tile {
+  position: relative;
+  aspect-ratio: 1;
+  border: 1px solid var(--ink-line);
+  background: #061416;
+  overflow: hidden;
+  transition: border-color 0.25s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.room-tile:hover {
+  border-color: #a6e22e55;
+  transform: translateY(-2px);
+}
+
+.room-tile > a {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.room-tile-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #061416;
+}
+
+/* Glass mask slides down over art on hover */
+.room-tile-glass {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 0.55rem 0.6rem 0.65rem;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 24, 32, 0.15) 0%,
+    rgba(7, 24, 32, 0.45) 45%,
+    rgba(7, 24, 32, 0.72) 100%
+  );
+  backdrop-filter: blur(10px) saturate(1.2);
+  -webkit-backdrop-filter: blur(10px) saturate(1.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transform: translateY(-105%);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.room-tile:hover .room-tile-glass,
+.room-tile:focus-within .room-tile-glass {
+  transform: translateY(0);
+}
+
+.room-tile-title {
+  font-family: var(--font-display), sans-serif;
+  font-size: 0.72rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--ink-fg);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .room-tile-title {
+    font-size: 0.78rem;
+  }
 }
 
 /* Inline PDF (pdf.js) — page only, no viewer chrome */

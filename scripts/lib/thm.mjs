@@ -74,12 +74,12 @@ export async function fetchPublicProfile(username) {
   };
 }
 
-/** Fetch completed rooms by username (preferred) or legacy user hash. */
-export async function fetchCompletedRooms({ username, userHash, limit = 6, pages = 1 } = {}) {
+/** Fetch all completed rooms by username (preferred) or legacy user hash. */
+export async function fetchCompletedRooms({ username, userHash, pageSize = 50, maxPages = 40 } = {}) {
   const rooms = [];
-  for (let page = 1; page <= pages; page++) {
+  for (let page = 1; page <= maxPages; page++) {
     const qs = new URLSearchParams({
-      limit: String(Math.max(limit, 16)),
+      limit: String(pageSize),
       page: String(page),
     });
     if (username) qs.set("username", username);
@@ -91,9 +91,9 @@ export async function fetchCompletedRooms({ username, userHash, limit = 6, pages
     const docs = data?.data?.docs || data?.docs || [];
     if (!docs.length) break;
     rooms.push(...docs);
-    if (rooms.length >= limit) break;
+    if (docs.length < pageSize) break;
   }
-  return rooms.slice(0, limit).map(normalizeRoom).filter(Boolean);
+  return rooms.map(normalizeRoom).filter(Boolean);
 }
 
 function normalizeRoom(room) {

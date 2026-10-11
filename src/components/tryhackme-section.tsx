@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { formatCompletedAt, roomImageSrc } from "@/lib/data";
+import { roomImageSrc } from "@/lib/data";
 import type { Profile, ThmData } from "@/lib/types";
 
 export function TryHackMeSection({
@@ -27,12 +27,12 @@ export function TryHackMeSection({
         : null;
 
   const streak = thm.stats.streak || "—";
-  const rooms = thm.recentRooms || [];
+  const rooms = thm.rooms?.length ? thm.rooms : thm.recentRooms || [];
 
   return (
     <section id="tryhackme" className="relative overflow-hidden border-t border-[var(--ink-line)] bg-[var(--ink)] py-20 text-[var(--ink-fg)] sm:py-28">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--lime)] to-transparent opacity-70" />
-      <div className="mx-auto max-w-5xl px-6 sm:px-10">
+      <div className="mx-auto max-w-6xl px-6 sm:px-10">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.24em] text-[var(--lime)]">
@@ -42,7 +42,7 @@ export function TryHackMeSection({
               Live practice trail
             </h2>
             <p className="mt-4 max-w-xl text-[var(--ink-muted)]">
-              Streak and recent rooms refresh from TryHackMe on a schedule — no manual README edits.
+              Streak and every completed room — refreshed from TryHackMe on a schedule.
             </p>
           </div>
           {thmUser ? (
@@ -88,7 +88,7 @@ export function TryHackMeSection({
               </div>
               <div className="flex justify-between gap-4">
                 <dt className="text-[var(--ink-muted)]">Rooms</dt>
-                <dd>{thm.stats.completedRooms ?? "—"}</dd>
+                <dd>{thm.stats.completedRooms ?? rooms.length ?? "—"}</dd>
               </div>
               <div className="flex justify-between gap-4">
                 <dt className="text-[var(--ink-muted)]">Level</dt>
@@ -100,46 +100,32 @@ export function TryHackMeSection({
 
         <div className="mt-16">
           <h3 className="font-[family-name:var(--font-display)] text-2xl tracking-tight sm:text-3xl">
-            Recently completed
+            Completed rooms
           </h3>
-          <p className="mt-2 text-[var(--ink-muted)]">Title + artwork for the latest rooms.</p>
+          <p className="mt-2 text-[var(--ink-muted)]">
+            {rooms.length} rooms · hover a tile for the title
+          </p>
 
-          <ul className="mt-8 divide-y divide-[var(--ink-line)]">
-            {rooms.length === 0 ? (
-              <li className="py-8 text-[var(--ink-muted)]">No rooms yet — complete one and the next sync will land here.</li>
-            ) : (
-              rooms.map((room, i) => {
-                const when = formatCompletedAt(room.completedAt);
+          {rooms.length === 0 ? (
+            <p className="mt-8 text-[var(--ink-muted)]">No rooms yet — complete one and the next sync will land here.</p>
+          ) : (
+            <ul className="room-grid mt-8">
+              {rooms.map((room) => {
                 const src = roomImageSrc(room, basePath);
                 return (
-                  <li key={room.code} className="room-row group">
-                    <a href={room.url} target="_blank" rel="noreferrer" className="flex items-center gap-5 py-5 sm:gap-8">
-                      <span className="font-[family-name:var(--font-mono)] w-8 shrink-0 text-sm text-[var(--ink-muted)]">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
+                  <li key={room.code} className="room-tile">
+                    <a href={room.url} target="_blank" rel="noreferrer" aria-label={room.title}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={src}
-                        alt=""
-                        width={112}
-                        height={70}
-                        className="room-thumb h-[70px] w-[112px] shrink-0 object-cover"
-                      />
-                      <span className="min-w-0 flex-1">
-                        <span className="block truncate font-[family-name:var(--font-display)] text-xl tracking-tight transition group-hover:text-[var(--lime)] sm:text-2xl">
-                          {room.title}
-                        </span>
-                        <span className="mt-1 block font-[family-name:var(--font-mono)] text-xs text-[var(--ink-muted)]">
-                          /{room.code}
-                          {when ? ` · ${when}` : ""}
-                        </span>
+                      <img src={src} alt="" className="room-tile-img" />
+                      <span className="room-tile-glass">
+                        <span className="room-tile-title">{room.title}</span>
                       </span>
                     </a>
                   </li>
                 );
-              })
-            )}
-          </ul>
+              })}
+            </ul>
+          )}
         </div>
 
         <p className="mt-10 font-[family-name:var(--font-mono)] text-xs text-[var(--ink-muted)]">

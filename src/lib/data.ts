@@ -1,6 +1,6 @@
 import profileJson from "../../config/profile.json";
 import thmJson from "../../data/thm.json";
-import type { Profile, ThmData } from "./types";
+import type { Profile, ThmData, ThmRoom } from "./types";
 
 export function getProfile(): Profile {
   return profileJson as Profile;
@@ -10,7 +10,7 @@ export function getThm(): ThmData {
   return thmJson as ThmData;
 }
 
-export function roomImageSrc(room: ThmData["recentRooms"][number], basePath = "") {
+export function roomImageSrc(room: ThmRoom, basePath = "") {
   const prefix = basePath.replace(/\/$/, "");
   if (room.localImage) {
     const cleaned = room.localImage

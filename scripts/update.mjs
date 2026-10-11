@@ -93,16 +93,14 @@ async function fetchLive(profile) {
     }
   }
 
-  let recentRooms = [];
+  let rooms = [];
   try {
-    recentRooms = await fetchCompletedRooms({
+    rooms = await fetchCompletedRooms({
       username: thm.username,
       userHash: thm.userHash || undefined,
-      limit: profile.recentRoomsLimit || 6,
-      pages: 1,
     });
-    recentRooms = await materializeRoomImages(recentRooms, ASSETS_ROOMS);
-    log("rooms fetched:", recentRooms.length);
+    rooms = await materializeRoomImages(rooms, ASSETS_ROOMS);
+    log("rooms fetched:", rooms.length);
   } catch (e) {
     log("rooms fetch skipped:", e.message);
   }
@@ -112,7 +110,8 @@ async function fetchLive(profile) {
     username: thm.username,
     fetchedAt: new Date().toISOString(),
     stats,
-    recentRooms,
+    rooms,
+    recentRooms: rooms,
   };
 }
 
@@ -125,14 +124,17 @@ async function main() {
     log(forceDemo ? "demo mode" : "TryHackMe not configured — using demo cache");
     thm = loadJson(DEMO_PATH);
     thm.live = false;
-    thm.recentRooms = ensureDemoRoomAssets(thm.recentRooms || []);
+    const demoRooms = ensureDemoRoomAssets(thm.rooms || thm.recentRooms || []);
+    thm.rooms = demoRooms;
+    thm.recentRooms = demoRooms;
   } else {
     try {
       log("fetching TryHackMe for", profile.tryhackme.username);
       thm = await fetchLive(profile);
-      if (!thm.recentRooms?.length && existsSync(CACHE_PATH)) {
+      if (!thm.rooms?.length && existsSync(CACHE_PATH)) {
         const prev = loadJson(CACHE_PATH);
-        thm.recentRooms = prev.recentRooms || [];
+        thm.rooms = prev.rooms || prev.recentRooms || [];
+        thm.recentRooms = thm.rooms;
         log("kept previous rooms (live rooms empty)");
       }
     } catch (e) {
@@ -144,7 +146,9 @@ async function main() {
       } else {
         thm = loadJson(DEMO_PATH);
         thm.live = false;
-        thm.recentRooms = ensureDemoRoomAssets(thm.recentRooms || []);
+        const demoRooms = ensureDemoRoomAssets(thm.rooms || thm.recentRooms || []);
+        thm.rooms = demoRooms;
+        thm.recentRooms = demoRooms;
         log("fell back to demo data");
       }
     }
@@ -153,7 +157,7 @@ async function main() {
   saveJson(CACHE_PATH, thm);
   syncPublicRooms();
   log("wrote data/thm.json");
-  log("streak:", thm.stats?.streak, "| rooms:", (thm.recentRooms || []).length);
+  log("streak:", thm.stats?.streak, "| rooms:", (thm.rooms || thm.recentRooms || []).length);
 }
 
 main().catch((err) => {
