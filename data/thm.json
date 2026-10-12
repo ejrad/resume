@@ -1,12 +1,12 @@
 {
   "live": true,
   "username": "ernestjraday",
-  "fetchedAt": "2026-10-11T23:58:35.181Z",
+  "fetchedAt": "2026-10-12T00:01:36.181Z",
   "stats": {
     "streak": "19 days",
     "rank": "Top 20%",
     "badges": 6,
-    "completedRooms": 39,
+    "completedRooms": 40,
     "level": "[0x6]",
     "profileImage": "https://lh3.googleusercontent.com/a/ACg8ocI-Nk_KQcdfbVeuRAn838R5KVFVWVPeOvlocWiY-MJapExEcA=s200-c"
   },
@@ -118,6 +118,15 @@
       "difficulty": "easy",
       "completedAt": null,
       "localImage": "assets/rooms/introtosiem.png"
+    },
+    {
+      "code": "splunk101",
+      "title": "Splunk: The Basics",
+      "image": "https://cdn-images.tryhackme.com/room-icons/2cc38529b8c7c0fa0207c71dcb8f990c.png",
+      "url": "https://tryhackme.com/room/splunk101",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/splunk101.png"
     },
     {
       "code": "socl1alerttriage",
@@ -471,6 +480,15 @@
       "difficulty": "easy",
       "completedAt": null,
       "localImage": "assets/rooms/introtosiem.png"
+    },
+    {
+      "code": "splunk101",
+      "title": "Splunk: The Basics",
+      "image": "https://cdn-images.tryhackme.com/room-icons/2cc38529b8c7c0fa0207c71dcb8f990c.png",
+      "url": "https://tryhackme.com/room/splunk101",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/splunk101.png"
     },
     {
       "code": "socl1alerttriage",
