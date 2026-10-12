@@ -274,8 +274,8 @@
   pointer-events: none;
 }
 
-.room-tile:hover .room-tile-glass,
-.room-tile:focus-within .room-tile-glass {
+/* Hover only — :focus-within sticks after click/back and leaves the title up */
+.room-tile:hover .room-tile-glass {
   transform: translateY(0);
 }
 

@@ -114,7 +114,16 @@ export function TryHackMeSection({
                 const src = roomImageSrc(room, basePath);
                 return (
                   <li key={room.code} className="room-tile">
-                    <a href={room.url} target="_blank" rel="noreferrer" aria-label={room.title}>
+                    <a
+                      href={room.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={room.title}
+                      onClick={(e) => {
+                        // Drop sticky focus so the glass doesn't stay up after returning
+                        (e.currentTarget as HTMLAnchorElement).blur();
+                      }}
+                    >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={src} alt="" className="room-tile-img" />
                       <span className="room-tile-glass">
