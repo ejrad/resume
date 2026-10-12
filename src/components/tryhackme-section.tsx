@@ -118,6 +118,9 @@ export function TryHackMeSection({
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={src} alt="" className="room-tile-img" />
                       <span className="room-tile-glass">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={src} alt="" className="room-tile-frost" aria-hidden />
+                        <span className="room-tile-glass-fill" aria-hidden />
                         <span className="room-tile-title">{room.title}</span>
                       </span>
                     </a>
