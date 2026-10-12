@@ -110,17 +110,18 @@
 
 .hero-plane {
   background:
-    radial-gradient(1200px 600px at 15% -10%, #134e4a88, transparent 55%),
-    radial-gradient(900px 500px at 90% 20%, #36531455, transparent 50%),
-    linear-gradient(165deg, #041016 0%, #0a2428 45%, #102a22 100%);
+    radial-gradient(1100px 700px at 20% 30%, #1a5c5288, transparent 58%),
+    radial-gradient(900px 600px at 85% 70%, #3d5a1844, transparent 55%),
+    radial-gradient(700px 500px at 50% 100%, #0b3a3244, transparent 50%),
+    linear-gradient(165deg, #030b10 0%, #0a2226 42%, #0e2a20 100%);
 }
 
 .hero-grid {
   background-image:
     linear-gradient(to right, #ffffff0d 1px, transparent 1px),
     linear-gradient(to bottom, #ffffff0d 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: linear-gradient(to bottom, black, transparent 85%);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 45%, black, transparent 90%);
 }
 
 .hero-glow {
@@ -129,6 +130,139 @@
 
 .hero-glow-2 {
   background: #0d948855;
+}
+
+.hero-glow-drift {
+  animation: hero-drift 14s ease-in-out infinite alternate;
+}
+
+.hero-glow-drift-2 {
+  animation: hero-drift-2 18s ease-in-out infinite alternate;
+}
+
+@keyframes hero-drift {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(12%, 8%) scale(1.12);
+  }
+}
+
+@keyframes hero-drift-2 {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(-10%, -6%) scale(1.15);
+  }
+}
+
+.hero-name-ghost {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 800;
+  font-size: clamp(7rem, 28vw, 22rem);
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(166, 226, 46, 0.1);
+  opacity: 0.55;
+  user-select: none;
+  white-space: nowrap;
+  animation: hero-ghost 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes hero-ghost {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+  to {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+}
+
+.hero-kicker {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.hero-kicker::before {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 1px;
+  background: var(--lime);
+  opacity: 0.7;
+}
+
+.hero-name {
+  display: flex;
+  flex-direction: column;
+  gap: 0.02em;
+  max-width: 14ch;
+}
+
+.hero-name-line {
+  display: block;
+  font-size: clamp(3.6rem, 14vw, 9.5rem);
+  line-height: 0.9;
+}
+
+.hero-name-line-last {
+  color: color-mix(in oklab, var(--ink-fg) 78%, var(--lime) 22%);
+}
+
+.hero-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 1.75rem;
+  z-index: 10;
+  display: flex;
+  width: 1.5rem;
+  height: 2.75rem;
+  translate: -50% 0;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 0.45rem;
+  border: 1px solid rgba(238, 246, 244, 0.22);
+  border-radius: 999px;
+  opacity: 0;
+  animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+}
+
+.hero-scroll:hover {
+  border-color: rgba(166, 226, 46, 0.55);
+}
+
+.hero-scroll-line {
+  width: 2px;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: var(--lime);
+  animation: hero-scroll-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes hero-scroll-pulse {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
 }
 
 @keyframes rise {
@@ -150,7 +284,7 @@
 }
 
 .animate-rise-delay-1 {
-  animation-delay: 0.1s;
+  animation-delay: 0.12s;
 }
 .animate-rise-delay-2 {
   animation-delay: 0.2s;
