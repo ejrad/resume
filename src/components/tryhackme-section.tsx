@@ -59,9 +59,6 @@ export function TryHackMeSection({
             <h2 className="mt-3 font-[family-name:var(--font-display)] text-4xl tracking-tight sm:text-5xl">
               Live practice trail
             </h2>
-            <p className="mt-4 max-w-xl text-[var(--ink-muted)]">
-              Streak and every completed room — refreshed from TryHackMe on a schedule.
-            </p>
           </div>
           {thmUser ? (
             <a
@@ -87,7 +84,6 @@ export function TryHackMeSection({
             <p className="mt-4 font-[family-name:var(--font-display)] text-5xl tracking-tight sm:text-6xl">
               {streak}
             </p>
-            <p className="mt-3 text-[var(--ink-muted)]">Keep the chain unbroken.</p>
           </div>
           <div className="stat-panel">
             <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.22em] text-[var(--ink-muted)]">
@@ -154,12 +150,6 @@ export function TryHackMeSection({
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={src} alt="" className="room-tile-img" draggable={false} />
                       <span className="room-tile-glass" aria-hidden={!isOpen}>
-                        <span
-                          className="room-tile-veil"
-                          style={{ backgroundImage: `url(${src})` }}
-                          aria-hidden
-                        />
-                        <span className="room-tile-glass-fill" aria-hidden />
                         <span className="room-tile-title">{room.title}</span>
                       </span>
                     </a>

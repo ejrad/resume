@@ -35,9 +35,6 @@ export function ResumeDocument({
             <h2 className="mt-3 font-[family-name:var(--font-display)] text-4xl tracking-tight sm:text-5xl">
               Current resume
             </h2>
-            <p className="mt-3 max-w-xl text-[var(--paper-muted)]">
-              Inline PDF — select and highlight text, or download the file.
-            </p>
           </div>
           <a
             href={pdfPath}
