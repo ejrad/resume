@@ -263,24 +263,29 @@
 .room-tile-glass {
   position: absolute;
   inset: 0;
+  z-index: 2;
   display: flex;
   align-items: flex-end;
   padding: 0.65rem 0.7rem 0.75rem;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.08) 0%,
-    rgba(12, 38, 40, 0.35) 35%,
-    rgba(7, 24, 32, 0.62) 100%
-  );
-  backdrop-filter: blur(18px) saturate(1.45);
-  -webkit-backdrop-filter: blur(18px) saturate(1.45);
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  background:
+    linear-gradient(
+      165deg,
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(180, 220, 210, 0.16) 40%,
+      rgba(7, 24, 32, 0.42) 100%
+    );
+  backdrop-filter: blur(40px) saturate(1.6) brightness(1.08);
+  -webkit-backdrop-filter: blur(40px) saturate(1.6) brightness(1.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.16),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -20px 40px rgba(7, 24, 32, 0.25);
   transform: translateY(-105%);
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   pointer-events: none;
+  /* Keep backdrop sampling stable while animating */
+  will-change: transform;
+  isolation: isolate;
 }
 
 .room-tile:hover .room-tile-glass,
