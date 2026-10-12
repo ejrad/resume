@@ -56,9 +56,6 @@ export function TryHackMeSection({
             <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.24em] text-[var(--lime)]">
               TryHackMe
             </p>
-            <h2 className="mt-3 font-[family-name:var(--font-display)] text-4xl tracking-tight sm:text-5xl">
-              Live practice trail
-            </h2>
           </div>
           {thmUser ? (
             <a
