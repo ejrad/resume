@@ -14,9 +14,27 @@ export function TryHackMeSection({
   basePath?: string;
 }) {
   const [pulse, setPulse] = useState(false);
+  const [openCode, setOpenCode] = useState<string | null>(null);
+
   useEffect(() => {
     const id = window.setTimeout(() => setPulse(true), 200);
     return () => window.clearTimeout(id);
+  }, []);
+
+  // Kill sticky open after click → new tab → return (bfcache / focus restore)
+  useEffect(() => {
+    const clear = () => setOpenCode(null);
+    const onVis = () => {
+      if (document.visibilityState === "visible") clear();
+    };
+    window.addEventListener("pageshow", clear);
+    window.addEventListener("blur", clear);
+    document.addEventListener("visibilitychange", onVis);
+    return () => {
+      window.removeEventListener("pageshow", clear);
+      window.removeEventListener("blur", clear);
+      document.removeEventListener("visibilitychange", onVis);
+    };
   }, []);
 
   const thmUser =
@@ -109,27 +127,38 @@ export function TryHackMeSection({
           {rooms.length === 0 ? (
             <p className="mt-8 text-[var(--ink-muted)]">No rooms yet — complete one and the next sync will land here.</p>
           ) : (
-            <ul className="room-grid mt-8">
+            <ul
+              className="room-grid mt-8"
+              onPointerLeave={() => setOpenCode(null)}
+            >
               {rooms.map((room) => {
                 const src = roomImageSrc(room, basePath);
+                const isOpen = openCode === room.code;
                 return (
-                  <li key={room.code} className="room-tile">
+                  <li
+                    key={room.code}
+                    className={`room-tile${isOpen ? " is-open" : ""}`}
+                    onPointerEnter={() => setOpenCode(room.code)}
+                  >
                     <a
                       href={room.url}
                       target="_blank"
                       rel="noreferrer"
                       aria-label={room.title}
+                      onPointerDown={() => setOpenCode(null)}
                       onClick={(e) => {
-                        // Drop sticky focus so the glass doesn't stay up after returning
+                        setOpenCode(null);
                         (e.currentTarget as HTMLAnchorElement).blur();
                       }}
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={src} alt="" className="room-tile-img" />
-                      <span className="room-tile-glass">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={src} alt="" className="room-tile-frost" aria-hidden />
-                        <span className="room-tile-glass-fill" aria-hidden />
+                      <img src={src} alt="" className="room-tile-img" draggable={false} />
+                      <span
+                        className="room-tile-veil"
+                        style={{ backgroundImage: `url(${src})` }}
+                        aria-hidden
+                      />
+                      <span className="room-tile-glass" aria-hidden={!isOpen}>
                         <span className="room-tile-title">{room.title}</span>
                       </span>
                     </a>
