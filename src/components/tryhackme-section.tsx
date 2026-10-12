@@ -153,12 +153,13 @@ export function TryHackMeSection({
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={src} alt="" className="room-tile-img" draggable={false} />
-                      <span
-                        className="room-tile-veil"
-                        style={{ backgroundImage: `url(${src})` }}
-                        aria-hidden
-                      />
                       <span className="room-tile-glass" aria-hidden={!isOpen}>
+                        <span
+                          className="room-tile-veil"
+                          style={{ backgroundImage: `url(${src})` }}
+                          aria-hidden
+                        />
+                        <span className="room-tile-glass-fill" aria-hidden />
                         <span className="room-tile-title">{room.title}</span>
                       </span>
                     </a>
