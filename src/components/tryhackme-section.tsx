@@ -140,7 +140,9 @@ export function TryHackMeSection({
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={src} alt="" className="room-tile-img" draggable={false} />
-                    <span className="room-tile-caption">{room.title}</span>
+                    <span className="room-tile-glass" aria-hidden={!isOpen}>
+                      <span className="room-tile-title">{room.title}</span>
+                    </span>
                   </a>
                 </li>
               );
