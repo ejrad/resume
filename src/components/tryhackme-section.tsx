@@ -27,11 +27,6 @@ export function TryHackMeSection({
         ? `#${thm.stats.rank}`
         : String(thm.stats.rank);
 
-  const streakNum = Number.parseInt(String(streak), 10);
-  const progress = Number.isFinite(streakNum)
-    ? Math.min(100, Math.max(8, Math.round((streakNum / 30) * 100)))
-    : 40;
-
   return (
     <section id="tryhackme" className="aero-band aero-band-thm">
       <div className="aero-band-inner">
@@ -39,7 +34,6 @@ export function TryHackMeSection({
           <div>
             <p className="aero-eyebrow">Live trail</p>
             <h2>Practice</h2>
-            <p>TryHackMe streak, rank, and every completed room — synced from the clear web.</p>
           </div>
           {thmUser ? (
             <a
@@ -80,12 +74,6 @@ export function TryHackMeSection({
               </dl>
             </li>
           </ul>
-          <div className="aero-progress" aria-hidden="true">
-            <span style={{ width: `${progress}%` }} />
-          </div>
-          <p className="thm-meta" style={{ marginTop: 0 }}>
-            Streak charge toward a 30-day aqua full bar.
-          </p>
         </div>
 
         <div className="aero-glass">
