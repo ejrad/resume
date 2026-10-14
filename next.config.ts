@@ -1,22 +1,17 @@
 import type { NextConfig } from "next";
 
-const repoName = "resume";
 const isProd = process.env.NODE_ENV === "production";
+const basePath =
+  process.env.NEXT_BASE_PATH?.replace(/\/$/, "") ||
+  (isProd ? "/resume" : "");
 
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: isProd ? `/${repoName}` : "",
-  assetPrefix: isProd ? `/${repoName}/` : undefined,
+  basePath: basePath || undefined,
+  assetPrefix: basePath ? `${basePath}/` : undefined,
+  trailingSlash: true,
   images: { unoptimized: true },
   transpilePackages: ["react-pdf", "pdfjs-dist"],
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
-      },
-    },
-  },
 };
 
 export default nextConfig;
