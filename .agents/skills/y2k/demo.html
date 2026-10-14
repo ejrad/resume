@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>y2k</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --chrome:linear-gradient(180deg,#F8FAFC 0%,#DCE3EC 32%,#7E8898 50%,#E9EFF6 62%,#F8FAFC 100%);
+    --ink:#14181F; --paper:#F4F8FB; --ice:#A9D6F2; --electric:#2EA3F2;
+    --pink:#FF5CA8; --pink-deep:#E33F8F; --lime:#B8E62E; --orange:#FF9E2C;
+    --shell:#A9D6F2; --shell-deep:#2EA3F2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);
+    font-family:Nunito,system-ui,-apple-system,"Segoe UI",sans-serif;
+    overflow-x:hidden;cursor:crosshair}
+  .display{font-family:"Baloo 2","Fredoka",system-ui,sans-serif}
+  .mono{font-family:"Space Mono",ui-monospace,monospace}
+
+  /* twinkling background stars */
+  .bg-stars{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+  .bg-stars svg{position:absolute;fill:#fff;stroke:var(--electric);stroke-width:.8;opacity:.7;
+    animation:twinkle 3s ease-in-out infinite}
+  @keyframes twinkle{0%,100%{transform:scale(.7) rotate(0deg);opacity:.35}
+    50%{transform:scale(1.1) rotate(15deg);opacity:.85}}
+
+  /* chrome nav */
+  .chrome-nav{position:relative;z-index:2;background:var(--chrome);
+    border-bottom:3px solid var(--ink)}
+  .chrome-nav .inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;
+    gap:22px;padding:12px 22px}
+  .logo{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);
+    font-family:"Baloo 2",system-ui,sans-serif;font-weight:800;font-size:22px;letter-spacing:.04em}
+  .logo .dot{width:20px;height:20px;border-radius:50%;border:2px solid var(--ink);
+    background:radial-gradient(circle at 35% 30%,#fff,#A9D6F2 60%,#2EA3F2)}
+  .nav-links{margin-left:auto;display:flex;gap:4px}
+  .nav-links a{text-decoration:none;color:var(--ink);font-weight:800;font-size:14px;
+    letter-spacing:.12em;text-transform:uppercase;padding:10px 16px;border-radius:999px}
+  .nav-links a:hover{background:#fff;box-shadow:inset 0 0 0 2px var(--ink)}
+  .nav-cart{background:var(--lime);border:2px solid var(--ink);border-radius:999px;
+    font-weight:800;font-size:14px;padding:10px 20px;box-shadow:3px 3px 0 var(--ink);
+    text-transform:uppercase;letter-spacing:.08em;cursor:pointer}
+  @media(max-width:640px){.nav-links{display:none}}
+
+  /* ticker */
+  .ticker{overflow:hidden;background:var(--ink);padding:9px 0;border-bottom:3px solid var(--ink);
+    position:relative;z-index:2}
+  .ticker-in{display:inline-flex;white-space:nowrap;animation:tick 22s linear infinite}
+  .ticker span{font-family:"Baloo 2",system-ui,sans-serif;font-weight:800;font-size:14px;
+    letter-spacing:.16em;color:#F4F8FB}
+  @keyframes tick{to{transform:translateX(-50%)}}
+
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px;position:relative;z-index:1}
+
+  /* hero: asymmetric, left copy / right product */
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;
+    padding:64px 0 48px}
+  @media(max-width:900px){.hero{grid-template-columns:1fr;padding:44px 0 36px}}
+  .kicker{display:inline-flex;align-items:center;gap:10px;background:#fff;border:2px solid var(--ink);
+    border-radius:999px;padding:8px 18px 8px 10px;font-weight:800;font-size:12px;
+    letter-spacing:.2em;text-transform:uppercase;box-shadow:3px 3px 0 var(--ink);margin-bottom:22px}
+  .kicker .pulse{width:14px;height:14px;border-radius:50%;background:var(--pink);
+    box-shadow:0 0 0 3px rgba(255,92,168,.25);animation:pulse 1.6s ease-in-out infinite}
+  @keyframes pulse{50%{transform:scale(1.35)}}
+  .hero h1{font-size:clamp(52px,8.5vw,104px);line-height:.98;font-weight:800;letter-spacing:.01em;
+    background:linear-gradient(180deg,#F8FAFC 0%,#DCE3EC 30%,#7E8898 50%,#E9EFF6 62%,#F8FAFC 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    -webkit-text-stroke:1.5px var(--ink);
+    filter:drop-shadow(0 3px 0 rgba(20,24,31,.16)) drop-shadow(0 12px 20px rgba(46,163,242,.28));
+    margin-bottom:18px}
+  .hero h1 .pink{-webkit-text-stroke:0;color:transparent;
+    background:linear-gradient(180deg,#FF8FC0,#FF5CA8 55%,#C22B74);
+    -webkit-background-clip:text;background-clip:text}
+  .lede{font-size:19px;font-weight:600;max-width:46ch;margin-bottom:26px}
+  .lede b{background:linear-gradient(transparent 55%,var(--lime) 55%)}
+  .cta-row{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:30px}
+
+  /* gloss buttons */
+  .btn{position:relative;display:inline-flex;align-items:center;gap:10px;
+    font-family:"Baloo 2",system-ui,sans-serif;font-weight:800;font-size:17px;
+    letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:#fff;
+    padding:16px 34px;border-radius:999px;border:2px solid var(--ink);
+    background:linear-gradient(180deg,#FF7AB8,#FF5CA8 55%,#E33F8F);
+    box-shadow:0 5px 0 var(--ink),0 14px 26px rgba(255,92,168,.35);
+    transition:transform .08s ease,box-shadow .08s ease}
+  .btn::before{content:"";position:absolute;inset:2px 2px 52% 2px;border-radius:999px;
+    background:linear-gradient(180deg,rgba(255,255,255,.8),rgba(255,255,255,0));pointer-events:none}
+  .btn:hover{filter:brightness(1.06)}
+  .btn:active{transform:translateY(5px);box-shadow:0 0 0 var(--ink)}
+  .btn.blue{background:linear-gradient(180deg,#6CC2F7,#2EA3F2 55%,#1B7FC4);
+    box-shadow:0 5px 0 var(--ink),0 14px 26px rgba(46,163,242,.35)}
+
+  /* implied tech: loading bar */
+  .load{max-width:400px}
+  .load-label{display:block;font-family:"Space Mono",monospace;font-weight:700;
+    font-size:11px;letter-spacing:.24em;margin-bottom:8px}
+  .load-track{height:24px;border-radius:999px;border:2px solid var(--ink);
+    background:#fff;padding:3px;box-shadow:inset 0 2px 5px rgba(20,24,31,.18)}
+  .load-track i{display:block;height:100%;width:0;border-radius:999px;
+    background:linear-gradient(180deg,#F8FAFC,#C0C8D4 45%,#8A93A3 55%,#E6ECF3);
+    box-shadow:inset 0 2px 0 rgba(255,255,255,.85);transition:width .8s cubic-bezier(.34,1.3,.64,1)}
+  .load-meta{display:flex;justify-content:space-between;font-family:"Space Mono",monospace;
+    font-size:11px;margin-top:6px;color:#4a5261}
+
+  /* CSS-drawn gadget */
+  .stage{position:relative;display:flex;justify-content:center;padding:20px 0}
+  .orbit{position:absolute;inset:6% -4%;border:2px dashed rgba(46,163,242,.5);
+    border-radius:50%;transform:rotate(-8deg);pointer-events:none}
+  .orbit.o2{inset:16% 6%;transform:rotate(6deg);border-color:rgba(255,92,168,.45)}
+  .player{position:relative;width:min(300px,72vw);aspect-ratio:9/14.5;border-radius:38px;
+    border:3px solid var(--ink);
+    background:linear-gradient(160deg,rgba(255,255,255,.75),var(--shell) 38%,var(--shell-deep) 78%);
+    box-shadow:10px 14px 0 rgba(20,24,31,.9),0 26px 50px rgba(46,163,242,.35);
+    transition:background .5s ease}
+  .player::before{content:"";position:absolute;inset:8px;border-radius:30px;
+    background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,0) 46%);
+    pointer-events:none}
+  .screen{position:absolute;top:9%;left:12%;right:12%;height:26%;border-radius:14px;
+    border:3px solid var(--ink);background:#0E141B;overflow:hidden;
+    display:flex;flex-direction:column;justify-content:center;gap:6px;padding:10px 14px}
+  .screen .t{font-family:"Space Mono",monospace;color:#7CF29B;font-size:11px;letter-spacing:.08em}
+  .screen .eq{display:flex;align-items:flex-end;gap:4px;height:26px}
+  .screen .eq i{flex:1;background:#7CF29B;border-radius:2px;animation:eq 1s ease-in-out infinite}
+  .screen .eq i:nth-child(2){animation-delay:.15s}.screen .eq i:nth-child(3){animation-delay:.3s}
+  .screen .eq i:nth-child(4){animation-delay:.45s}.screen .eq i:nth-child(5){animation-delay:.6s}
+  @keyframes eq{0%,100%{height:30%}50%{height:100%}}
+  .wheel{position:absolute;bottom:10%;left:50%;transform:translateX(-50%);
+    width:52%;aspect-ratio:1;border-radius:50%;border:3px solid var(--ink);
+    background:var(--chrome);display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 14px rgba(20,24,31,.25)}
+  .wheel::after{content:"";width:34%;aspect-ratio:1;border-radius:50%;
+    background:linear-gradient(180deg,#fff,#C9D3DE);border:3px solid var(--ink)}
+  .player .brand{position:absolute;bottom:3.5%;width:100%;text-align:center;
+    font-family:"Baloo 2",system-ui,sans-serif;font-weight:800;font-size:13px;letter-spacing:.28em}
+  .sticker{position:absolute;font-family:"Baloo 2",system-ui,sans-serif;font-weight:800;
+    text-transform:uppercase;letter-spacing:.1em;font-size:14px;padding:12px 18px;
+    border:2px solid var(--ink);border-radius:999px;box-shadow:4px 4px 0 var(--ink);z-index:3}
+  .sticker.s1{top:2%;right:-6%;background:var(--lime);transform:rotate(8deg)}
+  .sticker.s2{bottom:24%;left:-10%;background:#fff;transform:rotate(-7deg)}
+  .sticker.s3{top:44%;right:-12%;background:var(--orange);transform:rotate(5deg);font-size:12px}
+  .burst{position:absolute;top:-4%;left:-8%;width:104px;height:104px;z-index:3;
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    background:var(--pink);color:#fff;font-family:"Baloo 2",system-ui,sans-serif;
+    font-weight:800;font-size:13px;line-height:1.2;text-transform:uppercase;
+    clip-path:polygon(50% 0%,61% 12%,76% 6%,79% 21%,95% 21%,90% 36%,105% 43%,95% 55%,105% 68%,89% 71%,90% 87%,74% 83%,67% 97%,56% 86%,42% 95%,39% 80%,23% 82%,26% 67%,11% 61%,20% 50%,10% 40%,25% 36%,26% 20%,41% 25%);
+    filter:drop-shadow(3px 3px 0 var(--ink));transform:rotate(-10deg);animation:spin 14s linear infinite}
+  @keyframes spin{to{transform:rotate(350deg)}}
+  .stage .spark{position:absolute;z-index:3;animation:twinkle 2.4s ease-in-out infinite}
+
+  /* sparkle divider */
+  .spark-div{display:flex;align-items:center;justify-content:center;gap:18px;margin:54px 0}
+  .spark-div::before,.spark-div::after{content:"";height:3px;flex:1;max-width:300px;
+    border-radius:3px;border:1px solid #8A93A3;
+    background:linear-gradient(90deg,#F8FAFC,#C0C8D4,#F8FAFC)}
+  .spark-div svg{width:26px;height:26px;fill:var(--electric);stroke:var(--ink);stroke-width:1}
+  .spark-div svg.big{width:40px;height:40px;fill:var(--pink)}
+
+  /* shell picker section */
+  .picker{background:#fff;border:3px solid var(--ink);border-radius:28px;
+    box-shadow:8px 8px 0 var(--ink);padding:40px;margin-bottom:8px;position:relative;overflow:hidden}
+  .picker::before{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,255,255,0) 40%);pointer-events:none}
+  .picker h2{font-size:clamp(32px,5vw,52px);font-weight:800;margin-bottom:8px;position:relative}
+  .picker p.sub{font-weight:600;max-width:60ch;margin-bottom:24px;position:relative}
+  .tabs{display:inline-flex;gap:8px;background:var(--paper);border:2px solid var(--ink);
+    border-radius:999px;padding:6px;box-shadow:4px 4px 0 var(--ink);position:relative;
+    flex-wrap:wrap;margin-bottom:22px}
+  .tabs button{border:0;background:transparent;cursor:pointer;border-radius:999px;
+    font-family:"Baloo 2",system-ui,sans-serif;font-weight:800;font-size:14px;
+    letter-spacing:.08em;text-transform:uppercase;padding:12px 24px;color:var(--ink)}
+  .tabs button.on{background:var(--chrome);box-shadow:inset 0 0 0 2px var(--ink)}
+  .readout{position:relative;font-family:"Space Mono",monospace;font-size:13px;
+    background:#0E141B;color:#7CF29B;border-radius:14px;padding:16px 20px;max-width:520px;
+    border:2px solid var(--ink)}
+  .readout .ok{color:var(--lime)}
+
+  /* spec strip: horizontal console panels instead of 3 cards */
+  .specs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:54px 0}
+  @media(max-width:900px){.specs{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.specs{grid-template-columns:1fr}}
+  .spec{position:relative;background:linear-gradient(180deg,#fff,#EAF2FA);
+    border:2px solid var(--ink);border-radius:20px;padding:22px 20px;overflow:hidden;
+    box-shadow:4px 4px 0 var(--ink)}
+  .spec::before{content:"";position:absolute;left:8px;right:8px;top:4px;height:40%;
+    border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,.75),rgba(255,255,255,0))}
+  .spec .num{font-family:"Baloo 2",system-ui,sans-serif;font-weight:800;font-size:34px;
+    background:linear-gradient(180deg,#F8FAFC,#8A93A3 60%,#E9EFF6);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    -webkit-text-stroke:1px var(--ink);position:relative}
+  .spec .lab{font-weight:800;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--electric);margin:6px 0 8px;position:relative}
+  .spec p{font-size:14px;font-weight:600;position:relative}
+
+  /* price row */
+  .buyrow{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;margin:20px 0 70px}
+  @media(max-width:800px){.buyrow{grid-template-columns:1fr}}
+  .buyrow h2{font-size:clamp(34px,5vw,54px);font-weight:800;line-height:1.05;margin-bottom:12px}
+  .buyrow p{font-weight:600;max-width:44ch;margin-bottom:22px}
+  .price-tag{display:inline-block;background:#fff;border:3px solid var(--ink);
+    border-radius:22px;padding:22px 34px;box-shadow:7px 7px 0 var(--ink);
+    transform:rotate(-4deg);text-align:center;position:relative}
+  .price-tag s{font-weight:700;color:#8A93A3;font-size:18px}
+  .price-tag b{display:block;font-family:"Baloo 2",system-ui,sans-serif;font-weight:800;
+    font-size:56px;line-height:1;
+    background:linear-gradient(180deg,#FF8FC0,#E33F8F);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .price-tag span{font-weight:800;font-size:11px;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--electric)}
+  .price-wrap{display:flex;flex-direction:column;align-items:center;gap:24px}
+
+  footer{border-top:3px solid var(--ink);background:var(--chrome);position:relative;z-index:2}
+  footer .inner{max-width:1160px;margin:0 auto;padding:22px;display:flex;flex-wrap:wrap;
+    gap:12px;align-items:center;justify-content:space-between;
+    font-weight:700;font-size:13px}
+  footer .built{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.06em}
+
+  /* cursor trail stars */
+  .trail{position:fixed;width:18px;height:18px;pointer-events:none;z-index:9999;
+    animation:trailfade .7s ease-out forwards}
+  @keyframes trailfade{0%{transform:scale(.4) rotate(0deg);opacity:1}
+    100%{transform:scale(1.3) rotate(90deg);opacity:0}}
+</style>
+</head>
+<body>
+
+<div class="bg-stars" id="bgStars" aria-hidden="true"></div>
+
+<nav class="chrome-nav">
+  <div class="inner">
+    <a class="logo" href="#"><span class="dot"></span>AEROLITE</a>
+    <div class="nav-links">
+      <a href="#player">Player</a>
+      <a href="#shells">Shells</a>
+      <a href="#specs">Specs</a>
+      <a href="#buy">Buy</a>
+    </div>
+    <button class="nav-cart" onclick="document.getElementById('buy').scrollIntoView({behavior:'smooth'})">Cart · 0</button>
+  </div>
+</nav>
+
+<div class="ticker" aria-hidden="true"><div class="ticker-in" id="ticker"></div></div>
+
+<main class="wrap">
+
+  <section class="hero" id="player">
+    <div>
+      <span class="kicker"><span class="pulse"></span>Now shipping · Spring 2002</span>
+      <h1>THE FUTURE <span class="pink">FITS</span> IN YOUR POCKET</h1>
+      <p class="lede">Meet the <b>Aerolite X1</b> — the first MP3 player with a
+        fully translucent chrome shell. <b>256 MB</b> of music, a screen that
+        glows like a dashboard, and a skip protection system the future itself
+        would envy.</p>
+      <div class="cta-row">
+        <a class="btn" href="#buy">Get the X1</a>
+        <a class="btn blue" href="#specs">See the specs</a>
+      </div>
+      <div class="load">
+        <span class="load-label">LOADING FUTURE…</span>
+        <div class="load-track"><i id="loadBar"></i></div>
+        <div class="load-meta"><span id="loadPct">0%</span><span>est. time: NOW</span></div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="orbit"></div><div class="orbit o2"></div>
+      <div class="burst">2×<br>the<br>shine</div>
+      <svg class="spark" style="top:6%;right:8%" width="30" height="30" viewBox="0 0 24 24" fill="#2EA3F2" stroke="#14181F"><path d="M12 0c.7 6.3 5 10.6 12 12-7 1.4-11.3 5.7-12 12-.7-6.3-5-10.6-12-12C7 10.6 11.3 6.3 12 0Z"/></svg>
+      <svg class="spark" style="bottom:10%;left:2%;animation-delay:1.2s" width="22" height="22" viewBox="0 0 24 24" fill="#FF5CA8" stroke="#14181F"><path d="M12 0c.7 6.3 5 10.6 12 12-7 1.4-11.3 5.7-12 12-.7-6.3-5-10.6-12-12C7 10.6 11.3 6.3 12 0Z"/></svg>
+      <div class="player" id="playerBody">
+        <div class="screen">
+          <div class="t">♪ NOW PLAYING</div>
+          <div class="t" id="trackName">future_anthem.mp3</div>
+          <div class="eq"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="wheel"></div>
+        <div class="brand">AEROLITE</div>
+      </div>
+      <span class="sticker s1">New!</span>
+      <span class="sticker s2">256 MB</span>
+      <span class="sticker s3">No skips!</span>
+    </div>
+  </section>
+
+  <div class="spark-div" aria-hidden="true">
+    <svg viewBox="0 0 24 24"><path d="M12 0c.7 6.3 5 10.6 12 12-7 1.4-11.3 5.7-12 12-.7-6.3-5-10.6-12-12C7 10.6 11.3 6.3 12 0Z"/></svg>
+    <svg class="big" viewBox="0 0 24 24"><path d="M12 0c.7 6.3 5 10.6 12 12-7 1.4-11.3 5.7-12 12-.7-6.3-5-10.6-12-12C7 10.6 11.3 6.3 12 0Z"/></svg>
+    <svg viewBox="0 0 24 24"><path d="M12 0c.7 6.3 5 10.6 12 12-7 1.4-11.3 5.7-12 12-.7-6.3-5-10.6-12-12C7 10.6 11.3 6.3 12 0Z"/></svg>
+  </div>
+
+  <section class="picker" id="shells">
+    <h2 class="display">Pick your shell</h2>
+    <p class="sub">Every Aerolite X1 ships in translucent candy plastic with a
+      liquid-chrome core. Tap a flavor — the player above updates live, straight
+      from the future.</p>
+    <div class="tabs" role="tablist" aria-label="Shell colors">
+      <button class="on" role="tab" aria-selected="true" data-shell="#A9D6F2" data-deep="#2EA3F2" data-name="ICE BLUE">Ice Blue</button>
+      <button role="tab" aria-selected="false" data-shell="#FFB3D4" data-deep="#FF5CA8" data-name="BUBBLEGUM">Bubblegum</button>
+      <button role="tab" aria-selected="false" data-shell="#D3F06A" data-deep="#8FBF1F" data-name="LIME POP">Lime Pop</button>
+      <button role="tab" aria-selected="false" data-shell="#FFC98A" data-deep="#FF9E2C" data-name="TANGERINE">Tangerine</button>
+    </div>
+    <div class="readout" aria-live="polite">
+      &gt; shell = <span class="ok" id="shellName">ICE BLUE</span><br>
+      &gt; finish = translucent · chrome-core<br>
+      &gt; status = <span class="ok">SHINY ✓</span>
+    </div>
+  </section>
+
+  <section class="specs" id="specs" aria-label="Specifications">
+    <div class="spec">
+      <div class="num">256<span style="font-size:18px">MB</span></div>
+      <div class="lab">Memory</div>
+      <p>Holds around 4,000 minutes of music. Your whole CD shelf, in your jeans pocket.</p>
+    </div>
+    <div class="spec">
+      <div class="num">20<span style="font-size:18px">HRS</span></div>
+      <div class="lab">Battery</div>
+      <p>One AA battery. Twenty hours of playback. The future sips power, it doesn't gulp it.</p>
+    </div>
+    <div class="spec">
+      <div class="num">0</div>
+      <div class="lab">Skips</div>
+      <p>Anti-skip memory buffer eats bumps for breakfast. Jog, skate, dance — it keeps playing.</p>
+    </div>
+    <div class="spec">
+      <div class="num">USB</div>
+      <div class="lab">Plug &amp; Play</div>
+      <p>Drag, drop, done. Loads a full album in under a minute on any modern computer.</p>
+    </div>
+  </section>
+
+  <div class="spark-div" aria-hidden="true">
+    <svg viewBox="0 0 24 24"><path d="M12 0c.7 6.3 5 10.6 12 12-7 1.4-11.3 5.7-12 12-.7-6.3-5-10.6-12-12C7 10.6 11.3 6.3 12 0Z"/></svg>
+    <svg class="big" viewBox="0 0 24 24"><path d="M12 0c.7 6.3 5 10.6 12 12-7 1.4-11.3 5.7-12 12-.7-6.3-5-10.6-12-12C7 10.6 11.3 6.3 12 0Z"/></svg>
+    <svg viewBox="0 0 24 24"><path d="M12 0c.7 6.3 5 10.6 12 12-7 1.4-11.3 5.7-12 12-.7-6.3-5-10.6-12-12C7 10.6 11.3 6.3 12 0Z"/></svg>
+  </div>
+
+  <section class="buyrow" id="buy">
+    <div>
+      <h2 class="display">Download the future.<br>It's on sale this weekend only.</h2>
+      <p>Every X1 comes with chrome earbuds, a belt clip, and a sticker sheet —
+        because a gadget this shiny deserves decoration. Free shipping anywhere
+        on Earth. (Mars shipping: coming in 2003.)</p>
+      <a class="btn" href="#" onclick="return buyNow(event)">Add to cart — $249</a>
+    </div>
+    <div class="price-wrap">
+      <div class="price-tag"><s>$399</s><b>$249</b><span>launch price</span></div>
+      <div class="readout" style="max-width:100%" aria-live="polite">
+        &gt; <span id="cartMsg">cart = empty …for now</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="inner">
+    <span class="display" style="font-weight:800;letter-spacing:.06em">© 2002 AEROLITE INDUSTRIES · SHINING SINCE THE MILLENNIUM</span>
+    <span class="built">Built from the y2k skill · design-skills</span>
+  </div>
+</footer>
+
+<script>
+  // ticker content (doubled for seamless loop)
+  var msg = "✦ 256 MB OF FUTURE ✦ TRANSLUCENT SHELL ✦ SKIPS NEVER ✦ SHINES ALWAYS ✦ ";
+  document.getElementById("ticker").innerHTML =
+    "<span>" + msg + "</span><span aria-hidden='true'>" + msg + "</span>";
+
+  // background twinkling stars
+  (function(){
+    var box = document.getElementById("bgStars");
+    var path = "M12 0c.7 6.3 5 10.6 12 12-7 1.4-11.3 5.7-12 12-.7-6.3-5-10.6-12-12C7 10.6 11.3 6.3 12 0Z";
+    for (var i = 0; i < 26; i++) {
+      var s = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      s.setAttribute("viewBox", "0 0 24 24");
+      var size = 10 + Math.random() * 22;
+      s.style.width = s.style.height = size + "px";
+      s.style.left = Math.random() * 100 + "%";
+      s.style.top = Math.random() * 100 + "%";
+      s.style.animationDelay = (Math.random() * 3).toFixed(2) + "s";
+      var p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      p.setAttribute("d", path);
+      s.appendChild(p);
+      box.appendChild(s);
+    }
+  })();
+
+  // loading bar fills on scroll into view
+  (function(){
+    var bar = document.getElementById("loadBar"),
+        pct = document.getElementById("loadPct"), done = false;
+    function fill(){
+      if (done) return; done = true;
+      var v = 0, t = setInterval(function(){
+        v = Math.min(100, v + 4 + Math.random() * 9);
+        bar.style.width = v + "%";
+        pct.textContent = Math.floor(v) + "%";
+        if (v >= 100) { clearInterval(t); pct.textContent = "100% · FUTURE READY"; }
+      }, 90);
+    }
+    var io = new IntersectionObserver(function(e){ if (e[0].isIntersecting) fill(); });
+    io.observe(bar);
+  })();
+
+  // shell picker tabs -> live player recolor
+  (function(){
+    var tabs = document.querySelectorAll(".tabs button"),
+        name = document.getElementById("shellName"),
+        track = document.getElementById("trackName"),
+        songs = {
+          "ICE BLUE": "future_anthem.mp3",
+          "BUBBLEGUM": "bubblegum_bass.mp3",
+          "LIME POP": "neon_lime_mix.mp3",
+          "TANGERINE": "tangerine_dream.mp3"
+        };
+    tabs.forEach(function(b){
+      b.addEventListener("click", function(){
+        tabs.forEach(function(x){ x.classList.remove("on"); x.setAttribute("aria-selected","false"); });
+        b.classList.add("on"); b.setAttribute("aria-selected","true");
+        var r = document.documentElement.style;
+        r.setProperty("--shell", b.dataset.shell);
+        r.setProperty("--shell-deep", b.dataset.deep);
+        name.textContent = b.dataset.name;
+        track.textContent = songs[b.dataset.name] || "future_anthem.mp3";
+      });
+    });
+  })();
+
+  // buy button
+  var cart = 0;
+  function buyNow(e){
+    e.preventDefault(); cart++;
+    document.querySelector(".nav-cart").textContent = "Cart · " + cart;
+    document.getElementById("cartMsg").innerHTML =
+      "cart = <span class='ok'>" + cart + " × AEROLITE X1</span> · total = $" + (cart * 249) +
+      " · <span class='ok'>EXCELLENT CHOICE ✓</span>";
+    return false;
+  }
+
+  // sparkle cursor trail (throttled)
+  (function(){
+    var last = 0;
+    var colors = ["#FF5CA8", "#2EA3F2", "#B8E62E", "#FF9E2C"];
+    var path = "M12 0c.7 6.3 5 10.6 12 12-7 1.4-11.3 5.7-12 12-.7-6.3-5-10.6-12-12C7 10.6 11.3 6.3 12 0Z";
+    document.addEventListener("mousemove", function(e){
+      var now = performance.now();
+      if (now - last < 70) return; last = now;
+      var s = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      s.setAttribute("viewBox", "0 0 24 24");
+      s.setAttribute("class", "trail");
+      s.style.left = (e.clientX - 9) + "px";
+      s.style.top = (e.clientY - 9) + "px";
+      var p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      p.setAttribute("d", path);
+      p.setAttribute("fill", colors[Math.floor(Math.random() * colors.length)]);
+      p.setAttribute("stroke", "#14181F");
+      s.appendChild(p);
+      document.body.appendChild(s);
+      setTimeout(function(){ s.remove(); }, 750);
+    });
+  })();
+</script>
+</body>
+</html>

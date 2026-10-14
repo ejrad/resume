@@ -7,17 +7,47 @@
       "skillPath": "skills/3d-web-experience/SKILL.md",
       "computedHash": "e242f3d6f2d8a59e65a0c4b61d9a0a34c302e6229d72b8fe8d8df7c905c8287e"
     },
+    "app-ios6-skeuomorphic": {
+      "source": "wcc723/claude-skill-design-gallery",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/app-ios6-skeuomorphic/SKILL.md",
+      "computedHash": "40fbb316a3010ee4518d2fe406635289438264b8cc2e0952652bb661e9fbc679"
+    },
+    "app-y2k": {
+      "source": "wcc723/claude-skill-design-gallery",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/app-y2k/SKILL.md",
+      "computedHash": "19a94d1fe6cb7712e7dec9ee73377aadf0161cb95f0bc8d20c644714256c8157"
+    },
+    "apple-soft-skeuomorphism": {
+      "source": "immadolf/skills",
+      "sourceType": "github",
+      "skillPath": "skills/apple-soft-skeuomorphism/SKILL.md",
+      "computedHash": "210999af415e665d7a00f98d662d05abf056efaa03661010d61ab228c5c7dd0b"
+    },
     "audit-ai-design-slop": {
       "source": "mengto/skills",
       "sourceType": "github",
       "skillPath": "agent-skills/ui/audit-ai-design-slop/SKILL.md",
       "computedHash": "9e029607aaae049e80135af43be248d0b60394b6e2ca85426e6878765613029c"
     },
+    "cyber-y2k": {
+      "source": "sickn33/agentic-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/agentic-awesome-skills/skills/design-it/cyber-y2k/SKILL.md",
+      "computedHash": "ed9709de074fd3741a6d245f76351a4c77640986906daaba6422b403f5ac2068"
+    },
     "design-taste-frontend": {
       "source": "leonxlnx/taste-skill",
       "sourceType": "github",
       "skillPath": "skills/taste-skill/SKILL.md",
       "computedHash": "18f81679d2b0247ce9da298b03ed8e47ecd3c206f2951d70eefb1b65d3219345"
+    },
+    "design-y2k": {
+      "source": "wcc723/claude-skill-design-gallery",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/design-y2k/SKILL.md",
+      "computedHash": "06ca12ea5e2aed36bbb9c675fadb706abe26ac1545e5c9c4cbca102df4c4f43c"
     },
     "find-skills": {
       "source": "vercel-labs/skills",
@@ -30,6 +60,30 @@
       "sourceType": "github",
       "skillPath": "skills/frontend-design/SKILL.md",
       "computedHash": "89496d5dd00f4810205f351759594fc2742bf8eea85a2f2b2d1de59f4bd91576"
+    },
+    "frontend-design-2010s": {
+      "source": "mikemai2awesome/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design-2010s/SKILL.md",
+      "computedHash": "c0dbd58f5fda0d906103c85bf8985bb4a8434d4550de999a71fc07662da6ae9b"
+    },
+    "frutiger-aero": {
+      "source": "sickn33/agentic-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/agentic-awesome-skills/skills/design-it/frutiger-aero/SKILL.md",
+      "computedHash": "d30dd4d72917f47b2e84011d4274b38582165b0222231ac8652fa452cfa7ba6c"
+    },
+    "frutiger-aero-gabri": {
+      "source": "the-gabri/design-skills",
+      "sourceType": "github",
+      "skillPath": "skills/frutiger-aero/SKILL.md",
+      "computedHash": "511d064ce3111ee201c78203d5b761ae29870eb68c9807c1d42664bf727643d0"
+    },
+    "frutiger-aero-style": {
+      "source": "arjun988/blender-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/frutiger-aero-style/SKILL.md",
+      "computedHash": "ee4bfdd458ad21dfaeb3684d4bbe0fb4b02fd6fc660a75906c6c70c3d563f66c"
     },
     "impeccable": {
       "source": "pbakaus/impeccable",
@@ -49,6 +103,12 @@
       "skillPath": ".claude/skills/react-three-fiber/SKILL.md",
       "computedHash": "d672dfba48620140185d451bc9b6841833eed4306277776efab2e2a82c7b8fbf"
     },
+    "skeuomorphism": {
+      "source": "sickn33/agentic-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/agentic-awesome-skills/skills/design-it/skeuomorphism/SKILL.md",
+      "computedHash": "f4d0519d50552b73af42cddb5b661e472ab6dcd6b43a1eab788add9861589d94"
+    },
     "vercel-react-best-practices": {
       "source": "vercel-labs/agent-skills",
       "sourceType": "github",
@@ -66,6 +126,18 @@
       "sourceType": "github",
       "skillPath": ".claude/skills/web3d-integration-patterns/SKILL.md",
       "computedHash": "e411bbc6e7f7f928b6fd2f209530446cf74dfa1ff9cfd6adb17ba37317d89e9a"
+    },
+    "y2k": {
+      "source": "the-gabri/design-skills",
+      "sourceType": "github",
+      "skillPath": "skills/y2k/SKILL.md",
+      "computedHash": "9d16a4e527fc83bf0ee49fe584e4f6427df99c09980aebd3daf6f9067f2941c9"
+    },
+    "y2k-design": {
+      "source": "sickn33/agentic-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/agentic-awesome-skills/skills/design-it/y2k-design/SKILL.md",
+      "computedHash": "04233eb42d4c5e26a7a1f841f7ef6e01d3effa653c93b59ad4f85337ba686fde"
     }
   }
 }
