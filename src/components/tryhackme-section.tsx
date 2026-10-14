@@ -1,4 +1,4 @@
-import { roomImageSrc } from "@/lib/data";
+import { RoomGrid } from "@/components/room-grid";
 import type { Profile, ThmData } from "@/lib/types";
 
 export function TryHackMeSection({
@@ -85,21 +85,7 @@ export function TryHackMeSection({
             <span className="sparkle" aria-hidden="true" />
           </div>
 
-          {rooms.length === 0 ? (
-            <p className="muted">No rooms yet — the next sync will land here.</p>
-          ) : (
-            <ul className="room-list">
-              {rooms.map((room) => (
-                <li key={room.code}>
-                  <a href={room.url} target="_blank" rel="noreferrer">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={roomImageSrc(room, basePath)} alt="" draggable={false} />
-                    <span>{room.title}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          )}
+          <RoomGrid rooms={rooms} basePath={basePath} />
 
           <p className="thm-meta">
             {thm.live ? "Live sync" : "Cached data"}

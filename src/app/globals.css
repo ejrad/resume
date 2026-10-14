@@ -40,7 +40,7 @@ body {
   line-height: 1.6;
   background:
     linear-gradient(180deg, rgba(190, 230, 251, 0.55), rgba(217, 243, 228, 0.65)),
-    var(--bg-sky, none) center top / cover no-repeat fixed;
+    var(--bg-sky, none) center top / cover no-repeat scroll;
   background-color: #bee6fb;
 }
 
@@ -764,7 +764,16 @@ a:hover {
   color: var(--aero-ink-soft);
 }
 
-@media (max-width: 640px) {
+.pdf-opt-in {
+  padding: 0.5rem 0 0.25rem;
+}
+
+button.aero-btn {
+  font: inherit;
+  cursor: pointer;
+}
+
+@media (max-width: 720px) {
   .aero-hero {
     min-height: 85vh;
     justify-content: flex-end;
@@ -784,6 +793,31 @@ a:hover {
 
   .aero-window {
     animation: none;
+  }
+
+  /* backdrop-filter + fixed layers crash many mobile Safari tabs */
+  .aero-bubbles {
+    display: none;
+  }
+
+  .aero-nav-links,
+  .aero-hero-card,
+  .aero-titlebar,
+  .aero-glass,
+  .aero-footer-card {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .aero-hero-card,
+  .aero-glass {
+    background: rgba(255, 255, 255, 0.92);
+  }
+
+  .aero-band-resume,
+  .aero-band-thm,
+  .aero-band-footer {
+    background-attachment: scroll;
   }
 }
 
