@@ -15,26 +15,28 @@ export function Hero({
 
   return (
     <header className="hero">
-      <nav className="hero-nav" aria-label="Sections">
-        <a href="#resume">Resume</a>
-        <a href="#tryhackme">Practice</a>
-        <a href={`mailto:${profile.email}`}>Email</a>
-      </nav>
+      <div className="hero-panel hero-panel-ink">
+        <nav className="hero-nav" aria-label="Sections">
+          <a href="#resume">Resume</a>
+          <a href="#tryhackme">Practice</a>
+          <a href={`mailto:${profile.email}`}>Email</a>
+        </nav>
 
-      <div className="hero-main">
-        <h1 className="hero-name">
-          <span className="hero-name-line">
-            <span>{first}</span>
-          </span>
-          {last ? (
+        <div className="hero-main">
+          <h1 className="hero-name">
             <span className="hero-name-line">
-              <span>{last}</span>
+              <span>{first}</span>
             </span>
-          ) : null}
-        </h1>
+            {last ? (
+              <span className="hero-name-line">
+                <span>{last}</span>
+              </span>
+            ) : null}
+          </h1>
+        </div>
       </div>
 
-      <div className="hero-bar">
+      <div className="hero-panel hero-panel-accent">
         <p className="hero-support">Computer Science at James Madison University.</p>
         <a className="hero-action" href={pdfPath} download="ErnestRadayResume.pdf">
           Download resume
