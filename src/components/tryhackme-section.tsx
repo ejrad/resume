@@ -1,7 +1,3 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { Reveal } from "@/components/reveal";
 import { roomImageSrc } from "@/lib/data";
 import type { Profile, ThmData } from "@/lib/types";
 
@@ -14,24 +10,6 @@ export function TryHackMeSection({
   thm: ThmData;
   basePath?: string;
 }) {
-  const [openCode, setOpenCode] = useState<string | null>(null);
-
-  // Clear sticky open after click → new tab → return
-  useEffect(() => {
-    const clear = () => setOpenCode(null);
-    const onVis = () => {
-      if (document.visibilityState === "visible") clear();
-    };
-    window.addEventListener("pageshow", clear);
-    window.addEventListener("blur", clear);
-    document.addEventListener("visibilitychange", onVis);
-    return () => {
-      window.removeEventListener("pageshow", clear);
-      window.removeEventListener("blur", clear);
-      document.removeEventListener("visibilitychange", onVis);
-    };
-  }, []);
-
   const thmUser =
     profile.tryhackme.username && profile.tryhackme.username !== "REPLACE_ME"
       ? profile.tryhackme.username
@@ -50,111 +28,69 @@ export function TryHackMeSection({
         : String(thm.stats.rank);
 
   return (
-    <section id="tryhackme" className="section thm-section">
-      <Reveal>
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <h2 className="section-head">Practice</h2>
-            <p className="section-note">Live TryHackMe streak and every completed room.</p>
-          </div>
-          {thmUser ? (
-            <a
-              href={`https://tryhackme.com/p/${thmUser}`}
-              target="_blank"
-              rel="noreferrer"
-              className="thm-link"
-            >
-              @{thmUser}
-            </a>
-          ) : null}
+    <section id="tryhackme" className="section">
+      <div className="section-actions" style={{ justifyContent: "space-between" }}>
+        <div>
+          <h2>Practice</h2>
+          <p className="section-note" style={{ marginBottom: 0 }}>
+            TryHackMe streak and completed rooms.
+          </p>
         </div>
-      </Reveal>
-
-      <div className="thm-stats">
-        <Reveal>
-          <h3 className="section-head" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
-            Current streak
-          </h3>
-          <p className="thm-total">{streak}</p>
-          <p className="thm-total-caption">Days in a row on TryHackMe.</p>
-        </Reveal>
-
-        <Reveal delay={90}>
-          <div className="thm-slip">
-            <dl>
-              <div className="row">
-                <dt>Rank</dt>
-                <dd>{rank}</dd>
-              </div>
-              <div className="row">
-                <dt>Rooms</dt>
-                <dd>{roomCount}</dd>
-              </div>
-              <div className="row">
-                <dt>Level</dt>
-                <dd>{thm.stats.level ?? "—"}</dd>
-              </div>
-            </dl>
-            <div className="total-row">
-              <span>Completed</span>
-              <span>{roomCount}</span>
-            </div>
-          </div>
-        </Reveal>
+        {thmUser ? (
+          <a href={`https://tryhackme.com/p/${thmUser}`} target="_blank" rel="noreferrer">
+            @{thmUser}
+          </a>
+        ) : null}
       </div>
 
-      <div className="room-block">
-        <Reveal>
-          <h3 className="section-head" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
-            Completed rooms
-          </h3>
-          <p className="section-note">{rooms.length} rooms from the live trail.</p>
-        </Reveal>
+      <ul className="thm-stats">
+        <li>
+          <dl>
+            <dt>Streak</dt>
+            <dd>{streak}</dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt>Rank</dt>
+            <dd>{rank}</dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt>Rooms</dt>
+            <dd>{roomCount}</dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt>Level</dt>
+            <dd>{thm.stats.level ?? "—"}</dd>
+          </dl>
+        </li>
+      </ul>
 
-        {rooms.length === 0 ? (
-          <p className="section-note mt-8">No rooms yet — the next sync will land here.</p>
-        ) : (
-          <ul
-            className="room-grid"
-            onPointerLeave={() => setOpenCode(null)}
-          >
-            {rooms.map((room) => {
-              const src = roomImageSrc(room, basePath);
-              const isOpen = openCode === room.code;
-              return (
-                <li
-                  key={room.code}
-                  className={`room-tile${isOpen ? " is-open" : ""}`}
-                  onPointerEnter={() => setOpenCode(room.code)}
-                >
-                  <a
-                    href={room.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={room.title}
-                    onPointerDown={() => setOpenCode(null)}
-                    onClick={(e) => {
-                      setOpenCode(null);
-                      (e.currentTarget as HTMLAnchorElement).blur();
-                    }}
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={src} alt="" className="room-tile-img" draggable={false} />
-                    <span className="room-tile-glass" aria-hidden={!isOpen}>
-                      <span className="room-tile-title">{room.title}</span>
-                    </span>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        )}
+      <h3 style={{ margin: "0 0 0.75rem", fontSize: "1.05rem" }}>Completed rooms</h3>
+      {rooms.length === 0 ? (
+        <p className="section-note">No rooms yet — the next sync will land here.</p>
+      ) : (
+        <ul className="room-list">
+          {rooms.map((room) => (
+            <li key={room.code}>
+              <a href={room.url} target="_blank" rel="noreferrer">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={roomImageSrc(room, basePath)} alt="" draggable={false} />
+                <span>{room.title}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
 
-        <p className="thm-total-caption mt-8">
-          {thm.live ? "Live sync" : "Cached data"}
-          {thm.fetchedAt ? ` · updated ${new Date(thm.fetchedAt).toUTCString()}` : ""}
-        </p>
-      </div>
+      <p className="section-note" style={{ marginTop: "1.25rem", marginBottom: 0 }}>
+        {thm.live ? "Live sync" : "Cached data"}
+        {thm.fetchedAt ? ` · updated ${new Date(thm.fetchedAt).toUTCString()}` : ""}
+      </p>
     </section>
   );
 }
