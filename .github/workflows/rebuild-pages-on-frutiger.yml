@@ -1,0 +1,27 @@
+name: Rebuild Pages from frutiger
+
+# github-pages environment only allows main, so frutiger pushes
+# request a deploy workflow run on main instead of deploying directly.
+on:
+  push:
+    branches: [frutiger]
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  trigger-main-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch Deploy live resume on main
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'deploy.yml',
+              ref: 'main',
+            });
+            console.log('Dispatched Deploy live resume on main');
