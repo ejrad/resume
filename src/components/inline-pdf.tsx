@@ -36,17 +36,16 @@ export function InlinePdf({ file, workerSrc }: { file: string; workerSrc: string
   return (
     <div ref={shellRef}>
       {!ready ? (
-        <p className="section-note">Loading resume…</p>
+        <p className="muted">Loading resume…</p>
       ) : failed ? (
-        <p className="section-note">
-          Couldn’t render the PDF inline.{" "}
-          <a href={file}>Download ErnestRadayResume.pdf</a>
+        <p className="muted">
+          Couldn’t render the PDF inline. <a href={file}>Download ErnestRadayResume.pdf</a>
         </p>
       ) : (
         <Document
           file={file}
-          loading={<p className="section-note">Loading resume…</p>}
-          error={<p className="section-note">Failed to load resume PDF.</p>}
+          loading={<p className="muted">Loading resume…</p>}
+          error={<p className="muted">Failed to load resume PDF.</p>}
           onLoadSuccess={({ numPages: n }) => {
             setNumPages(n);
             setFailed(false);

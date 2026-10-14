@@ -5,7 +5,7 @@ import type { Profile } from "@/lib/types";
 
 const InlinePdf = dynamic(() => import("./inline-pdf").then((m) => m.InlinePdf), {
   ssr: false,
-  loading: () => <p className="section-note">Loading resume…</p>,
+  loading: () => <p className="muted">Loading glossy resume pages…</p>,
 });
 
 export function ResumeDocument({
@@ -20,15 +20,35 @@ export function ResumeDocument({
   const workerSrc = `${prefix}/pdf.worker.min.mjs`;
 
   return (
-    <section id="resume" className="section">
-      <h2>Resume</h2>
-      <p className="section-note">Inline PDF — select text here, or download the file.</p>
-      <div className="section-actions">
-        <a href={pdfPath} download="ErnestRadayResume.pdf">
-          Download PDF
-        </a>
+    <section id="resume" className="aero-band aero-band-resume">
+      <div className="aero-band-inner">
+        <div className="aero-section-head">
+          <div>
+            <p className="aero-eyebrow">Document</p>
+            <h2>Resume</h2>
+            <p>Vista-glass window · select text in the PDF, or download the file.</p>
+          </div>
+        </div>
+
+        <div className="aero-window">
+          <div className="aero-titlebar">
+            <span className="orb" aria-hidden="true" />
+            <span>ErnestRadayResume.pdf</span>
+            <span className="chrome-bar" aria-hidden="true" />
+          </div>
+          <div className="aero-window-body">
+            <div className="aero-window-actions">
+              <a className="aero-btn" href={pdfPath} download="ErnestRadayResume.pdf">
+                Download PDF
+              </a>
+              <a className="aero-btn aero-btn-chrome" href={pdfPath} target="_blank" rel="noreferrer">
+                Open in tab
+              </a>
+            </div>
+            <InlinePdf file={pdfPath} workerSrc={workerSrc} />
+          </div>
+        </div>
       </div>
-      <InlinePdf file={pdfPath} workerSrc={workerSrc} />
     </section>
   );
 }

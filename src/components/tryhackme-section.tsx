@@ -19,7 +19,7 @@ export function TryHackMeSection({
 
   const streak = thm.stats.streak || "—";
   const rooms = thm.rooms?.length ? thm.rooms : thm.recentRooms || [];
-  const roomCount = thm.stats.completedRooms ?? rooms.length ?? "—";
+  const roomCount = thm.stats.completedRooms ?? rooms.length ?? 0;
   const rank =
     thm.stats.rank == null
       ? "—"
@@ -27,70 +27,98 @@ export function TryHackMeSection({
         ? `#${thm.stats.rank}`
         : String(thm.stats.rank);
 
+  const streakNum = Number.parseInt(String(streak), 10);
+  const progress = Number.isFinite(streakNum)
+    ? Math.min(100, Math.max(8, Math.round((streakNum / 30) * 100)))
+    : 40;
+
   return (
-    <section id="tryhackme" className="section">
-      <div className="section-actions" style={{ justifyContent: "space-between" }}>
-        <div>
-          <h2>Practice</h2>
-          <p className="section-note" style={{ marginBottom: 0 }}>
-            TryHackMe streak and completed rooms.
+    <section id="tryhackme" className="aero-band aero-band-thm">
+      <div className="aero-band-inner">
+        <div className="aero-section-head">
+          <div>
+            <p className="aero-eyebrow">Live trail</p>
+            <h2>Practice</h2>
+            <p>TryHackMe streak, rank, and every completed room — synced from the clear web.</p>
+          </div>
+          {thmUser ? (
+            <a
+              className="aero-btn aero-btn-leaf"
+              href={`https://tryhackme.com/p/${thmUser}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              @{thmUser}
+            </a>
+          ) : null}
+        </div>
+
+        <div className="aero-glass" style={{ marginBottom: "1.5rem" }}>
+          <ul className="thm-stats">
+            <li>
+              <dl>
+                <dt>Streak</dt>
+                <dd>{streak}</dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>Rank</dt>
+                <dd>{rank}</dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>Rooms</dt>
+                <dd>{roomCount}</dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>Level</dt>
+                <dd>{thm.stats.level ?? "—"}</dd>
+              </dl>
+            </li>
+          </ul>
+          <div className="aero-progress" aria-hidden="true">
+            <span style={{ width: `${progress}%` }} />
+          </div>
+          <p className="thm-meta" style={{ marginTop: 0 }}>
+            Streak charge toward a 30-day aqua full bar.
           </p>
         </div>
-        {thmUser ? (
-          <a href={`https://tryhackme.com/p/${thmUser}`} target="_blank" rel="noreferrer">
-            @{thmUser}
-          </a>
-        ) : null}
+
+        <div className="aero-glass">
+          <div className="aero-section-head" style={{ marginBottom: "1rem" }}>
+            <div>
+              <p className="aero-eyebrow">Completed rooms</p>
+              <h2 style={{ fontSize: "1.45rem" }}>{rooms.length} rooms</h2>
+            </div>
+            <span className="sparkle" aria-hidden="true" />
+          </div>
+
+          {rooms.length === 0 ? (
+            <p className="muted">No rooms yet — the next sync will land here.</p>
+          ) : (
+            <ul className="room-list">
+              {rooms.map((room) => (
+                <li key={room.code}>
+                  <a href={room.url} target="_blank" rel="noreferrer">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={roomImageSrc(room, basePath)} alt="" draggable={false} />
+                    <span>{room.title}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          <p className="thm-meta">
+            {thm.live ? "Live sync" : "Cached data"}
+            {thm.fetchedAt ? ` · updated ${new Date(thm.fetchedAt).toUTCString()}` : ""}
+          </p>
+        </div>
       </div>
-
-      <ul className="thm-stats">
-        <li>
-          <dl>
-            <dt>Streak</dt>
-            <dd>{streak}</dd>
-          </dl>
-        </li>
-        <li>
-          <dl>
-            <dt>Rank</dt>
-            <dd>{rank}</dd>
-          </dl>
-        </li>
-        <li>
-          <dl>
-            <dt>Rooms</dt>
-            <dd>{roomCount}</dd>
-          </dl>
-        </li>
-        <li>
-          <dl>
-            <dt>Level</dt>
-            <dd>{thm.stats.level ?? "—"}</dd>
-          </dl>
-        </li>
-      </ul>
-
-      <h3 style={{ margin: "0 0 0.75rem", fontSize: "1.05rem" }}>Completed rooms</h3>
-      {rooms.length === 0 ? (
-        <p className="section-note">No rooms yet — the next sync will land here.</p>
-      ) : (
-        <ul className="room-list">
-          {rooms.map((room) => (
-            <li key={room.code}>
-              <a href={room.url} target="_blank" rel="noreferrer">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={roomImageSrc(room, basePath)} alt="" draggable={false} />
-                <span>{room.title}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
-
-      <p className="section-note" style={{ marginTop: "1.25rem", marginBottom: 0 }}>
-        {thm.live ? "Live sync" : "Cached data"}
-        {thm.fetchedAt ? ` · updated ${new Date(thm.fetchedAt).toUTCString()}` : ""}
-      </p>
     </section>
   );
 }
