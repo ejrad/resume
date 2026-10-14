@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
-import { getProfile } from "@/lib/data";
 import { assetPath } from "@/lib/assets";
+import { getBasePath } from "@/lib/base-path";
+import { getProfile } from "@/lib/data";
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -11,7 +12,7 @@ const nunito = Nunito({
 });
 
 const profile = getProfile();
-const basePath = process.env.NODE_ENV === "production" ? "/resume" : "";
+const basePath = getBasePath();
 
 export const metadata: Metadata = {
   title: `${profile.name} · Frutiger Aero Resume`,

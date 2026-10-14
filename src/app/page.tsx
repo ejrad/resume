@@ -3,12 +3,13 @@ import { Hero } from "@/components/hero";
 import { ResumeDocument } from "@/components/resume-document";
 import { TryHackMeSection } from "@/components/tryhackme-section";
 import { assetPath } from "@/lib/assets";
+import { getBasePath } from "@/lib/base-path";
 import { getProfile, getThm } from "@/lib/data";
 
 export default function Home() {
   const profile = getProfile();
   const thm = getThm();
-  const basePath = process.env.NODE_ENV === "production" ? "/resume" : "";
+  const basePath = getBasePath();
   const pdfPath = assetPath(`/${profile.resumePdf || "ErnestRadayResume.pdf"}`, basePath);
 
   return (

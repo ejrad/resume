@@ -5,7 +5,7 @@ on:
     - cron: "0 */6 * * *"
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [main, frutiger]
 
 permissions:
   contents: write
@@ -23,8 +23,11 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout
+      - name: Checkout main (primary site)
         uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -32,7 +35,7 @@ jobs:
           node-version: "22"
           cache: npm
 
-      - name: Install
+      - name: Install (main)
         run: npm ci
 
       - name: Install Playwright Chromium
@@ -59,7 +62,7 @@ jobs:
         run: |
           npm run update:playwright || npm run update
 
-      - name: Commit refreshed data
+      - name: Commit refreshed data on main
         continue-on-error: true
         run: |
           git config user.name "github-actions[bot]"
@@ -73,10 +76,36 @@ jobs:
             git push origin HEAD:main || echo "push skipped (race); build still uses refreshed data"
           fi
 
-      - name: Build site
+      - name: Build primary site (/resume)
         run: npm run build
         env:
           NODE_ENV: production
+          NEXT_BASE_PATH: /resume
+
+      - name: Build Frutiger variant (/resume/frutiger)
+        run: |
+          set -euo pipefail
+          git fetch origin frutiger
+          git worktree add /tmp/resume-frutiger origin/frutiger
+          cd /tmp/resume-frutiger
+          npm ci
+          # Reuse freshly synced THM data + room images from the main workspace
+          mkdir -p data public
+          cp -f "$GITHUB_WORKSPACE/data/thm.json" data/thm.json
+          if [ -d "$GITHUB_WORKSPACE/public/rooms" ]; then
+            rm -rf public/rooms
+            cp -a "$GITHUB_WORKSPACE/public/rooms" public/rooms
+          fi
+          if [ -d "$GITHUB_WORKSPACE/assets/rooms" ]; then
+            mkdir -p assets
+            rm -rf assets/rooms
+            cp -a "$GITHUB_WORKSPACE/assets/rooms" assets/rooms
+          fi
+          NODE_ENV=production NEXT_BASE_PATH=/resume/frutiger npm run build
+          mkdir -p "$GITHUB_WORKSPACE/out/frutiger"
+          cp -a out/. "$GITHUB_WORKSPACE/out/frutiger/"
+          # Nested Pages path needs an index at /resume/frutiger/
+          test -f "$GITHUB_WORKSPACE/out/frutiger/index.html"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
