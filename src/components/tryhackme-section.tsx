@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Reveal } from "@/components/reveal";
 import { roomImageSrc } from "@/lib/data";
 import type { Profile, ThmData } from "@/lib/types";
 
@@ -13,15 +14,9 @@ export function TryHackMeSection({
   thm: ThmData;
   basePath?: string;
 }) {
-  const [pulse, setPulse] = useState(false);
   const [openCode, setOpenCode] = useState<string | null>(null);
 
-  useEffect(() => {
-    const id = window.setTimeout(() => setPulse(true), 200);
-    return () => window.clearTimeout(id);
-  }, []);
-
-  // Kill sticky open after click → new tab → return (bfcache / focus restore)
+  // Clear sticky open after click → new tab → return
   useEffect(() => {
     const clear = () => setOpenCode(null);
     const onVis = () => {
@@ -46,119 +41,115 @@ export function TryHackMeSection({
 
   const streak = thm.stats.streak || "—";
   const rooms = thm.rooms?.length ? thm.rooms : thm.recentRooms || [];
+  const roomCount = thm.stats.completedRooms ?? rooms.length ?? "—";
+  const rank =
+    thm.stats.rank == null
+      ? "—"
+      : typeof thm.stats.rank === "number"
+        ? `#${thm.stats.rank}`
+        : String(thm.stats.rank);
 
   return (
-    <section id="tryhackme" className="relative overflow-hidden border-t border-[var(--ink-line)] bg-[var(--ink)] py-20 text-[var(--ink-fg)] sm:py-28">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--lime)] to-transparent opacity-70" />
-      <div className="mx-auto max-w-6xl px-6 sm:px-10">
-        <div className="flex flex-wrap items-end justify-between gap-6">
+    <section id="tryhackme" className="section thm-section">
+      <Reveal>
+        <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.24em] text-[var(--lime)]">
-              TryHackMe
-            </p>
+            <h2 className="section-head">Practice</h2>
+            <p className="section-note">Live TryHackMe streak and every completed room.</p>
           </div>
           {thmUser ? (
             <a
               href={`https://tryhackme.com/p/${thmUser}`}
               target="_blank"
               rel="noreferrer"
-              className="font-[family-name:var(--font-mono)] text-sm text-[var(--lime)] underline-offset-4 hover:underline"
+              className="thm-link"
             >
-              @{thmUser} ↗
+              @{thmUser}
             </a>
-          ) : (
-            <p className="max-w-xs text-right text-sm text-[var(--ink-muted)]">
-              Set your TryHackMe username in <code className="text-[var(--lime)]">config/profile.json</code>
-            </p>
-          )}
+          ) : null}
         </div>
+      </Reveal>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-3">
-          <div className={`streak-panel ${pulse ? "is-on" : ""} sm:col-span-2`}>
-            <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.22em] text-[var(--lime)]">
-              Current streak
-            </p>
-            <p className="mt-4 font-[family-name:var(--font-display)] text-5xl tracking-tight sm:text-6xl">
-              {streak}
-            </p>
-          </div>
-          <div className="stat-panel">
-            <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.22em] text-[var(--ink-muted)]">
-              Snapshot
-            </p>
-            <dl className="mt-5 space-y-3 font-[family-name:var(--font-mono)] text-sm">
-              <div className="flex justify-between gap-4">
-                <dt className="text-[var(--ink-muted)]">Rank</dt>
-                <dd>
-                  {thm.stats.rank == null
-                    ? "—"
-                    : typeof thm.stats.rank === "number"
-                      ? `#${thm.stats.rank}`
-                      : String(thm.stats.rank)}
-                </dd>
+      <div className="thm-stats">
+        <Reveal>
+          <h3 className="section-head" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+            Current streak
+          </h3>
+          <p className="thm-total">{streak}</p>
+          <p className="thm-total-caption">Days in a row on TryHackMe.</p>
+        </Reveal>
+
+        <Reveal delay={90}>
+          <div className="thm-slip">
+            <dl>
+              <div className="row">
+                <dt>Rank</dt>
+                <dd>{rank}</dd>
               </div>
-              <div className="flex justify-between gap-4">
-                <dt className="text-[var(--ink-muted)]">Rooms</dt>
-                <dd>{thm.stats.completedRooms ?? rooms.length ?? "—"}</dd>
+              <div className="row">
+                <dt>Rooms</dt>
+                <dd>{roomCount}</dd>
               </div>
-              <div className="flex justify-between gap-4">
-                <dt className="text-[var(--ink-muted)]">Level</dt>
+              <div className="row">
+                <dt>Level</dt>
                 <dd>{thm.stats.level ?? "—"}</dd>
               </div>
             </dl>
+            <div className="total-row">
+              <span>Completed</span>
+              <span>{roomCount}</span>
+            </div>
           </div>
-        </div>
+        </Reveal>
+      </div>
 
-        <div className="mt-16">
-          <h3 className="font-[family-name:var(--font-display)] text-2xl tracking-tight sm:text-3xl">
+      <div className="room-block">
+        <Reveal>
+          <h3 className="section-head" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
             Completed rooms
           </h3>
-          <p className="mt-2 text-[var(--ink-muted)]">
-            {rooms.length} rooms · hover a tile for the title
-          </p>
+          <p className="section-note">{rooms.length} rooms from the live trail.</p>
+        </Reveal>
 
-          {rooms.length === 0 ? (
-            <p className="mt-8 text-[var(--ink-muted)]">No rooms yet — complete one and the next sync will land here.</p>
-          ) : (
-            <ul
-              className="room-grid mt-8"
-              onPointerLeave={() => setOpenCode(null)}
-            >
-              {rooms.map((room) => {
-                const src = roomImageSrc(room, basePath);
-                const isOpen = openCode === room.code;
-                return (
-                  <li
-                    key={room.code}
-                    className={`room-tile${isOpen ? " is-open" : ""}`}
-                    onPointerEnter={() => setOpenCode(room.code)}
+        {rooms.length === 0 ? (
+          <p className="section-note mt-8">No rooms yet — the next sync will land here.</p>
+        ) : (
+          <ul
+            className="room-grid"
+            onPointerLeave={() => setOpenCode(null)}
+          >
+            {rooms.map((room) => {
+              const src = roomImageSrc(room, basePath);
+              const isOpen = openCode === room.code;
+              return (
+                <li
+                  key={room.code}
+                  className={`room-tile${isOpen ? " is-open" : ""}`}
+                  onPointerEnter={() => setOpenCode(room.code)}
+                >
+                  <a
+                    href={room.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={room.title}
+                    onPointerDown={() => setOpenCode(null)}
+                    onClick={(e) => {
+                      setOpenCode(null);
+                      (e.currentTarget as HTMLAnchorElement).blur();
+                    }}
                   >
-                    <a
-                      href={room.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={room.title}
-                      onPointerDown={() => setOpenCode(null)}
-                      onClick={(e) => {
-                        setOpenCode(null);
-                        (e.currentTarget as HTMLAnchorElement).blur();
-                      }}
-                    >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={src} alt="" className="room-tile-img" draggable={false} />
-                      <span className="room-tile-glass" aria-hidden={!isOpen}>
-                        <span className="room-tile-title">{room.title}</span>
-                      </span>
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
-        </div>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={src} alt="" className="room-tile-img" draggable={false} />
+                    <span className="room-tile-caption">{room.title}</span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        )}
 
-        <p className="mt-10 font-[family-name:var(--font-mono)] text-xs text-[var(--ink-muted)]">
-          {thm.live ? "Live sync" : "Demo / cached data"}
+        <p className="thm-total-caption mt-8">
+          {thm.live ? "Live sync" : "Cached data"}
           {thm.fetchedAt ? ` · updated ${new Date(thm.fetchedAt).toUTCString()}` : ""}
         </p>
       </div>

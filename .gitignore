@@ -47,3 +47,4 @@ AGENTS.md
 *.webp
 .cursor/
 agent-tools/
+.taste-skill/

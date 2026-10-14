@@ -1,24 +1,19 @@
 import type { Metadata } from "next";
-import { Figtree, Syne, JetBrains_Mono } from "next/font/google";
+import { Bebas_Neue, EB_Garamond } from "next/font/google";
 import "./globals.css";
 import { getProfile } from "@/lib/data";
 
-const display = Syne({
+const display = Bebas_Neue({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["400"],
 });
 
-const sans = Figtree({
-  variable: "--font-sans",
+const serif = EB_Garamond({
+  variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const mono = JetBrains_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
 });
 
 const profile = getProfile();
@@ -32,9 +27,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${display.variable} ${sans.variable} ${mono.variable} h-full antialiased`}
+      className={`${display.variable} ${serif.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-[family-name:var(--font-sans)]">{children}</body>
+      <body className="min-h-full flex flex-col font-[family-name:var(--font-serif)]">{children}</body>
     </html>
   );
 }
