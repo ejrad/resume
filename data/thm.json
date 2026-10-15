@@ -1,13 +1,13 @@
 {
   "live": true,
   "username": "ernestjraday",
-  "fetchedAt": "2026-10-15T19:56:51.498Z",
+  "fetchedAt": "2026-10-15T20:57:44.632Z",
   "stats": {
     "streak": "23 days",
     "rank": "Top 15%",
     "badges": 6,
-    "completedRooms": 40,
-    "level": "[0x6]",
+    "completedRooms": 42,
+    "level": "[0x7]",
     "profileImage": "https://lh3.googleusercontent.com/a/ACg8ocI-Nk_KQcdfbVeuRAn838R5KVFVWVPeOvlocWiY-MJapExEcA=s200-c"
   },
   "rooms": [
@@ -370,6 +370,24 @@
       "difficulty": "easy",
       "completedAt": null,
       "localImage": "assets/rooms/careersincybersn.jpg"
+    },
+    {
+      "code": "linuxfundamentalspt15vm",
+      "title": "Linux Fundamentals (Pt1)",
+      "image": "https://cdn-images.tryhackme.com/room-icons/d066fbbcee6964c642bdca1630dc3e87a97e7cdc731ed746742ba9aaf0b9c239.5de96d9ca744773ea7ef8c00-1784795594756",
+      "url": "https://tryhackme.com/room/linuxfundamentalspt15vm",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/linuxfundamentalspt15vm.jpg"
+    },
+    {
+      "code": "linuxfundamentalspart2vm",
+      "title": "Linux Fundamentals Part 2",
+      "image": "https://cdn-images.tryhackme.com/room-icons/772d6bdc9c2c2a557c4ab417eb8cf1a0230209edbc08238811392c94afea4534.png",
+      "url": "https://tryhackme.com/room/linuxfundamentalspart2vm",
+      "difficulty": "info",
+      "completedAt": null,
+      "localImage": "assets/rooms/linuxfundamentalspart2vm.png"
     }
   ],
   "recentRooms": [
@@ -732,6 +750,24 @@
       "difficulty": "easy",
       "completedAt": null,
       "localImage": "assets/rooms/careersincybersn.jpg"
+    },
+    {
+      "code": "linuxfundamentalspt15vm",
+      "title": "Linux Fundamentals (Pt1)",
+      "image": "https://cdn-images.tryhackme.com/room-icons/d066fbbcee6964c642bdca1630dc3e87a97e7cdc731ed746742ba9aaf0b9c239.5de96d9ca744773ea7ef8c00-1784795594756",
+      "url": "https://tryhackme.com/room/linuxfundamentalspt15vm",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/linuxfundamentalspt15vm.jpg"
+    },
+    {
+      "code": "linuxfundamentalspart2vm",
+      "title": "Linux Fundamentals Part 2",
+      "image": "https://cdn-images.tryhackme.com/room-icons/772d6bdc9c2c2a557c4ab417eb8cf1a0230209edbc08238811392c94afea4534.png",
+      "url": "https://tryhackme.com/room/linuxfundamentalspart2vm",
+      "difficulty": "info",
+      "completedAt": null,
+      "localImage": "assets/rooms/linuxfundamentalspart2vm.png"
     }
   ]
 }
