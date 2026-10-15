@@ -271,9 +271,11 @@ a:hover {
 
 .aero-hero-card .lead {
   margin: 0.85rem 0 0;
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-size: clamp(0.95rem, 1.6vw, 1.15rem);
   color: var(--aero-ink-soft);
-  max-width: 28rem;
+  white-space: nowrap;
+  overflow-x: auto;
+  max-width: 100%;
 }
 
 .aero-cta-row {
@@ -430,13 +432,21 @@ a:hover {
   animation: aero-float 5.5s ease-in-out infinite;
 }
 
+.aero-window-delay-1 {
+  animation-delay: 0.7s;
+}
+
+.aero-window-delay-2 {
+  animation-delay: 1.4s;
+}
+
 @keyframes aero-float {
   0%,
   100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-6px);
+    transform: translateY(-8px);
   }
 }
 
@@ -465,16 +475,6 @@ a:hover {
     inset 0 -2px 4px rgba(0, 60, 100, 0.4),
     0 1px 3px rgba(0, 60, 100, 0.3);
   flex-shrink: 0;
-}
-
-.aero-titlebar .chrome-bar {
-  margin-left: auto;
-  width: min(140px, 30%);
-  height: 10px;
-  border-radius: 999px;
-  background: var(--chrome);
-  border: 1px solid rgba(138, 147, 163, 0.45);
-  box-shadow: inset 0 1px 0 #fff;
 }
 
 .aero-window-body {
@@ -720,17 +720,8 @@ a:hover {
   color: #dff3fd;
 }
 
-.aero-footer-card {
-  background: rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 18px;
-  padding: 1.25rem 1.5rem;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
-}
-
-.aero-footer-card ul {
-  margin: 0.65rem 0 0;
+.aero-footer-body ul {
+  margin: 0;
   padding: 0;
   list-style: none;
   display: flex;
@@ -738,14 +729,27 @@ a:hover {
   gap: 0.5rem 1.25rem;
 }
 
-.aero-footer-card a {
+.aero-footer-body a {
   font-weight: 700;
   text-decoration: none;
 }
 
-.aero-footer-card a:hover {
+.aero-footer-body a:hover {
   text-decoration: underline;
   filter: none;
+}
+
+.aero-band-footer .aero-window-body {
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--aero-ink);
+}
+
+.aero-band-footer .aero-credit {
+  color: var(--aero-ink-soft);
+}
+
+.aero-band-footer .aero-credit a {
+  color: var(--aero-deep);
 }
 
 .aero-credit {
@@ -762,15 +766,6 @@ a:hover {
 
 .muted {
   color: var(--aero-ink-soft);
-}
-
-.pdf-opt-in {
-  padding: 0.5rem 0 0.25rem;
-}
-
-button.aero-btn {
-  font: inherit;
-  cursor: pointer;
 }
 
 @media (max-width: 720px) {
@@ -791,8 +786,8 @@ button.aero-btn {
     margin-top: 0;
   }
 
-  .aero-window {
-    animation: none;
+  .aero-hero-card .lead {
+    font-size: 0.88rem;
   }
 
   /* backdrop-filter + fixed layers crash many mobile Safari tabs */
@@ -803,8 +798,7 @@ button.aero-btn {
   .aero-nav-links,
   .aero-hero-card,
   .aero-titlebar,
-  .aero-glass,
-  .aero-footer-card {
+  .aero-glass {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }

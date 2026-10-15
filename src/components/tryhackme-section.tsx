@@ -47,50 +47,53 @@ export function TryHackMeSection({
           ) : null}
         </div>
 
-        <div className="aero-glass" style={{ marginBottom: "1.5rem" }}>
-          <ul className="thm-stats">
-            <li>
-              <dl>
-                <dt>Streak</dt>
-                <dd>{streak}</dd>
-              </dl>
-            </li>
-            <li>
-              <dl>
-                <dt>Rank</dt>
-                <dd>{rank}</dd>
-              </dl>
-            </li>
-            <li>
-              <dl>
-                <dt>Rooms</dt>
-                <dd>{roomCount}</dd>
-              </dl>
-            </li>
-            <li>
-              <dl>
-                <dt>Level</dt>
-                <dd>{thm.stats.level ?? "—"}</dd>
-              </dl>
-            </li>
-          </ul>
+        <div className="aero-window aero-window-delay-1" style={{ marginBottom: "1.5rem" }}>
+          <div className="aero-titlebar">
+            <span className="orb" aria-hidden="true" />
+            <span>TryHackMe · Stats</span>
+          </div>
+          <div className="aero-window-body">
+            <ul className="thm-stats">
+              <li>
+                <dl>
+                  <dt>Streak</dt>
+                  <dd>{streak}</dd>
+                </dl>
+              </li>
+              <li>
+                <dl>
+                  <dt>Rank</dt>
+                  <dd>{rank}</dd>
+                </dl>
+              </li>
+              <li>
+                <dl>
+                  <dt>Rooms</dt>
+                  <dd>{roomCount}</dd>
+                </dl>
+              </li>
+              <li>
+                <dl>
+                  <dt>Level</dt>
+                  <dd>{thm.stats.level ?? "—"}</dd>
+                </dl>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div className="aero-glass">
-          <div className="aero-section-head" style={{ marginBottom: "1rem" }}>
-            <div>
-              <p className="aero-eyebrow">Completed rooms</p>
-              <h2 style={{ fontSize: "1.45rem" }}>{rooms.length} rooms</h2>
-            </div>
-            <span className="sparkle" aria-hidden="true" />
+        <div className="aero-window aero-window-delay-2">
+          <div className="aero-titlebar">
+            <span className="orb" aria-hidden="true" />
+            <span>Completed rooms · {rooms.length}</span>
           </div>
-
-          <RoomGrid rooms={rooms} basePath={basePath} />
-
-          <p className="thm-meta">
-            {thm.live ? "Live sync" : "Cached data"}
-            {thm.fetchedAt ? ` · updated ${new Date(thm.fetchedAt).toUTCString()}` : ""}
-          </p>
+          <div className="aero-window-body">
+            <RoomGrid rooms={rooms} basePath={basePath} />
+            <p className="thm-meta">
+              {thm.live ? "Live sync" : "Cached data"}
+              {thm.fetchedAt ? ` · updated ${new Date(thm.fetchedAt).toUTCString()}` : ""}
+            </p>
+          </div>
         </div>
       </div>
     </section>

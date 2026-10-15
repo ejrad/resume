@@ -5,7 +5,7 @@ import type { Profile } from "@/lib/types";
 
 const InlinePdf = dynamic(() => import("./inline-pdf").then((m) => m.InlinePdf), {
   ssr: false,
-  loading: () => <p className="muted">Loading glossy resume pages…</p>,
+  loading: () => <p className="muted">Loading resume…</p>,
 });
 
 export function ResumeDocument({
@@ -26,7 +26,6 @@ export function ResumeDocument({
           <div>
             <p className="aero-eyebrow">Document</p>
             <h2>Resume</h2>
-            <p>Vista-glass window · select text in the PDF, or download the file.</p>
           </div>
         </div>
 
@@ -34,7 +33,6 @@ export function ResumeDocument({
           <div className="aero-titlebar">
             <span className="orb" aria-hidden="true" />
             <span>ErnestRadayResume.pdf</span>
-            <span className="chrome-bar" aria-hidden="true" />
           </div>
           <div className="aero-window-body">
             <div className="aero-window-actions">
