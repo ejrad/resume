@@ -1,12 +1,12 @@
 {
   "live": true,
   "username": "ernestjraday",
-  "fetchedAt": "2026-10-27T17:29:46.701Z",
+  "fetchedAt": "2026-10-27T21:50:46.191Z",
   "stats": {
-    "streak": "1 days",
+    "streak": "2 days",
     "rank": "Top 15%",
     "badges": 6,
-    "completedRooms": 42,
+    "completedRooms": 43,
     "level": "[0x7]",
     "profileImage": "https://lh3.googleusercontent.com/a/ACg8ocI-Nk_KQcdfbVeuRAn838R5KVFVWVPeOvlocWiY-MJapExEcA=s200-c"
   },
@@ -163,6 +163,15 @@
       "difficulty": "easy",
       "completedAt": null,
       "localImage": "assets/rooms/introductiontoedrs.jpg"
+    },
+    {
+      "code": "networktrafficbasics",
+      "title": "Network Traffic Basics",
+      "image": "https://cdn-images.tryhackme.com/room-icons/66c44fd9733427ea1181ad58-1759484406222",
+      "url": "https://tryhackme.com/room/networktrafficbasics",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/networktrafficbasics.jpg"
     },
     {
       "code": "virtualisationbasics",
@@ -543,6 +552,15 @@
       "difficulty": "easy",
       "completedAt": null,
       "localImage": "assets/rooms/introductiontoedrs.jpg"
+    },
+    {
+      "code": "networktrafficbasics",
+      "title": "Network Traffic Basics",
+      "image": "https://cdn-images.tryhackme.com/room-icons/66c44fd9733427ea1181ad58-1759484406222",
+      "url": "https://tryhackme.com/room/networktrafficbasics",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/networktrafficbasics.jpg"
     },
     {
       "code": "virtualisationbasics",
