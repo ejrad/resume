@@ -1,12 +1,12 @@
 {
   "live": true,
   "username": "ernestjraday",
-  "fetchedAt": "2026-10-27T21:50:46.191Z",
+  "fetchedAt": "2026-10-28T04:05:25.511Z",
   "stats": {
     "streak": "2 days",
     "rank": "Top 15%",
     "badges": 6,
-    "completedRooms": 43,
+    "completedRooms": 45,
     "level": "[0x7]",
     "profileImage": "https://lh3.googleusercontent.com/a/ACg8ocI-Nk_KQcdfbVeuRAn838R5KVFVWVPeOvlocWiY-MJapExEcA=s200-c"
   },
@@ -154,6 +154,24 @@
       "difficulty": "easy",
       "completedAt": null,
       "localImage": "assets/rooms/socworkbookslookups.jpg"
+    },
+    {
+      "code": "humansattackvectors",
+      "title": "Humans as Attack Vectors",
+      "image": "https://cdn-images.tryhackme.com/room-icons/678ecc92c80aa206339f0f23-1753199356963",
+      "url": "https://tryhackme.com/room/humansattackvectors",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/humansattackvectors.jpg"
+    },
+    {
+      "code": "socroleinblueteam",
+      "title": "SOC Role in Blue Team",
+      "image": "https://cdn-images.tryhackme.com/room-icons/678ecc92c80aa206339f0f23-1756302396554",
+      "url": "https://tryhackme.com/room/socroleinblueteam",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/socroleinblueteam.jpg"
     },
     {
       "code": "introductiontoedrs",
@@ -543,6 +561,24 @@
       "difficulty": "easy",
       "completedAt": null,
       "localImage": "assets/rooms/socworkbookslookups.jpg"
+    },
+    {
+      "code": "humansattackvectors",
+      "title": "Humans as Attack Vectors",
+      "image": "https://cdn-images.tryhackme.com/room-icons/678ecc92c80aa206339f0f23-1753199356963",
+      "url": "https://tryhackme.com/room/humansattackvectors",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/humansattackvectors.jpg"
+    },
+    {
+      "code": "socroleinblueteam",
+      "title": "SOC Role in Blue Team",
+      "image": "https://cdn-images.tryhackme.com/room-icons/678ecc92c80aa206339f0f23-1756302396554",
+      "url": "https://tryhackme.com/room/socroleinblueteam",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/socroleinblueteam.jpg"
     },
     {
       "code": "introductiontoedrs",
