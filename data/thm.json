@@ -1,12 +1,12 @@
 {
   "live": true,
   "username": "ernestjraday",
-  "fetchedAt": "2026-11-05T14:09:19.917Z",
+  "fetchedAt": "2026-11-05T23:26:05.404Z",
   "stats": {
-    "streak": "0 days",
+    "streak": "1 days",
     "rank": "Top 15%",
-    "badges": 6,
-    "completedRooms": 45,
+    "badges": 7,
+    "completedRooms": 46,
     "level": "[0x7]",
     "profileImage": "https://lh3.googleusercontent.com/a/ACg8ocI-Nk_KQcdfbVeuRAn838R5KVFVWVPeOvlocWiY-MJapExEcA=s200-c"
   },
@@ -163,6 +163,15 @@
       "difficulty": "easy",
       "completedAt": null,
       "localImage": "assets/rooms/humansattackvectors.jpg"
+    },
+    {
+      "code": "systemsattackvectors",
+      "title": "Systems as Attack Vectors",
+      "image": "https://cdn-images.tryhackme.com/room-icons/678ecc92c80aa206339f0f23-1753706422658",
+      "url": "https://tryhackme.com/room/systemsattackvectors",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/systemsattackvectors.jpg"
     },
     {
       "code": "socroleinblueteam",
@@ -570,6 +579,15 @@
       "difficulty": "easy",
       "completedAt": null,
       "localImage": "assets/rooms/humansattackvectors.jpg"
+    },
+    {
+      "code": "systemsattackvectors",
+      "title": "Systems as Attack Vectors",
+      "image": "https://cdn-images.tryhackme.com/room-icons/678ecc92c80aa206339f0f23-1753706422658",
+      "url": "https://tryhackme.com/room/systemsattackvectors",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/systemsattackvectors.jpg"
     },
     {
       "code": "socroleinblueteam",
