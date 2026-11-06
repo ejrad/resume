@@ -1,16 +1,25 @@
 {
   "live": true,
   "username": "ernestjraday",
-  "fetchedAt": "2026-11-06T13:46:58.996Z",
+  "fetchedAt": "2026-11-06T22:54:26.052Z",
   "stats": {
-    "streak": "1 days",
+    "streak": "2 days",
     "rank": "Top 15%",
     "badges": 7,
-    "completedRooms": 46,
+    "completedRooms": 47,
     "level": "[0x7]",
     "profileImage": "https://lh3.googleusercontent.com/a/ACg8ocI-Nk_KQcdfbVeuRAn838R5KVFVWVPeOvlocWiY-MJapExEcA=s200-c"
   },
   "rooms": [
+    {
+      "code": "startingoutincybersec",
+      "title": "Starting Out In Cyber Sec",
+      "image": "https://cdn-images.tryhackme.com/room-icons/2872c789f749c4be44eb42f762181330.jpeg",
+      "url": "https://tryhackme.com/room/startingoutincybersec",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/startingoutincybersec.jpg"
+    },
     {
       "code": "howwebsiteswork",
       "title": "How Websites Work",
@@ -427,6 +436,15 @@
     }
   ],
   "recentRooms": [
+    {
+      "code": "startingoutincybersec",
+      "title": "Starting Out In Cyber Sec",
+      "image": "https://cdn-images.tryhackme.com/room-icons/2872c789f749c4be44eb42f762181330.jpeg",
+      "url": "https://tryhackme.com/room/startingoutincybersec",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/startingoutincybersec.jpg"
+    },
     {
       "code": "howwebsiteswork",
       "title": "How Websites Work",
