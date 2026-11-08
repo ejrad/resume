@@ -1,12 +1,12 @@
 {
   "live": true,
   "username": "ernestjraday",
-  "fetchedAt": "2026-11-08T04:33:40.880Z",
+  "fetchedAt": "2026-11-08T12:48:42.398Z",
   "stats": {
-    "streak": "2 days",
+    "streak": "0 days",
     "rank": "Top 15%",
     "badges": 7,
-    "completedRooms": 47,
+    "completedRooms": 48,
     "level": "[0x7]",
     "profileImage": "https://lh3.googleusercontent.com/a/ACg8ocI-Nk_KQcdfbVeuRAn838R5KVFVWVPeOvlocWiY-MJapExEcA=s200-c"
   },
@@ -415,6 +415,15 @@
       "difficulty": "easy",
       "completedAt": null,
       "localImage": "assets/rooms/careersincybersn.jpg"
+    },
+    {
+      "code": "defensivesecurityintroexp",
+      "title": "Defensive Security Intro",
+      "image": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1784059295216",
+      "url": "https://tryhackme.com/room/defensivesecurityintroexp",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/defensivesecurityintroexp.jpg"
     },
     {
       "code": "linuxfundamentalspt15vm",
@@ -840,6 +849,15 @@
       "difficulty": "easy",
       "completedAt": null,
       "localImage": "assets/rooms/careersincybersn.jpg"
+    },
+    {
+      "code": "defensivesecurityintroexp",
+      "title": "Defensive Security Intro",
+      "image": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1784059295216",
+      "url": "https://tryhackme.com/room/defensivesecurityintroexp",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/defensivesecurityintroexp.jpg"
     },
     {
       "code": "linuxfundamentalspt15vm",
