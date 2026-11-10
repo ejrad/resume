@@ -39,7 +39,6 @@ export function TryHackMeSection({
         ? thm.username
         : null;
 
-  const streak = thm.stats.streak || "—";
   const rooms = thm.rooms?.length ? thm.rooms : thm.recentRooms || [];
   const roomCount = thm.stats.completedRooms ?? rooms.length ?? "—";
   const rank =
@@ -55,7 +54,7 @@ export function TryHackMeSection({
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <h2 className="section-head">Practice</h2>
-            <p className="section-note">Live TryHackMe streak and every completed room.</p>
+            <p className="section-note">Live TryHackMe rank and every completed room.</p>
           </div>
           {thmUser ? (
             <a
@@ -73,10 +72,10 @@ export function TryHackMeSection({
       <div className="thm-stats">
         <Reveal>
           <h3 className="section-head" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
-            Current streak
+            Completed rooms
           </h3>
-          <p className="thm-total">{streak}</p>
-          <p className="thm-total-caption">Days in a row on TryHackMe.</p>
+          <p className="thm-total">{roomCount}</p>
+          <p className="thm-total-caption">Rooms finished on TryHackMe.</p>
         </Reveal>
 
         <Reveal delay={90}>
