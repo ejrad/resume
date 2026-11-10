@@ -17,7 +17,6 @@ export function TryHackMeSection({
         ? thm.username
         : null;
 
-  const streak = thm.stats.streak || "—";
   const rooms = thm.rooms?.length ? thm.rooms : thm.recentRooms || [];
   const roomCount = thm.stats.completedRooms ?? rooms.length ?? 0;
   const rank =
@@ -54,12 +53,6 @@ export function TryHackMeSection({
           </div>
           <div className="aero-window-body">
             <ul className="thm-stats">
-              <li>
-                <dl>
-                  <dt>Streak</dt>
-                  <dd>{streak}</dd>
-                </dl>
-              </li>
               <li>
                 <dl>
                   <dt>Rank</dt>

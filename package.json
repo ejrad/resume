@@ -2,7 +2,7 @@
   "name": "resume",
   "version": "0.1.0",
   "private": true,
-  "description": "Deployed live resume with auto-updating TryHackMe streak and recent rooms",
+  "description": "Deployed live resume with auto-updating TryHackMe rooms",
   "scripts": {
     "dev": "next dev -p 43127",
     "build": "next build",
