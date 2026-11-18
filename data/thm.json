@@ -1,12 +1,12 @@
 {
   "live": true,
   "username": "ernestjraday",
-  "fetchedAt": "2026-11-18T00:34:34.607Z",
+  "fetchedAt": "2026-11-18T15:09:41.521Z",
   "stats": {
-    "streak": "0 days",
+    "streak": "1 days",
     "rank": "Top 15%",
-    "badges": 7,
-    "completedRooms": 48,
+    "badges": 8,
+    "completedRooms": 49,
     "level": "[0x7]",
     "profileImage": "https://lh3.googleusercontent.com/a/ACg8ocI-Nk_KQcdfbVeuRAn838R5KVFVWVPeOvlocWiY-MJapExEcA=s200-c"
   },
@@ -163,6 +163,15 @@
       "difficulty": "easy",
       "completedAt": null,
       "localImage": "assets/rooms/socworkbookslookups.jpg"
+    },
+    {
+      "code": "socmetricsobjectives",
+      "title": "SOC Metrics and Objectives",
+      "image": "https://cdn-images.tryhackme.com/room-icons/678ecc92c80aa206339f0f23-1743519663017",
+      "url": "https://tryhackme.com/room/socmetricsobjectives",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/socmetricsobjectives.jpg"
     },
     {
       "code": "humansattackvectors",
@@ -597,6 +606,15 @@
       "difficulty": "easy",
       "completedAt": null,
       "localImage": "assets/rooms/socworkbookslookups.jpg"
+    },
+    {
+      "code": "socmetricsobjectives",
+      "title": "SOC Metrics and Objectives",
+      "image": "https://cdn-images.tryhackme.com/room-icons/678ecc92c80aa206339f0f23-1743519663017",
+      "url": "https://tryhackme.com/room/socmetricsobjectives",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/socmetricsobjectives.jpg"
     },
     {
       "code": "humansattackvectors",
