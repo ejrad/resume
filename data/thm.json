@@ -1,12 +1,12 @@
 {
   "live": true,
   "username": "ernestjraday",
-  "fetchedAt": "2026-11-19T15:35:45.407Z",
+  "fetchedAt": "2026-11-19T21:05:12.457Z",
   "stats": {
-    "streak": "0 days",
+    "streak": "1 days",
     "rank": "Top 15%",
     "badges": 8,
-    "completedRooms": 49,
+    "completedRooms": 50,
     "level": "[0x7]",
     "profileImage": "https://lh3.googleusercontent.com/a/ACg8ocI-Nk_KQcdfbVeuRAn838R5KVFVWVPeOvlocWiY-MJapExEcA=s200-c"
   },
@@ -109,6 +109,15 @@
       "difficulty": "easy",
       "completedAt": null,
       "localImage": "assets/rooms/jrsecanalystintrouxo.jpg"
+    },
+    {
+      "code": "0x41haz",
+      "title": "0x41haz",
+      "image": "https://cdn-images.tryhackme.com/room-icons/bf2e520a18d5c0d6b15e7fb7de80d0c6.jpeg",
+      "url": "https://tryhackme.com/room/0x41haz",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/0x41haz.jpg"
     },
     {
       "code": "operatingsystemsecurity",
@@ -552,6 +561,15 @@
       "difficulty": "easy",
       "completedAt": null,
       "localImage": "assets/rooms/jrsecanalystintrouxo.jpg"
+    },
+    {
+      "code": "0x41haz",
+      "title": "0x41haz",
+      "image": "https://cdn-images.tryhackme.com/room-icons/bf2e520a18d5c0d6b15e7fb7de80d0c6.jpeg",
+      "url": "https://tryhackme.com/room/0x41haz",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/0x41haz.jpg"
     },
     {
       "code": "operatingsystemsecurity",
