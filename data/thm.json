@@ -1,12 +1,12 @@
 {
   "live": true,
   "username": "ernestjraday",
-  "fetchedAt": "2026-11-24T04:02:10.131Z",
+  "fetchedAt": "2026-11-24T16:47:20.473Z",
   "stats": {
-    "streak": "1 days",
+    "streak": "2 days",
     "rank": "Top 15%",
     "badges": 8,
-    "completedRooms": 51,
+    "completedRooms": 52,
     "level": "[0x7]",
     "profileImage": "https://lh3.googleusercontent.com/a/ACg8ocI-Nk_KQcdfbVeuRAn838R5KVFVWVPeOvlocWiY-MJapExEcA=s200-c"
   },
@@ -460,6 +460,15 @@
       "difficulty": "info",
       "completedAt": null,
       "localImage": "assets/rooms/linuxfundamentalspart2vm.png"
+    },
+    {
+      "code": "mrphisher",
+      "title": "Mr. Phisher",
+      "image": "https://cdn-images.tryhackme.com/room-icons/5de2b57caa0e6e1fd6309c84fc20f5fa.png",
+      "url": "https://tryhackme.com/room/mrphisher",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/mrphisher.png"
     },
     {
       "code": "exploringwazuh",
@@ -921,6 +930,15 @@
       "difficulty": "info",
       "completedAt": null,
       "localImage": "assets/rooms/linuxfundamentalspart2vm.png"
+    },
+    {
+      "code": "mrphisher",
+      "title": "Mr. Phisher",
+      "image": "https://cdn-images.tryhackme.com/room-icons/5de2b57caa0e6e1fd6309c84fc20f5fa.png",
+      "url": "https://tryhackme.com/room/mrphisher",
+      "difficulty": "easy",
+      "completedAt": null,
+      "localImage": "assets/rooms/mrphisher.png"
     },
     {
       "code": "exploringwazuh",
