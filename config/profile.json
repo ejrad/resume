@@ -30,19 +30,14 @@
   ],
   "projects": [
     {
-      "name": "Clone Sandbox Game",
+      "name": "Lexical AAC",
       "url": "https://github.com/ejrad",
-      "blurb": "LuaU · Roblox Studio · Cursor IDE · Roblox MCP — Aug 2025 – May 2026. Designed monetization UX, generated $10k+ revenue with 20%+ conversion, resolved a DMCA dispute, and used agentic programming via a Roblox MCP server."
+      "blurb": "Open Source · Accessibility — A free, open source AAC application."
     },
     {
-      "name": "2D Platformer",
+      "name": "CCDC Intrusion Detection & Logging",
       "url": "https://github.com/ejrad",
-      "blurb": "JavaScript · p5.js · VSC/Cursor — Mar 2026 – May 2026. Software Engineering team project; Scrumboard planning with a team of 5, using agentic programming within course guidelines."
-    },
-    {
-      "name": "Custom Developer Script Tool",
-      "url": "https://github.com/ejrad",
-      "blurb": "Python · REST APIs · Selenium · CLI — July 2025. Session-cookie/CSRF auth via Selenium; Rich CLI exporting JSON, CSV, and LuaU-parsable tables for a product I sold."
+      "blurb": "Splunk · Velociraptor · VQL · Incident Response — 2026 – Present. Built custom Velociraptor VQL collection targets across Windows, Linux, and Palo Alto networks, forwarding forensic logs into Splunk for automated SPL triage alerts. Placed 1st of 21 in MWCCDC Invitationals."
     }
   ],
   "skills": {

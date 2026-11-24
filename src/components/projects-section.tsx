@@ -12,8 +12,7 @@ export function ProjectsSection({ profile }: { profile: Profile }) {
       <div className="aero-band-inner">
         <div className="aero-section-head">
           <div>
-            <p className="aero-eyebrow">Shipped & Building</p>
-            <h2>Current Projects</h2>
+            <h2>Projects</h2>
           </div>
           {profile.github ? (
             <a
@@ -30,7 +29,7 @@ export function ProjectsSection({ profile }: { profile: Profile }) {
         <div className="aero-window aero-window-delay-1">
           <div className="aero-titlebar">
             <span className="orb" aria-hidden="true" />
-            <span>Featured Builds · {parsedProjects.length}</span>
+            <span>Currently Building</span>
           </div>
           <div className="aero-window-body">
             <ul className="project-grid">
