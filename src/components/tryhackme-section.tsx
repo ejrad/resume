@@ -1,4 +1,5 @@
 import { RoomGrid } from "@/components/room-grid";
+import { formatFetchedAt } from "@/lib/data";
 import type { Profile, ThmData } from "@/lib/types";
 
 export function TryHackMeSection({
@@ -84,7 +85,7 @@ export function TryHackMeSection({
             <RoomGrid rooms={rooms} basePath={basePath} />
             <p className="thm-meta">
               {thm.live ? "Live sync" : "Cached data"}
-              {thm.fetchedAt ? ` · updated ${new Date(thm.fetchedAt).toUTCString()}` : ""}
+              {thm.fetchedAt ? ` · updated ${formatFetchedAt(thm.fetchedAt)}` : ""}
             </p>
           </div>
         </div>

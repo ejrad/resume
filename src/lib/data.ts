@@ -34,3 +34,18 @@ export function formatCompletedAt(iso?: string | null) {
     timeZone: "UTC",
   });
 }
+
+export function formatFetchedAt(iso?: string | null) {
+  if (!iso) return "";
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "";
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    timeZone: "America/New_York",
+    timeZoneName: "short",
+  }).format(d);
+}
