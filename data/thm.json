@@ -1,12 +1,12 @@
 {
   "live": true,
   "username": "ernestjraday",
-  "fetchedAt": "2026-11-24T03:55:54.906Z",
+  "fetchedAt": "2026-11-24T04:02:10.131Z",
   "stats": {
     "streak": "1 days",
     "rank": "Top 15%",
     "badges": 8,
-    "completedRooms": 50,
+    "completedRooms": 51,
     "level": "[0x7]",
     "profileImage": "https://lh3.googleusercontent.com/a/ACg8ocI-Nk_KQcdfbVeuRAn838R5KVFVWVPeOvlocWiY-MJapExEcA=s200-c"
   },
@@ -460,6 +460,15 @@
       "difficulty": "info",
       "completedAt": null,
       "localImage": "assets/rooms/linuxfundamentalspart2vm.png"
+    },
+    {
+      "code": "exploringwazuh",
+      "title": "Exploring Wazuh",
+      "image": "https://cdn-images.tryhackme.com/room-icons/9217e04dce7e6315d2b4e89cabf64f78620b7ff2c243ccbd48d5ecf643b36e3e.jpeg",
+      "url": "https://tryhackme.com/room/exploringwazuh",
+      "difficulty": "medium",
+      "completedAt": null,
+      "localImage": "assets/rooms/exploringwazuh.jpg"
     }
   ],
   "recentRooms": [
@@ -912,6 +921,15 @@
       "difficulty": "info",
       "completedAt": null,
       "localImage": "assets/rooms/linuxfundamentalspart2vm.png"
+    },
+    {
+      "code": "exploringwazuh",
+      "title": "Exploring Wazuh",
+      "image": "https://cdn-images.tryhackme.com/room-icons/9217e04dce7e6315d2b4e89cabf64f78620b7ff2c243ccbd48d5ecf643b36e3e.jpeg",
+      "url": "https://tryhackme.com/room/exploringwazuh",
+      "difficulty": "medium",
+      "completedAt": null,
+      "localImage": "assets/rooms/exploringwazuh.jpg"
     }
   ]
 }
