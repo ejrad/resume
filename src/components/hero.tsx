@@ -37,12 +37,6 @@ export function Hero({
               Open PDF
             </a>
           </div>
-          <div className="aero-orb-row" aria-hidden="true">
-            <span className="aero-orb" />
-            <span className="aero-orb leaf" />
-            <span className="sparkle" />
-            <span className="sparkle" style={{ animationDelay: "0.8s" }} />
-          </div>
         </div>
       </div>
     </header>
