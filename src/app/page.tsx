@@ -1,5 +1,6 @@
 import { Bubbles } from "@/components/bubbles";
 import { Hero } from "@/components/hero";
+import { ProjectsSection } from "@/components/projects-section";
 import { ResumeDocument } from "@/components/resume-document";
 import { TryHackMeSection } from "@/components/tryhackme-section";
 import { assetPath } from "@/lib/assets";
@@ -19,6 +20,7 @@ export default function Home() {
         <Hero profile={profile} pdfPath={pdfPath} />
         <ResumeDocument profile={profile} basePath={basePath} />
         <TryHackMeSection profile={profile} thm={thm} basePath={basePath} />
+        <ProjectsSection profile={profile} />
         <footer className="aero-band aero-band-footer">
           <div className="aero-band-inner">
             <p className="aero-eyebrow">Contact</p>

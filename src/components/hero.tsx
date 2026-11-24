@@ -17,6 +17,7 @@ export function Hero({
         <nav className="aero-nav-links" aria-label="Sections">
           <a href="#resume">Resume</a>
           <a href="#tryhackme">Practice</a>
+          <a href="#projects">Projects</a>
           <a href={`mailto:${profile.email}`}>Email</a>
         </nav>
       </div>
