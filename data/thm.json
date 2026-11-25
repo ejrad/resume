@@ -1,12 +1,12 @@
 {
   "live": true,
   "username": "ernestjraday",
-  "fetchedAt": "2026-11-24T17:38:42.007Z",
+  "fetchedAt": "2026-11-25T01:56:26.675Z",
   "stats": {
     "streak": "2 days",
     "rank": "Top 15%",
-    "badges": 8,
-    "completedRooms": 52,
+    "badges": 9,
+    "completedRooms": 53,
     "level": "[0x7]",
     "profileImage": "https://lh3.googleusercontent.com/a/ACg8ocI-Nk_KQcdfbVeuRAn838R5KVFVWVPeOvlocWiY-MJapExEcA=s200-c"
   },
@@ -460,6 +460,15 @@
       "difficulty": "info",
       "completedAt": null,
       "localImage": "assets/rooms/linuxfundamentalspart2vm.png"
+    },
+    {
+      "code": "linuxfundamentalspart3",
+      "title": "Linux Fundamentals Part 3",
+      "image": "https://cdn-images.tryhackme.com/room-icons/linuxfundamentalspart3-1785241447458.png",
+      "url": "https://tryhackme.com/room/linuxfundamentalspart3",
+      "difficulty": "info",
+      "completedAt": null,
+      "localImage": "assets/rooms/linuxfundamentalspart3.png"
     },
     {
       "code": "mrphisher",
@@ -930,6 +939,15 @@
       "difficulty": "info",
       "completedAt": null,
       "localImage": "assets/rooms/linuxfundamentalspart2vm.png"
+    },
+    {
+      "code": "linuxfundamentalspart3",
+      "title": "Linux Fundamentals Part 3",
+      "image": "https://cdn-images.tryhackme.com/room-icons/linuxfundamentalspart3-1785241447458.png",
+      "url": "https://tryhackme.com/room/linuxfundamentalspart3",
+      "difficulty": "info",
+      "completedAt": null,
+      "localImage": "assets/rooms/linuxfundamentalspart3.png"
     },
     {
       "code": "mrphisher",
