@@ -48,11 +48,13 @@ export function ProjectsSection({ profile }: { profile: Profile }) {
                     </div>
                   </div>
 
-                  {project.url.includes("github.com") ? (
-                    <GithubCommitTicker repoUrl={project.url} />
-                  ) : null}
-
                   <div className="project-card-body">
+                    {project.url.includes("github.com") ? (
+                      <div className="project-card-commit-row">
+                        <GithubCommitTicker repoUrl={project.url} />
+                      </div>
+                    ) : null}
+
                     {project.tags.length > 0 ? (
                       <ul className="project-tags" aria-label="Technologies used">
                         {project.tags.map((tag) => (
