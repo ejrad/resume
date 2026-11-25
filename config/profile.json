@@ -43,7 +43,8 @@
     {
       "name": "PasteLibrary",
       "url": "https://github.com/ejrad/PasteLibrary",
-      "blurb": "JavaScript · Manifest V3 · Chrome · Firefox — 2026. Cross-browser extension developed for the JMU Cyber Defense Club to rapidly index, syntax-highlight, and clipboard-copy scripts from GitHub repositories during cybersecurity competitions."
+      "blurb": "JavaScript · Manifest V3 · Chrome · Firefox — 2026. Browser extension built for the JMU Cyber Defense Club to rapidly index and copy scripts from GitHub repositories during cybersecurity competitions.",
+      "showCommitTicker": true
     }
   ],
   "skills": {
