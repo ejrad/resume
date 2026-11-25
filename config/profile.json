@@ -45,6 +45,12 @@
       "url": "https://github.com/ejrad/PasteLibrary",
       "blurb": "JavaScript · Tooling — 2026. Browser extension built for the JMU Cyber Defense Club to rapidly index and copy scripts from GitHub repositories during cybersecurity competitions.",
       "showCommitTicker": true
+    },
+    {
+      "name": "Live Portfolio & Resume",
+      "url": "https://github.com/ejrad/resume",
+      "blurb": "Next.js · TypeScript · Playwright · GitHub Actions — 2026. Static Frutiger Aero portfolio and resume featuring automated daily TryHackMe room syncing and live GitHub commit tickers.",
+      "showCommitTicker": true
     }
   ],
   "skills": {

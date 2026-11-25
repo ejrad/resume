@@ -55,7 +55,7 @@ export async function fetchLatestCommit(repoUrl: string): Promise<CommitInfo | n
 
   try {
     const res = await fetch(
-      `https://api.github.com/repos/${repo.owner}/${repo.repo}/commits?per_page=1`,
+      `https://api.github.com/repos/${repo.owner}/${repo.repo}/commits?per_page=15`,
       {
         headers: {
           Accept: "application/vnd.github.v3+json",
@@ -66,7 +66,19 @@ export async function fetchLatestCommit(repoUrl: string): Promise<CommitInfo | n
     const data = await res.json();
     if (!Array.isArray(data) || data.length === 0) return null;
 
-    const commitData = data[0];
+    const commitData =
+      data.find((item) => {
+        const login = item.author?.login?.toLowerCase() || "";
+        const authorType = item.author?.type || "";
+        const name = item.commit?.author?.name?.toLowerCase() || "";
+        const msg = item.commit?.message || "";
+        return (
+          authorType !== "Bot" &&
+          !login.includes("github-actions") &&
+          !name.includes("github-actions") &&
+          !msg.startsWith("chore: refresh TryHackMe data")
+        );
+      }) || data[0];
     const sha = commitData.sha || "";
     const shortSha = sha.slice(0, 7);
     const message = commitData.commit?.message?.split("\n")[0] || "";
