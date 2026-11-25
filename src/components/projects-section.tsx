@@ -42,14 +42,15 @@ export function ProjectsSection({ profile }: { profile: Profile }) {
                       <h3 className="project-card-title">{project.name}</h3>
                     </div>
                     <div className="project-card-titlebar-right">
-                      {project.url.includes("github.com") ? (
-                        <GithubCommitTicker repoUrl={project.url} />
-                      ) : null}
                       {project.dateRange ? (
                         <span className="project-card-date">{project.dateRange}</span>
                       ) : null}
                     </div>
                   </div>
+
+                  {project.url.includes("github.com") ? (
+                    <GithubCommitTicker repoUrl={project.url} />
+                  ) : null}
 
                   <div className="project-card-body">
                     {project.tags.length > 0 ? (
