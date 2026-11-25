@@ -12,14 +12,6 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   images: { unoptimized: true },
   transpilePackages: ["react-pdf", "pdfjs-dist"],
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
-      },
-    },
-  },
 };
 
 export default nextConfig;

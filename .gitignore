@@ -39,12 +39,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# agents & skills
+.agents/
+skills-lock.json
 agent-tools/
+.taste-skill/
 
 # Internal / not for resume viewers
 SETUP.md
 AGENTS.md
 *.webp
 .cursor/
-agent-tools/
-.taste-skill/
+.vscode/

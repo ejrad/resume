@@ -1,6 +1,6 @@
 {
   "name": "Ernest Raday",
-  "tagline": "Computer Science @ JMU · cybersecurity · builder",
+  "tagline": "Computer Science @ JMU · Expected Graduation May 2028",
   "location": "Sykesville, MD",
   "phone": "301-525-5642",
   "email": "ernestjraday@gmail.com",
@@ -30,27 +30,55 @@
   ],
   "projects": [
     {
-      "name": "Clone Sandbox Game",
-      "url": "https://github.com/ejrad",
-      "blurb": "LuaU · Roblox Studio · Cursor IDE · Roblox MCP — Aug 2025 – May 2026. Designed monetization UX, generated $10k+ revenue with 20%+ conversion, resolved a DMCA dispute, and used agentic programming via a Roblox MCP server."
+      "name": "Lexical AAC",
+      "url": "https://github.com/ejrad/LexicalAAC",
+      "blurb": "Open Source · Accessibility — A free, open source AAC application."
     },
     {
-      "name": "2D Platformer",
-      "url": "https://github.com/ejrad",
-      "blurb": "JavaScript · p5.js · VSC/Cursor — Mar 2026 – May 2026. Software Engineering team project; Scrumboard planning with a team of 5, using agentic programming within course guidelines."
+      "name": "CCDC Wazuh IDS Setup",
+      "url": "https://github.com/ejrad/shortandmemorablerepositoryname",
+      "blurb": "Wazuh · Sysmon · Bash · PowerShell — 2026. Rapid SIEM/IDS deployment toolkit for CCDC environment.",
+      "showCommitTicker": true
     },
     {
-      "name": "Custom Developer Script Tool",
-      "url": "https://github.com/ejrad",
-      "blurb": "Python · REST APIs · Selenium · CLI — July 2025. Session-cookie/CSRF auth via Selenium; Rich CLI exporting JSON, CSV, and LuaU-parsable tables for a product I sold."
+      "name": "PasteLibrary",
+      "url": "https://github.com/ejrad/PasteLibrary",
+      "blurb": "JavaScript · Manifest V3 · Chrome · Firefox — 2026. Cross-browser extension developed for the JMU Cyber Defense Club to rapidly index, syntax-highlight, and clipboard-copy scripts from GitHub repositories during cybersecurity competitions."
     }
   ],
   "skills": {
-    "General": ["Linux Fundamentals", "Agentic Programming & Prompting", "Scripting"],
-    "Languages": ["Java", "Python", "JavaScript", "HTML/CSS", "Lua/LuaU"],
-    "Developer Tools": ["GitHub", "VS Code", "Antigravity", "Cursor", "VMware Workstation", "Splunk"],
-    "Currently Learning": ["C", "Kali Tools", "SQL", "Networking", "Advanced Linux", "HackTheBox Labs"],
-    "Certifications": ["TryHackMe Pre-Security SEC0", "Studying CompTIA Security+ & THM SOC Level 1"]
+    "General": [
+      "Linux Fundamentals",
+      "Agentic Programming & Prompting",
+      "Scripting"
+    ],
+    "Languages": [
+      "Java",
+      "Python",
+      "JavaScript",
+      "HTML/CSS",
+      "Lua/LuaU"
+    ],
+    "Developer Tools": [
+      "GitHub",
+      "VS Code",
+      "Antigravity",
+      "Cursor",
+      "VMware Workstation",
+      "Splunk"
+    ],
+    "Currently Learning": [
+      "C",
+      "Kali Tools",
+      "SQL",
+      "Networking",
+      "Advanced Linux",
+      "HackTheBox Labs"
+    ],
+    "Certifications": [
+      "TryHackMe Pre-Security SEC0",
+      "Studying CompTIA Security+ & THM SOC Level 1"
+    ]
   },
   "education": [
     {

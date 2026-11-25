@@ -8,19 +8,23 @@ import "react-pdf/dist/Page/TextLayer.css";
 
 export function InlinePdf({ file, workerSrc }: { file: string; workerSrc: string }) {
   const shellRef = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState(800);
+  const [width, setWidth] = useState(720);
   const [numPages, setNumPages] = useState(0);
   const [failed, setFailed] = useState(false);
   const [ready, setReady] = useState(false);
+  const [light, setLight] = useState(false);
 
   useEffect(() => {
     pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
+    const narrow = window.matchMedia("(max-width: 720px)").matches;
+    const coarse = window.matchMedia("(pointer: coarse)").matches;
+    setLight(narrow || coarse);
     setReady(true);
   }, [workerSrc]);
 
   const measure = useCallback(() => {
     if (!shellRef.current) return;
-    const next = Math.min(Math.floor(shellRef.current.clientWidth), 860);
+    const next = Math.min(Math.floor(shellRef.current.clientWidth), 800);
     setWidth(Math.max(next, 280));
   }, []);
 
@@ -34,21 +38,18 @@ export function InlinePdf({ file, workerSrc }: { file: string; workerSrc: string
   }, [measure]);
 
   return (
-    <div ref={shellRef} className="flex justify-center">
+    <div ref={shellRef}>
       {!ready ? (
-        <p className="py-20 text-[var(--paper-muted)]">Loading resume…</p>
+        <p className="muted">Loading resume…</p>
       ) : failed ? (
-        <p className="max-w-lg text-center text-[var(--paper-muted)]">
-          Couldn’t render the PDF inline.{" "}
-          <a className="underline decoration-[var(--lime-deep)] underline-offset-4" href={file}>
-            Download ErnestRadayResume.pdf
-          </a>
+        <p className="muted">
+          Couldn’t render the PDF inline. <a href={file}>Download ErnestRadayResume.pdf</a>
         </p>
       ) : (
         <Document
           file={file}
-          loading={<p className="py-20 text-[var(--paper-muted)]">Loading resume…</p>}
-          error={<p className="py-20 text-[var(--paper-muted)]">Failed to load resume PDF.</p>}
+          loading={<p className="muted">Loading resume…</p>}
+          error={<p className="muted">Failed to load resume PDF.</p>}
           onLoadSuccess={({ numPages: n }) => {
             setNumPages(n);
             setFailed(false);
@@ -62,7 +63,7 @@ export function InlinePdf({ file, workerSrc }: { file: string; workerSrc: string
               pageNumber={i + 1}
               width={width}
               renderAnnotationLayer={false}
-              renderTextLayer
+              renderTextLayer={!light}
               className="resume-page"
             />
           ))}

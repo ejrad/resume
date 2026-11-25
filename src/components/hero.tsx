@@ -1,5 +1,3 @@
-"use client";
-
 import type { Profile } from "@/lib/types";
 
 export function Hero({
@@ -9,38 +7,37 @@ export function Hero({
   profile: Profile;
   pdfPath: string;
 }) {
-  const parts = profile.name.trim().split(/\s+/);
-  const first = parts[0] ?? profile.name;
-  const last = parts.slice(1).join(" ");
-
   return (
-    <header className="hero">
-      <div className="hero-panel hero-panel-ink">
-        <nav className="hero-nav" aria-label="Sections">
+    <header className="aero-hero">
+      <div className="aero-hero-bg" aria-hidden="true" />
+      <div className="aero-hero-aurora" aria-hidden="true" />
+
+      <div className="aero-nav">
+        <span className="aero-brand-pill">Frutiger Aero · Live Resume</span>
+        <nav className="aero-nav-links" aria-label="Sections">
           <a href="#resume">Resume</a>
           <a href="#tryhackme">Practice</a>
+          <a href="#projects">Projects</a>
           <a href={`mailto:${profile.email}`}>Email</a>
         </nav>
-
-        <div className="hero-main">
-          <h1 className="hero-name">
-            <span className="hero-name-line">
-              <span>{first}</span>
-            </span>
-            {last ? (
-              <span className="hero-name-line">
-                <span>{last}</span>
-              </span>
-            ) : null}
-          </h1>
-        </div>
       </div>
 
-      <div className="hero-panel hero-panel-accent">
-        <p className="hero-support">Computer Science at James Madison University.</p>
-        <a className="hero-action" href={pdfPath} download="ErnestRadayResume.pdf">
-          Download resume
-        </a>
+      <div className="aero-hero-main">
+        <div className="aero-hero-card">
+          <h1>{profile.name}</h1>
+          <p className="lead">{profile.tagline}</p>
+          <div className="aero-cta-row">
+            <a className="aero-btn" href={pdfPath} download="ErnestRadayResume.pdf">
+              Download resume
+            </a>
+            <a className="aero-btn aero-btn-leaf" href="#tryhackme">
+              See practice trail
+            </a>
+            <a className="aero-btn aero-btn-chrome" href="#resume">
+              Open PDF
+            </a>
+          </div>
+        </div>
       </div>
     </header>
   );
