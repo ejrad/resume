@@ -36,19 +36,22 @@ export function ProjectsSection({ profile }: { profile: Profile }) {
             <ul className="project-grid">
               {parsedProjects.map((project) => (
                 <li key={project.name} className="project-card">
-                  <div className="project-card-header">
-                    <div className="project-card-top">
-                      <div className="project-card-title-group">
-                        <h3 className="project-card-title">{project.name}</h3>
-                        {project.showCommitTicker ? (
-                          <GithubCommitTicker repoUrl={project.url} />
-                        ) : null}
-                      </div>
+                  <div className="project-card-titlebar aero-titlebar">
+                    <div className="project-card-titlebar-left">
+                      <span className="orb" aria-hidden="true" />
+                      <h3 className="project-card-title">{project.name}</h3>
+                    </div>
+                    <div className="project-card-titlebar-right">
+                      {project.url.includes("github.com") ? (
+                        <GithubCommitTicker repoUrl={project.url} />
+                      ) : null}
                       {project.dateRange ? (
                         <span className="project-card-date">{project.dateRange}</span>
                       ) : null}
                     </div>
+                  </div>
 
+                  <div className="project-card-body">
                     {project.tags.length > 0 ? (
                       <ul className="project-tags" aria-label="Technologies used">
                         {project.tags.map((tag) => (
@@ -58,20 +61,20 @@ export function ProjectsSection({ profile }: { profile: Profile }) {
                         ))}
                       </ul>
                     ) : null}
-                  </div>
 
-                  <p className="project-card-desc">{project.description}</p>
+                    <p className="project-card-desc">{project.description}</p>
 
-                  <div className="project-card-footer">
-                    <a
-                      className="aero-btn aero-btn-chrome project-card-link"
-                      href={project.url}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      View project
-                      <span aria-hidden="true"> ↗</span>
-                    </a>
+                    <div className="project-card-footer">
+                      <a
+                        className="aero-btn aero-btn-chrome project-card-link"
+                        href={project.url}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        View project
+                        <span aria-hidden="true"> ↗</span>
+                      </a>
+                    </div>
                   </div>
                 </li>
               ))}

@@ -657,7 +657,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   border-radius: 16px;
-  padding: 1.35rem 1.4rem 1.4rem;
+  padding: 0;
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.95) 0%,
@@ -674,22 +674,6 @@ a:hover {
   overflow: hidden;
 }
 
-.project-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 38%;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.65) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  pointer-events: none;
-  border-radius: 16px 16px 0 0;
-}
-
 .project-card:hover {
   transform: translateY(-4px) scale(1.015);
   box-shadow:
@@ -697,24 +681,50 @@ a:hover {
     inset 0 1px 0 #ffffff;
 }
 
-.project-card-header {
-  margin-bottom: 0.75rem;
-}
-
-.project-card-top {
+.project-card-titlebar {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 0.5rem;
+  padding: 0.65rem 1rem;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.95),
+    rgba(190, 230, 250, 0.6)
+  );
+  border-bottom: 1px solid rgba(190, 230, 250, 0.65);
 }
 
-.project-card-title-group {
+.project-card-titlebar-left {
   display: flex;
   align-items: center;
+  gap: 0.55rem;
+}
+
+.project-card-titlebar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   flex-wrap: wrap;
-  gap: 0.6rem;
+}
+
+.project-card-titlebar .orb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff 0%, #9fdcf5 35%, #2e9bd6 100%);
+  box-shadow:
+    inset 0 -1.5px 3px rgba(0, 60, 100, 0.4),
+    0 1px 2px rgba(0, 60, 100, 0.3);
+  flex-shrink: 0;
+}
+
+.project-card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 1.15rem 1.35rem 1.35rem;
 }
 
 .aero-commit-ticker {
@@ -803,9 +813,9 @@ a:hover {
 
 .project-card-title {
   margin: 0;
-  font-size: 1.22rem;
+  font-size: 1.02rem;
   font-weight: 800;
-  color: var(--aero-ink);
+  color: #0f2e44;
   letter-spacing: -0.01em;
 }
 
