@@ -49,7 +49,7 @@
     {
       "name": "Live Portfolio & Resume",
       "url": "https://github.com/ejrad/resume",
-      "blurb": "Next.js · TypeScript · Playwright · GitHub Actions — 2026. Static Frutiger Aero portfolio and resume featuring automated daily TryHackMe room syncing and live GitHub commit tickers.",
+      "blurb": "Next.js · Agentic Development · GitHub Actions — 2026. Static Frutiger Aero resume featuring automated daily TryHackMe room syncing and live GitHub project monitoring.",
       "showCommitTicker": true
     }
   ],
