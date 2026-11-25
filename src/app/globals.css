@@ -1110,25 +1110,27 @@ a:hover {
 }
 
 .aero-scroll-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  position: relative;
+  width: 7.5rem;
   list-style: none;
   margin: 0;
-  padding: 0.15rem 0;
+  padding: 0;
 }
 
 .aero-scroll-item {
+  position: absolute;
+  right: 0;
   display: flex;
   justify-content: flex-end;
+  transform: translateY(-50%);
   transform-origin: right center;
-  transition: transform 0.25s var(--ease-bounce), opacity 0.2s ease;
+  transition: transform 0.25s var(--ease-bounce), opacity 0.2s ease, top 0.15s ease;
   opacity: 0.78;
 }
 
 .aero-scroll-item.is-active {
   opacity: 1;
-  transform: scale(1.18);
+  transform: translateY(-50%) scale(1.18);
 }
 
 .aero-scroll-link {
