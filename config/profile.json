@@ -32,18 +32,18 @@
     {
       "name": "Lexical AAC",
       "url": "https://github.com/ejrad/LexicalAAC",
-      "blurb": "Open Source · Accessibility — A free, open source AAC application."
+      "blurb": "Open Source · Accessibility — A free, open source AAC application. (Planning, requesting rights from Dynavoxx for their image library."
     },
     {
-      "name": "CCDC Wazuh IDS Setup",
+      "name": "CCDC Wazuh IDS Deployment Setup",
       "url": "https://github.com/ejrad/shortandmemorablerepositoryname",
-      "blurb": "Wazuh · Sysmon · Bash · PowerShell — 2026. Rapid SIEM/IDS deployment toolkit for CCDC environment.",
+      "blurb": "Wazuh · Logging · SIEM Management — 2026. Rapid SIEM/IDS deployment toolkit for CCDC environment.",
       "showCommitTicker": true
     },
     {
       "name": "PasteLibrary",
       "url": "https://github.com/ejrad/PasteLibrary",
-      "blurb": "JavaScript · Manifest V3 · Chrome · Firefox — 2026. Browser extension built for the JMU Cyber Defense Club to rapidly index and copy scripts from GitHub repositories during cybersecurity competitions.",
+      "blurb": "JavaScript · Tooling — 2026. Browser extension built for the JMU Cyber Defense Club to rapidly index and copy scripts from GitHub repositories during cybersecurity competitions.",
       "showCommitTicker": true
     }
   ],
