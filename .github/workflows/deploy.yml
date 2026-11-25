@@ -5,7 +5,7 @@ on:
     - cron: "0 17 * * *"
   workflow_dispatch:
   push:
-    branches: [main, frutiger]
+    branches: [main]
 
 permissions:
   contents: write
@@ -82,30 +82,11 @@ jobs:
           NODE_ENV: production
           NEXT_BASE_PATH: /resume
 
-      - name: Build Frutiger variant (/resume/frutiger)
+      - name: Mirror Frutiger variant (/resume/frutiger)
         run: |
-          set -euo pipefail
-          git fetch origin frutiger
-          git worktree add /tmp/resume-frutiger origin/frutiger
-          cd /tmp/resume-frutiger
-          npm ci
-          # Reuse freshly synced THM data + room images from the main workspace
-          mkdir -p data public
-          cp -f "$GITHUB_WORKSPACE/data/thm.json" data/thm.json
-          if [ -d "$GITHUB_WORKSPACE/public/rooms" ]; then
-            rm -rf public/rooms
-            cp -a "$GITHUB_WORKSPACE/public/rooms" public/rooms
-          fi
-          if [ -d "$GITHUB_WORKSPACE/assets/rooms" ]; then
-            mkdir -p assets
-            rm -rf assets/rooms
-            cp -a "$GITHUB_WORKSPACE/assets/rooms" assets/rooms
-          fi
-          NODE_ENV=production NEXT_BASE_PATH=/resume/frutiger npm run build
-          mkdir -p "$GITHUB_WORKSPACE/out/frutiger"
-          cp -a out/. "$GITHUB_WORKSPACE/out/frutiger/"
-          # Nested Pages path needs an index at /resume/frutiger/
-          test -f "$GITHUB_WORKSPACE/out/frutiger/index.html"
+          mkdir -p out/frutiger
+          cp -a out/. out/frutiger/
+          test -f out/frutiger/index.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
