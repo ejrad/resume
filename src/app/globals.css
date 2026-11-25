@@ -1099,27 +1099,20 @@ a:hover {
 .aero-scroll-rail-inner {
   display: flex;
   align-items: stretch;
-  gap: 0.7rem;
-  padding: 0.85rem 0.75rem;
-  border-radius: 20px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.78) 0%,
-    rgba(218, 244, 255, 0.62) 100%
-  );
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.88);
-  box-shadow:
-    0 12px 32px rgba(20, 105, 165, 0.2),
-    inset 0 1px 0 #ffffff;
+  gap: 0.75rem;
+  height: 54vh;
+  min-height: 280px;
+  max-height: 460px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .aero-scroll-list {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 1.15rem;
   list-style: none;
   margin: 0;
   padding: 0.15rem 0;
@@ -1130,7 +1123,7 @@ a:hover {
   justify-content: flex-end;
   transform-origin: right center;
   transition: transform 0.25s var(--ease-bounce), opacity 0.2s ease;
-  opacity: 0.72;
+  opacity: 0.78;
 }
 
 .aero-scroll-item.is-active {
@@ -1143,11 +1136,12 @@ a:hover {
   align-items: center;
   gap: 0.45rem;
   text-decoration: none;
-  color: #154666;
-  font-size: 0.74rem;
-  font-weight: 700;
+  color: #0e3854;
+  font-size: 0.76rem;
+  font-weight: 800;
   letter-spacing: 0.01em;
-  padding: 0.2rem 0.5rem;
+  text-shadow: 0 1px 6px rgba(255, 255, 255, 0.95);
+  padding: 0.22rem 0.55rem;
   border-radius: 999px;
   transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
