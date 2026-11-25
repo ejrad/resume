@@ -2,6 +2,7 @@ import { Bubbles } from "@/components/bubbles";
 import { Hero } from "@/components/hero";
 import { ProjectsSection } from "@/components/projects-section";
 import { ResumeDocument } from "@/components/resume-document";
+import { SectionScrollRail } from "@/components/section-scroll-rail";
 import { TryHackMeSection } from "@/components/tryhackme-section";
 import { assetPath } from "@/lib/assets";
 import { getBasePath } from "@/lib/base-path";
@@ -12,10 +13,16 @@ export default function Home() {
   const thm = getThm();
   const basePath = getBasePath();
   const pdfPath = assetPath(`/${profile.resumePdf || "ErnestRadayResume.pdf"}`, basePath);
+  const scrollSections = [
+    { id: "resume", label: "Resume" },
+    { id: "tryhackme", label: "Practice" },
+    ...(profile.projects?.length ? [{ id: "projects", label: "Projects" }] : []),
+  ];
 
   return (
     <div className="aero-page">
       <Bubbles />
+      <SectionScrollRail sections={scrollSections} />
       <main className="aero-content">
         <Hero profile={profile} pdfPath={pdfPath} />
         <ResumeDocument profile={profile} basePath={basePath} />

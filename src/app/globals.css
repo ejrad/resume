@@ -1085,6 +1085,147 @@ a:hover {
   }
 }
 
+/* ── Right-side Frutiger Aero scroll rail ──────────────── */
+
+.aero-scroll-rail {
+  position: fixed;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  pointer-events: auto;
+}
+
+.aero-scroll-rail-inner {
+  display: flex;
+  align-items: stretch;
+  gap: 0.7rem;
+  padding: 0.85rem 0.75rem;
+  border-radius: 20px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.78) 0%,
+    rgba(218, 244, 255, 0.62) 100%
+  );
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  box-shadow:
+    0 12px 32px rgba(20, 105, 165, 0.2),
+    inset 0 1px 0 #ffffff;
+}
+
+.aero-scroll-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.15rem;
+  list-style: none;
+  margin: 0;
+  padding: 0.15rem 0;
+}
+
+.aero-scroll-item {
+  display: flex;
+  justify-content: flex-end;
+  transform-origin: right center;
+  transition: transform 0.25s var(--ease-bounce), opacity 0.2s ease;
+  opacity: 0.72;
+}
+
+.aero-scroll-item.is-active {
+  opacity: 1;
+  transform: scale(1.18);
+}
+
+.aero-scroll-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  text-decoration: none;
+  color: #154666;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.aero-scroll-item.is-active .aero-scroll-link {
+  color: #063452;
+  font-weight: 800;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.96) 0%,
+    rgba(195, 238, 255, 0.8) 100%
+  );
+  border: 1px solid rgba(110, 198, 245, 0.75);
+  box-shadow:
+    inset 0 1px 0 #ffffff,
+    0 2px 8px rgba(46, 155, 214, 0.28);
+}
+
+.aero-scroll-orb {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #bde8fb 45%, #5fbce8 100%);
+  box-shadow:
+    inset 0 -1px 2px rgba(0, 60, 100, 0.3),
+    0 1px 2px rgba(0, 60, 100, 0.2);
+  flex-shrink: 0;
+  transition: transform 0.25s var(--ease-bounce), box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.aero-scroll-item.is-active .aero-scroll-orb {
+  width: 11px;
+  height: 11px;
+  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #98f0b8 40%, #27b963 100%);
+  box-shadow:
+    inset 0 -1.5px 3px rgba(0, 75, 35, 0.4),
+    0 0 8px rgba(46, 204, 113, 0.75);
+}
+
+.aero-scroll-track {
+  position: relative;
+  width: 6px;
+  border-radius: 999px;
+  background: rgba(145, 205, 238, 0.32);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 1px 3px rgba(15, 75, 110, 0.18);
+  overflow: visible;
+}
+
+.aero-scroll-fill {
+  width: 100%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #5cc8ff 0%, #2eb872 100%);
+  box-shadow: 0 0 8px rgba(78, 195, 255, 0.45);
+  transition: height 0.1s linear;
+}
+
+.aero-scroll-thumb {
+  position: absolute;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #a5e6ff 45%, #2494d4 100%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 2px 6px rgba(15, 75, 110, 0.35),
+    0 0 6px rgba(92, 200, 255, 0.6);
+  transition: top 0.1s linear;
+}
+
+@media (max-width: 1120px) {
+  .aero-scroll-rail {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1096,7 +1237,9 @@ a:hover {
   .sparkle,
   .room-list a,
   .project-card,
-  .aero-btn {
+  .aero-btn,
+  .aero-scroll-item,
+  .aero-scroll-orb {
     animation: none !important;
     transition: none !important;
   }
