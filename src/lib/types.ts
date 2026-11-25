@@ -9,6 +9,7 @@ export type Project = {
   name: string;
   url: string;
   blurb: string;
+  showCommitTicker?: boolean;
 };
 
 export type Education = {

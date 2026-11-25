@@ -1,3 +1,4 @@
+import { GithubCommitTicker } from "@/components/github-commit-ticker";
 import { parseProject } from "@/lib/projects";
 import type { Profile } from "@/lib/types";
 
@@ -37,7 +38,12 @@ export function ProjectsSection({ profile }: { profile: Profile }) {
                 <li key={project.name} className="project-card">
                   <div className="project-card-header">
                     <div className="project-card-top">
-                      <h3 className="project-card-title">{project.name}</h3>
+                      <div className="project-card-title-group">
+                        <h3 className="project-card-title">{project.name}</h3>
+                        {project.showCommitTicker ? (
+                          <GithubCommitTicker repoUrl={project.url} />
+                        ) : null}
+                      </div>
                       {project.dateRange ? (
                         <span className="project-card-date">{project.dateRange}</span>
                       ) : null}
