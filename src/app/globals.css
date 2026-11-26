@@ -1089,20 +1089,26 @@ a:hover {
 
 .aero-scroll-rail {
   position: fixed;
-  right: 1.25rem;
+  right: 1.5rem;
   top: 50%;
   transform: translateY(-50%);
   z-index: 40;
   pointer-events: auto;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.aero-scroll-rail.is-ready {
+  opacity: 1;
 }
 
 .aero-scroll-rail-inner {
   display: flex;
   align-items: stretch;
-  gap: 0.75rem;
-  height: 54vh;
-  min-height: 280px;
-  max-height: 460px;
+  gap: 0.9rem;
+  height: 68vh;
+  min-height: 380px;
+  max-height: 640px;
   padding: 0;
   background: transparent;
   border: none;
@@ -1111,7 +1117,7 @@ a:hover {
 
 .aero-scroll-list {
   position: relative;
-  width: 7.5rem;
+  width: 9.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -1136,14 +1142,14 @@ a:hover {
 .aero-scroll-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.6rem;
   text-decoration: none;
   color: #0e3854;
-  font-size: 0.76rem;
+  font-size: 0.92rem;
   font-weight: 800;
   letter-spacing: 0.01em;
   text-shadow: 0 1px 6px rgba(255, 255, 255, 0.95);
-  padding: 0.22rem 0.55rem;
+  padding: 0.34rem 0.78rem;
   border-radius: 999px;
   transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -1163,8 +1169,8 @@ a:hover {
 }
 
 .aero-scroll-orb {
-  width: 9px;
-  height: 9px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, #ffffff 0%, #bde8fb 45%, #5fbce8 100%);
   box-shadow:
@@ -1175,8 +1181,8 @@ a:hover {
 }
 
 .aero-scroll-item.is-active .aero-scroll-orb {
-  width: 11px;
-  height: 11px;
+  width: 14px;
+  height: 14px;
   background: radial-gradient(circle at 30% 30%, #ffffff 0%, #98f0b8 40%, #27b963 100%);
   box-shadow:
     inset 0 -1.5px 3px rgba(0, 75, 35, 0.4),
@@ -1185,7 +1191,7 @@ a:hover {
 
 .aero-scroll-track {
   position: relative;
-  width: 6px;
+  width: 8px;
   border-radius: 999px;
   background: rgba(145, 205, 238, 0.32);
   border: 1px solid rgba(255, 255, 255, 0.8);
@@ -1198,22 +1204,20 @@ a:hover {
   border-radius: 999px;
   background: linear-gradient(180deg, #5cc8ff 0%, #2eb872 100%);
   box-shadow: 0 0 8px rgba(78, 195, 255, 0.45);
-  transition: height 0.1s linear;
 }
 
 .aero-scroll-thumb {
   position: absolute;
   left: 50%;
-  width: 12px;
-  height: 12px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   transform: translate(-50%, -50%);
   background: radial-gradient(circle at 30% 30%, #ffffff 0%, #a5e6ff 45%, #2494d4 100%);
-  border: 1px solid rgba(255, 255, 255, 0.95);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
   box-shadow:
     0 2px 6px rgba(15, 75, 110, 0.35),
     0 0 6px rgba(92, 200, 255, 0.6);
-  transition: top 0.1s linear;
 }
 
 @media (max-width: 1120px) {

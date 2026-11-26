@@ -15,8 +15,11 @@ export function SectionScrollRail({
   const [activeId, setActiveId] = useState<string | null>(null);
   const [progress, setProgress] = useState(0);
   const [positions, setPositions] = useState<Record<string, number> | null>(null);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
+    let settleTimer: ReturnType<typeof setTimeout> | null = null;
+
     const updateScrollState = () => {
       const scrollTop = window.scrollY;
       const docHeight =
@@ -60,24 +63,56 @@ export function SectionScrollRail({
       setActiveId(current);
     };
 
-    updateScrollState();
+    const scheduleSettle = () => {
+      updateScrollState();
+      if (settleTimer) clearTimeout(settleTimer);
+      settleTimer = setTimeout(() => {
+        updateScrollState();
+        setReady(true);
+      }, 180);
+    };
+
+    if (document.readyState === "complete") {
+      scheduleSettle();
+    } else {
+      updateScrollState();
+      window.addEventListener("load", scheduleSettle, { once: true });
+    }
+
+    const fallbackTimer = setTimeout(() => {
+      updateScrollState();
+      setReady(true);
+    }, 600);
+
     window.addEventListener("scroll", updateScrollState, { passive: true });
     window.addEventListener("resize", updateScrollState, { passive: true });
 
-    const observer = new ResizeObserver(updateScrollState);
+    const observer = new ResizeObserver(() => {
+      if (ready) {
+        updateScrollState();
+      } else {
+        scheduleSettle();
+      }
+    });
     observer.observe(document.body);
 
     return () => {
+      if (settleTimer) clearTimeout(settleTimer);
+      clearTimeout(fallbackTimer);
+      window.removeEventListener("load", scheduleSettle);
       window.removeEventListener("scroll", updateScrollState);
       window.removeEventListener("resize", updateScrollState);
       observer.disconnect();
     };
-  }, [sections]);
+  }, [sections, ready]);
 
   if (sections.length === 0 || !positions) return null;
 
   return (
-    <aside className="aero-scroll-rail" aria-label="Page sections">
+    <aside
+      className={`aero-scroll-rail${ready ? " is-ready" : ""}`}
+      aria-label="Page sections"
+    >
       <div className="aero-scroll-rail-inner">
         <ul className="aero-scroll-list">
           {sections.map((section) => {
