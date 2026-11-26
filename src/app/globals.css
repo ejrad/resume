@@ -1124,7 +1124,7 @@ a:hover {
   justify-content: flex-end;
   transform: translateY(-50%);
   transform-origin: right center;
-  transition: transform 0.25s var(--ease-bounce), opacity 0.2s ease, top 0.15s ease;
+  transition: transform 0.25s var(--ease-bounce), opacity 0.2s ease;
   opacity: 0.78;
 }
 
