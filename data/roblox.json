@@ -2,16 +2,24 @@
   "10775948467": {
     "placeId": "82078524748756",
     "name": "Obby but you keep getting SMALLER!",
-    "allTimePeak": 67,
-    "allTimePeakAt": "2026-11-26T19:21:32.875Z",
-    "weeklyPeak": 67,
-    "lastPlaying": 67,
-    "lastVisits": 16750,
-    "lastUpdated": "2026-11-26T19:21:32.875Z",
+    "allTimePeak": 92,
+    "allTimePeakAt": "2026-11-26T18:00:00.000Z",
+    "weeklyPeak": 92,
+    "lastPlaying": 72,
+    "lastVisits": 17255,
+    "lastUpdated": "2026-11-26T20:06:21.197Z",
     "samples": [
+      {
+        "t": "2026-11-26T18:00:00.000Z",
+        "p": 92
+      },
       {
         "t": "2026-11-26T19:21:32.875Z",
         "p": 67
+      },
+      {
+        "t": "2026-11-26T20:06:21.197Z",
+        "p": 72
       }
     ]
   }
