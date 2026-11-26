@@ -14,7 +14,7 @@ export function SectionScrollRail({
 }) {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [progress, setProgress] = useState(0);
-  const [positions, setPositions] = useState<Record<string, number>>({});
+  const [positions, setPositions] = useState<Record<string, number> | null>(null);
 
   useEffect(() => {
     const updateScrollState = () => {
@@ -74,17 +74,15 @@ export function SectionScrollRail({
     };
   }, [sections]);
 
-  if (sections.length === 0) return null;
+  if (sections.length === 0 || !positions) return null;
 
   return (
     <aside className="aero-scroll-rail" aria-label="Page sections">
       <div className="aero-scroll-rail-inner">
         <ul className="aero-scroll-list">
-          {sections.map((section, index) => {
+          {sections.map((section) => {
             const isActive = activeId === section.id;
-            const fallback =
-              sections.length > 1 ? index / (sections.length - 1) : 0;
-            const topPct = (positions[section.id] ?? fallback) * 100;
+            const topPct = (positions[section.id] ?? 0) * 100;
             return (
               <li
                 key={section.id}
