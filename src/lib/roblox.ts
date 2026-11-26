@@ -1,3 +1,5 @@
+import type { RobloxDataMap } from "./types";
+
 export type RobloxGameStats = {
   placeId: string;
   universeId: string;
@@ -73,6 +75,24 @@ export async function fetchRobloxGameStats(
       favoritedCount:
         typeof item.favoritedCount === "number" ? item.favoritedCount : 0,
     };
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Fetches the latest polled weekly & all-time peaks from data/roblox.json on GitHub.
+ */
+export async function fetchRobloxPeaks(
+  repoSlug = "ejrad/resume"
+): Promise<RobloxDataMap | null> {
+  try {
+    const res = await fetch(
+      `https://raw.githubusercontent.com/${repoSlug}/main/data/roblox.json`,
+      { cache: "no-store" }
+    );
+    if (!res.ok) return null;
+    return (await res.json()) as RobloxDataMap;
   } catch {
     return null;
   }

@@ -6,11 +6,12 @@ import { SectionScrollRail } from "@/components/section-scroll-rail";
 import { TryHackMeSection } from "@/components/tryhackme-section";
 import { assetPath } from "@/lib/assets";
 import { getBasePath } from "@/lib/base-path";
-import { getProfile, getThm } from "@/lib/data";
+import { getProfile, getRobloxData, getThm } from "@/lib/data";
 
 export default function Home() {
   const profile = getProfile();
   const thm = getThm();
+  const robloxData = getRobloxData();
   const basePath = getBasePath();
   const pdfPath = assetPath(`/${profile.resumePdf || "ErnestRadayResume.pdf"}`, basePath);
   const scrollSections = [
@@ -27,7 +28,7 @@ export default function Home() {
         <Hero profile={profile} pdfPath={pdfPath} />
         <ResumeDocument profile={profile} basePath={basePath} />
         <TryHackMeSection profile={profile} thm={thm} basePath={basePath} />
-        <ProjectsSection profile={profile} />
+        <ProjectsSection profile={profile} robloxData={robloxData} />
         <footer className="aero-band aero-band-footer">
           <div className="aero-band-inner">
             <p className="aero-eyebrow">Contact</p>

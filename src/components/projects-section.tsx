@@ -1,9 +1,15 @@
 import { GithubCommitTicker } from "@/components/github-commit-ticker";
 import { RobloxPlayerTicker } from "@/components/roblox-player-ticker";
 import { parseProject } from "@/lib/projects";
-import type { Profile } from "@/lib/types";
+import type { Profile, RobloxDataMap } from "@/lib/types";
 
-export function ProjectsSection({ profile }: { profile: Profile }) {
+export function ProjectsSection({
+  profile,
+  robloxData = {},
+}: {
+  profile: Profile;
+  robloxData?: RobloxDataMap;
+}) {
   const projects = profile.projects || [];
   if (projects.length === 0) return null;
 
@@ -59,6 +65,14 @@ export function ProjectsSection({ profile }: { profile: Profile }) {
                         <RobloxPlayerTicker
                           gameUrl={project.url}
                           universeId={project.robloxUniverseId}
+                          initialPeak={
+                            project.robloxUniverseId
+                              ? robloxData[project.robloxUniverseId]
+                              : undefined
+                          }
+                          githubRepo={
+                            profile.github ? `${profile.github}/resume` : undefined
+                          }
                         />
                       </div>
                     ) : null}
