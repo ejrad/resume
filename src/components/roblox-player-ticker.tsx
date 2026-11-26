@@ -95,7 +95,7 @@ export function RobloxPlayerTicker({
         {playing.toLocaleString()} playing
       </span>
       <span className="aero-ticker-time">
-        · 7d: {formatCompactCount(weeklyHigh)} · Peak:{" "}
+        · 7d Peak: {formatCompactCount(weeklyHigh)} · All Time Peak:{" "}
         {formatCompactCount(allTimeHigh)}
       </span>
     </a>
