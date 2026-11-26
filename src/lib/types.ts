@@ -10,6 +10,7 @@ export type Project = {
   url: string;
   blurb: string;
   showCommitTicker?: boolean;
+  robloxUniverseId?: string;
 };
 
 export type Education = {
