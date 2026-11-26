@@ -1,4 +1,5 @@
 import { GithubCommitTicker } from "@/components/github-commit-ticker";
+import { RobloxPlayerTicker } from "@/components/roblox-player-ticker";
 import { parseProject } from "@/lib/projects";
 import type { Profile } from "@/lib/types";
 
@@ -52,6 +53,13 @@ export function ProjectsSection({ profile }: { profile: Profile }) {
                     {project.url.includes("github.com") ? (
                       <div className="project-card-commit-row">
                         <GithubCommitTicker repoUrl={project.url} />
+                      </div>
+                    ) : project.url.includes("roblox.com/games/") ? (
+                      <div className="project-card-commit-row">
+                        <RobloxPlayerTicker
+                          gameUrl={project.url}
+                          universeId={project.robloxUniverseId}
+                        />
                       </div>
                     ) : null}
 

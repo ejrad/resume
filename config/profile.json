@@ -51,6 +51,12 @@
       "url": "https://github.com/ejrad/resume",
       "blurb": "Next.js · Agentic Development · GitHub Actions — 2026. Static Frutiger Aero resume featuring automated daily TryHackMe room syncing and live GitHub project monitoring.",
       "showCommitTicker": true
+    },
+    {
+      "name": "Obby but you keep getting SMALLER!",
+      "url": "https://www.roblox.com/games/82078524748756/Obby-but-you-keep-getting-SMALLER",
+      "blurb": "Luau · Roblox Studio · Game Design — 2026. 50-stage obstacle course where players shrink with every level completed, featuring unlockable trails and interactive power-ups.",
+      "robloxUniverseId": "10775948467"
     }
   ],
   "skills": {
