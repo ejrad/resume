@@ -1,6 +1,7 @@
 import profileJson from "../../config/profile.json";
+import robloxJson from "../../data/roblox.json";
 import thmJson from "../../data/thm.json";
-import type { Profile, ThmData, ThmRoom } from "./types";
+import type { Profile, RobloxDataMap, ThmData, ThmRoom } from "./types";
 
 export function getProfile(): Profile {
   return profileJson as Profile;
@@ -8,6 +9,10 @@ export function getProfile(): Profile {
 
 export function getThm(): ThmData {
   return thmJson as ThmData;
+}
+
+export function getRobloxData(): RobloxDataMap {
+  return robloxJson as RobloxDataMap;
 }
 
 export function roomImageSrc(room: ThmRoom, basePath = "") {

@@ -13,6 +13,19 @@ export type Project = {
   robloxUniverseId?: string;
 };
 
+export type RobloxPeakRecord = {
+  placeId: string;
+  name: string;
+  allTimePeak: number;
+  allTimePeakAt?: string;
+  weeklyPeak: number;
+  lastPlaying?: number;
+  lastVisits?: number;
+  lastUpdated?: string;
+};
+
+export type RobloxDataMap = Record<string, RobloxPeakRecord>;
+
 export type Education = {
   school: string;
   detail: string;

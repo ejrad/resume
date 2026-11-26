@@ -10,7 +10,8 @@
     "lint": "eslint",
     "update": "node scripts/update.mjs",
     "update:demo": "node scripts/update.mjs --demo",
-    "update:playwright": "node scripts/fetch-thm-playwright.mjs"
+    "update:playwright": "node scripts/fetch-thm-playwright.mjs",
+    "update:roblox": "node scripts/update-roblox.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
