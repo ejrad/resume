@@ -5,9 +5,9 @@
     "allTimePeak": 92,
     "allTimePeakAt": "2026-11-26T18:00:00.000Z",
     "weeklyPeak": 92,
-    "lastPlaying": 72,
-    "lastVisits": 17255,
-    "lastUpdated": "2026-11-26T20:06:21.197Z",
+    "lastPlaying": 64,
+    "lastVisits": 20510,
+    "lastUpdated": "2026-11-27T02:22:17.973Z",
     "samples": [
       {
         "t": "2026-11-26T18:00:00.000Z",
@@ -20,6 +20,10 @@
       {
         "t": "2026-11-26T20:06:21.197Z",
         "p": 72
+      },
+      {
+        "t": "2026-11-27T02:22:17.973Z",
+        "p": 64
       }
     ]
   }
