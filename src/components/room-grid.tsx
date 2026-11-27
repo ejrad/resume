@@ -37,8 +37,6 @@ export function RoomGrid({
             <img
               src={roomImageSrc(room, basePath)}
               alt=""
-              width={200}
-              height={200}
               loading="lazy"
               decoding="async"
               draggable={false}
