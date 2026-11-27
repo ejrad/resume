@@ -13,12 +13,7 @@ export function InlinePdf({ file, workerSrc }: { file: string; workerSrc: string
   const [width, setWidth] = useState(720);
   const [numPages, setNumPages] = useState(0);
   const [failed, setFailed] = useState(false);
-
-  const ready = useSyncExternalStore(
-    emptySubscribe,
-    () => true,
-    () => false
-  );
+  const [workerReady, setWorkerReady] = useState(false);
 
   const light = useSyncExternalStore(
     emptySubscribe,
@@ -30,6 +25,8 @@ export function InlinePdf({ file, workerSrc }: { file: string; workerSrc: string
 
   useEffect(() => {
     pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
+    const frame = requestAnimationFrame(() => setWorkerReady(true));
+    return () => cancelAnimationFrame(frame);
   }, [workerSrc]);
 
   const measure = useCallback(() => {
@@ -49,7 +46,7 @@ export function InlinePdf({ file, workerSrc }: { file: string; workerSrc: string
 
   return (
     <div ref={shellRef}>
-      {!ready ? (
+      {!workerReady ? (
         <p className="muted">Loading resume…</p>
       ) : failed ? (
         <p className="muted">
