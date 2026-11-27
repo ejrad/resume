@@ -30,11 +30,11 @@ export function Hero({
             <a className="aero-btn" href={pdfPath} download="ErnestRadayResume.pdf">
               Download resume
             </a>
-            <a className="aero-btn aero-btn-leaf" href="#tryhackme">
-              See practice trail
+            <a className="aero-btn aero-btn-leaf" href="#projects">
+              Projects
             </a>
-            <a className="aero-btn aero-btn-chrome" href="#resume">
-              Open PDF
+            <a className="aero-btn aero-btn-chrome" href="#tryhackme">
+              Practice
             </a>
           </div>
         </div>

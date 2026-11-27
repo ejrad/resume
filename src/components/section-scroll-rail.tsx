@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export type ScrollSectionItem = {
   id: string;
@@ -16,6 +16,7 @@ export function SectionScrollRail({
   const [progress, setProgress] = useState(0);
   const [positions, setPositions] = useState<Record<string, number> | null>(null);
   const [ready, setReady] = useState(false);
+  const readyRef = useRef(false);
 
   useEffect(() => {
     let settleTimer: ReturnType<typeof setTimeout> | null = null;
@@ -68,6 +69,7 @@ export function SectionScrollRail({
       if (settleTimer) clearTimeout(settleTimer);
       settleTimer = setTimeout(() => {
         updateScrollState();
+        readyRef.current = true;
         setReady(true);
       }, 180);
     };
@@ -81,6 +83,7 @@ export function SectionScrollRail({
 
     const fallbackTimer = setTimeout(() => {
       updateScrollState();
+      readyRef.current = true;
       setReady(true);
     }, 600);
 
@@ -88,7 +91,7 @@ export function SectionScrollRail({
     window.addEventListener("resize", updateScrollState, { passive: true });
 
     const observer = new ResizeObserver(() => {
-      if (ready) {
+      if (readyRef.current) {
         updateScrollState();
       } else {
         scheduleSettle();
@@ -104,7 +107,7 @@ export function SectionScrollRail({
       window.removeEventListener("resize", updateScrollState);
       observer.disconnect();
     };
-  }, [sections, ready]);
+  }, [sections]);
 
   if (sections.length === 0 || !positions) return null;
 

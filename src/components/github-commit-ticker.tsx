@@ -16,8 +16,6 @@ export function GithubCommitTicker({ repoUrl }: { repoUrl: string }) {
   useEffect(() => {
     let isMounted = true;
     if (commitCache.has(repoUrl)) {
-      setCommit(commitCache.get(repoUrl)!);
-      setLoading(false);
       return;
     }
 

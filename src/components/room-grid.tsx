@@ -1,8 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { roomImageSrc } from "@/lib/data";
 import type { ThmRoom } from "@/lib/types";
+
+const emptySubscribe = () => () => {};
 
 /** Client-only grid so Next does not preload every room image on first paint. */
 export function RoomGrid({
@@ -12,11 +14,11 @@ export function RoomGrid({
   rooms: ThmRoom[];
   basePath?: string;
 }) {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
 
   if (!mounted) {
     return <p className="muted">Loading rooms…</p>;
@@ -35,6 +37,8 @@ export function RoomGrid({
             <img
               src={roomImageSrc(room, basePath)}
               alt=""
+              width={200}
+              height={200}
               loading="lazy"
               decoding="async"
               draggable={false}

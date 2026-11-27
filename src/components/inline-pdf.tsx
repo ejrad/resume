@@ -1,25 +1,35 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
+
+const emptySubscribe = () => () => {};
 
 export function InlinePdf({ file, workerSrc }: { file: string; workerSrc: string }) {
   const shellRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(720);
   const [numPages, setNumPages] = useState(0);
   const [failed, setFailed] = useState(false);
-  const [ready, setReady] = useState(false);
-  const [light, setLight] = useState(false);
+
+  const ready = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
+
+  const light = useSyncExternalStore(
+    emptySubscribe,
+    () =>
+      window.matchMedia("(max-width: 720px)").matches ||
+      window.matchMedia("(pointer: coarse)").matches,
+    () => false
+  );
 
   useEffect(() => {
     pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
-    const narrow = window.matchMedia("(max-width: 720px)").matches;
-    const coarse = window.matchMedia("(pointer: coarse)").matches;
-    setLight(narrow || coarse);
-    setReady(true);
   }, [workerSrc]);
 
   const measure = useCallback(() => {
