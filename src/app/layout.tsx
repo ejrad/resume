@@ -7,7 +7,7 @@ import { getProfile } from "@/lib/data";
 
 const nunito = Nunito({
   subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
+  weight: ["400", "600", "700", "800", "900"],
   variable: "--font-nunito",
 });
 
