@@ -29,7 +29,7 @@ export default function Home() {
         <ResumeDocument profile={profile} basePath={basePath} />
         <TryHackMeSection profile={profile} thm={thm} basePath={basePath} />
         <ProjectsSection profile={profile} robloxData={robloxData} />
-        <footer className="aero-band aero-band-footer">
+        <footer id="contact" className="aero-band aero-band-footer">
           <div className="aero-band-inner">
             <p className="aero-eyebrow">Contact</p>
             <div className="aero-window aero-window-delay-1">

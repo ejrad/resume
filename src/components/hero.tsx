@@ -26,6 +26,9 @@ export function Hero({
             <a className="aero-btn aero-btn-chrome" href="#tryhackme">
               Practice
             </a>
+            <a className="aero-btn aero-btn-chrome" href="#contact">
+              Contact
+            </a>
           </div>
         </div>
       </div>
