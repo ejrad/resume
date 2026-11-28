@@ -15,7 +15,7 @@ const profile = getProfile();
 const basePath = getBasePath();
 
 export const metadata: Metadata = {
-  title: `${profile.name} · Frutiger Aero Resume`,
+  title: `${profile.name} · Resume`,
   description: profile.summary,
 };
 

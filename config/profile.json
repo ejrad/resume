@@ -30,11 +30,6 @@
   ],
   "projects": [
     {
-      "name": "Lexical AAC",
-      "url": "https://github.com/ejrad/LexicalAAC",
-      "blurb": "Open Source · Accessibility — A free, open source AAC application. (Planning, requesting rights from Dynavoxx for their image library.)"
-    },
-    {
       "name": "CCDC Wazuh IDS Deployment Setup",
       "url": "https://github.com/ejrad/shortandmemorablerepositoryname",
       "blurb": "Wazuh · Logging · SIEM Management — 2026. Rapid SIEM/IDS deployment toolkit for CCDC environment.",
@@ -53,10 +48,21 @@
       "showCommitTicker": true
     },
     {
+      "name": "StringTheories",
+      "url": "https://github.com/ejrad/StringTheories",
+      "blurb": "TypeScript · CSS · Physics — Nov 2026. Interactive detective corkboard web app with Verlet-physics strings, resizable evidence photos, and sticky notes.",
+      "showCommitTicker": true
+    },
+    {
       "name": "Obby but you keep getting SMALLER!",
       "url": "https://www.roblox.com/games/82078524748756/Obby-but-you-keep-getting-SMALLER",
       "blurb": "Luau · Roblox Studio · Game Design — 2026. 50-stage obstacle course where players shrink with every level completed, featuring unlockable trails and interactive power-ups.",
       "robloxUniverseId": "10775948467"
+    },
+    {
+      "name": "Lexical AAC",
+      "url": "https://github.com/ejrad/LexicalAAC",
+      "blurb": "Open Source · Accessibility — A free, open source AAC application. (Planning, requesting rights from Dynavoxx for their image library.)"
     }
   ],
   "skills": {

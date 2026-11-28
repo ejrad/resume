@@ -79,13 +79,6 @@ jobs:
           NODE_ENV: production
           NEXT_BASE_PATH: /resume
 
-      - name: Mirror Frutiger variant (/resume/frutiger)
-        run: |
-          cp -r out /tmp/out-mirror
-          mkdir -p out/frutiger
-          cp -r /tmp/out-mirror/* out/frutiger/
-          test -f out/frutiger/index.html
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
