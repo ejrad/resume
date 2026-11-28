@@ -29,7 +29,7 @@ export function SectionScrollRail({
         docHeight > 0 ? Math.min(1, Math.max(0, scrollTop / docHeight)) : 0;
       setProgress(nextProgress);
 
-      const triggerY = window.innerHeight * 0.35;
+      const triggerY = window.innerHeight * 0.45;
       const nextPositions: Record<string, number> = {};
       let current: string | null = null;
 
@@ -44,7 +44,7 @@ export function SectionScrollRail({
             : 0;
         nextPositions[section.id] = startRatio;
 
-        if (rect.top <= triggerY && rect.bottom > 80) {
+        if (rect.top <= triggerY && rect.bottom >= triggerY) {
           current = section.id;
         }
       }
@@ -56,8 +56,8 @@ export function SectionScrollRail({
         scrollTop + window.innerHeight >=
           document.documentElement.scrollHeight - 24;
 
-      if (atBottom && sections.length > 0) {
-        setActiveId(sections[sections.length - 1].id);
+      if (atBottom) {
+        setActiveId(null);
         return;
       }
 

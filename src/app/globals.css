@@ -382,12 +382,15 @@ a:hover {
 }
 
 .aero-band-projects {
+  padding-bottom: 5.5rem;
   background:
     linear-gradient(180deg, rgba(234, 247, 254, 0.78), rgba(217, 243, 228, 0.72)),
     var(--bg-drops) center / cover no-repeat;
 }
 
 .aero-band-footer {
+  padding-top: 4.5rem;
+  padding-bottom: 5rem;
   background:
     linear-gradient(180deg, rgba(62, 158, 79, 0.55), rgba(30, 58, 76, 0.72)),
     var(--bg-drops) center / cover no-repeat;

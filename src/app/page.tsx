@@ -63,11 +63,6 @@ export default function Home() {
                     </li>
                   ) : null}
                 </ul>
-                <p className="aero-credit">
-                  Backgrounds are CC0 / public-domain photos from{" "}
-                  <a href={assetPath("/aero/ATTRIBUTION.md", basePath)}>Wikimedia Commons</a>
-                  — grass bubbles, Frutiger Aero art, skies, and water drops.
-                </p>
               </div>
             </div>
           </div>
