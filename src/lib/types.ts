@@ -8,6 +8,7 @@ export type Experience = {
 export type Project = {
   name: string;
   url: string;
+  repoUrl?: string;
   blurb: string;
   showCommitTicker?: boolean;
   robloxUniverseId?: string;

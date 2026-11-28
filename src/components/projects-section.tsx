@@ -41,7 +41,12 @@ export function ProjectsSection({
           </div>
           <div className="aero-window-body">
             <ul className="project-grid">
-              {parsedProjects.map((project) => (
+              {parsedProjects.map((project) => {
+                const githubRepoUrl =
+                  project.repoUrl ||
+                  (project.url.includes("github.com") ? project.url : null);
+
+                return (
                 <li key={project.name} className="project-card">
                   <div className="project-card-titlebar aero-titlebar">
                     <div className="project-card-titlebar-left">
@@ -56,9 +61,9 @@ export function ProjectsSection({
                   </div>
 
                   <div className="project-card-body">
-                    {project.url.includes("github.com") ? (
+                    {githubRepoUrl ? (
                       <div className="project-card-commit-row">
-                        <GithubCommitTicker repoUrl={project.url} />
+                        <GithubCommitTicker repoUrl={githubRepoUrl} />
                       </div>
                     ) : project.url.includes("roblox.com/games/") ? (
                       <div className="project-card-commit-row">
@@ -102,7 +107,8 @@ export function ProjectsSection({
                     </div>
                   </div>
                 </li>
-              ))}
+                );
+              })}
             </ul>
           </div>
         </div>

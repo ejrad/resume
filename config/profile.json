@@ -49,7 +49,8 @@
     },
     {
       "name": "StringTheories",
-      "url": "https://github.com/ejrad/StringTheories",
+      "url": "https://ejrad.github.io/StringTheories/",
+      "repoUrl": "https://github.com/ejrad/StringTheories",
       "blurb": "TypeScript · CSS · Physics — Nov 2026. Interactive detective corkboard web app with Verlet-physics strings, resizable evidence photos, and sticky notes.",
       "showCommitTicker": true
     },
